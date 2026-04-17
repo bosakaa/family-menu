@@ -3,962 +3,423 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Меню на 7 днів · Сімейне</title>
+<title>Меню на тиждень · Квітень</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-/* ─── FONTS ─── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap');
-
-/* ─── VARIABLES ─── */
 :root {
-  --cream: #FAF6F0;
-  --warm: #F5EDE0;
-  --brown: #6B4C35;
-  --orange: #D4622A;
-  --green: #4A7C59;
-  --text: #2C1F14;
-  --muted: #8C7B6E;
-  --card: #FFFFFF;
-  --border: #E8DDD3;
-  --highlight: #FFF3E8;
+  --cream:#FAF6F0; --warm:#F5EDE0; --brown:#6B4C35; --orange:#D4622A;
+  --green:#4A7C59; --text:#2C1F14; --muted:#8C7B6E;
+  --card:#FFFFFF; --border:#E8DDD3; --highlight:#FFF3E8;
 }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
 
-/* ─── RESET ─── */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+header{background:var(--brown);padding:24px 24px 18px;text-align:center;position:relative;overflow:hidden;}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(212,98,42,.3),transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(74,124,89,.2),transparent 60%);}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(20px,5vw,34px);color:#FAF6F0;position:relative;}
+header p{color:rgba(250,246,240,.7);font-size:12px;margin-top:5px;position:relative;}
+.season-badge{display:inline-block;background:rgba(74,124,89,.85);color:#fff;font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px;margin-top:6px;position:relative;}
 
-/* ─── BODY ─── */
-body {
-  font-family: 'Source Sans 3', sans-serif;
-  background: var(--cream);
-  color: var(--text);
-  min-height: 100vh;
-}
+.tabs{display:flex;background:var(--warm);border-bottom:2px solid var(--border);overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:10;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{flex-shrink:0;padding:12px 18px;font-size:13px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;color:var(--muted);transition:all .2s;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;font-family:'Source Sans 3',sans-serif;}
+.tab.active{color:var(--orange);border-bottom-color:var(--orange);background:var(--cream);}
+.tab-print{margin-left:auto;background:var(--orange)!important;color:white!important;border-radius:8px;margin:6px 12px;padding:6px 14px!important;font-size:13px;cursor:pointer;border:none;font-family:'Source Sans 3',sans-serif;font-weight:600;align-self:center;flex-shrink:0;}
 
-/* ─── HEADER ─── */
-header {
-  background: var(--brown);
-  padding: 28px 24px 22px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-header::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(212,98,42,0.3) 0%, transparent 60%),
-              radial-gradient(ellipse at 70% 50%, rgba(74,124,89,0.2) 0%, transparent 60%);
-}
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(22px, 5vw, 36px);
-  color: #FAF6F0;
-  position: relative;
-  letter-spacing: -0.5px;
-}
-header p {
-  color: rgba(250,246,240,0.7);
-  font-size: 13px;
-  margin-top: 6px;
-  position: relative;
-  font-weight: 300;
-}
-.emoji-row { font-size: 22px; margin-bottom: 8px; position: relative; }
+.content{padding:18px 14px;max-width:860px;margin:0 auto;}
+.section{display:none;}.section.active{display:block;}
 
-/* ─── TABS ─── */
-.tabs {
-  display: flex;
-  background: var(--warm);
-  border-bottom: 2px solid var(--border);
-  overflow-x: auto;
-  scrollbar-width: none;
-  position: sticky; top: 0; z-index: 10;
-}
-.tabs::-webkit-scrollbar { display: none; }
-.tab {
-  flex-shrink: 0;
-  padding: 12px 18px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  color: var(--muted);
-  transition: all 0.2s;
-  white-space: nowrap;
-  background: none; border-top: none; border-left: none; border-right: none;
-  font-family: 'Source Sans 3', sans-serif;
-}
-.tab.active { color: var(--orange); border-bottom-color: var(--orange); background: var(--cream); }
-.tab:hover:not(.active) { color: var(--brown); }
-.tab-print {
-  margin-left: auto;
-  background: var(--orange) !important;
-  color: white !important;
-  border-radius: 8px;
-  margin: 6px 12px;
-  padding: 6px 14px !important;
-  font-size: 13px;
-  cursor: pointer;
-  border: none;
-  font-family: 'Source Sans 3', sans-serif;
-  font-weight: 600;
-  align-self: center;
-  flex-shrink: 0;
-}
-.tab-print:hover { background: #B84E20 !important; }
+.note-box{background:var(--highlight);border:1px solid #E8D5C0;border-radius:10px;padding:12px 15px;font-size:13px;margin-bottom:14px;line-height:1.6;color:var(--brown);}
+.note-box strong{color:var(--orange);}
 
-/* ─── CONTENT ─── */
-.content { padding: 20px 16px; max-width: 860px; margin: 0 auto; }
-.section { display: none; }
-.section.active { display: block; }
+.day-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;box-shadow:0 2px 8px rgba(107,76,53,.08);}
+.day-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--highlight);cursor:pointer;border-bottom:1px solid var(--border);}
+.day-title{font-family:'Playfair Display',serif;font-size:16px;color:var(--brown);font-weight:700;}
+.day-subtitle{font-size:11px;color:var(--muted);margin-top:2px;}
+.chevron{color:var(--orange);transition:transform .25s;font-size:16px;}
+.chevron.open{transform:rotate(180deg);}
+.day-body{display:none;padding:14px 16px;}
+.day-body.open{display:block;}
 
-/* ─── DAY CARDS ─── */
-.day-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  margin-bottom: 16px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(107,76,53,0.08);
+.meal{margin-bottom:13px;}.meal:last-child{margin-bottom:0;}
+.meal-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:3px;}
+.meal-name-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:14.5px;font-weight:700;color:var(--brown);
+  background:none;border:none;padding:0;cursor:pointer;
+  font-family:'Source Sans 3',sans-serif;text-align:left;
+  border-bottom:1.5px dashed var(--orange);line-height:1.4;
+  transition:color .15s;
 }
-.day-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 18px;
-  background: var(--highlight);
-  cursor: pointer;
-  border-bottom: 1px solid var(--border);
-}
-.day-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px; color: var(--brown); font-weight: 700;
-}
-.day-subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.chevron { color: var(--orange); transition: transform 0.25s; font-size: 18px; }
-.chevron.open { transform: rotate(180deg); }
-.day-body { display: none; padding: 16px 18px; }
-.day-body.open { display: block; }
-.meal { margin-bottom: 14px; }
-.meal:last-child { margin-bottom: 0; }
-.meal-label {
-  font-size: 11px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.8px; color: var(--muted); margin-bottom: 4px;
-}
-.meal-name { font-size: 15px; font-weight: 600; color: var(--text); }
-.meal-tech {
-  display: inline-block; font-size: 11px;
-  background: var(--green); color: white; padding: 2px 8px;
-  border-radius: 20px; margin-left: 8px; vertical-align: middle; font-weight: 600;
-}
-.meal-note { font-size: 13px; color: var(--muted); margin-top: 3px; }
-.divider { height: 1px; background: var(--border); margin: 12px 0; }
+.meal-name-btn:hover{color:var(--orange);}
+.meal-tech{display:inline-block;font-size:10px;background:var(--green);color:white;padding:2px 7px;border-radius:20px;margin-left:6px;vertical-align:middle;font-weight:600;}
+.recipe-icon{font-size:12px;opacity:.55;}
+.meal-note{font-size:12px;color:var(--muted);margin-top:3px;}
+.meal-seasonal{font-size:11px;color:var(--green);margin-top:2px;font-weight:600;}
+.divider{height:1px;background:var(--border);margin:10px 0;}
 
-/* ─── SHOPPING ─── */
-.shop-cat {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  margin-bottom: 14px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(107,76,53,0.06);
-}
-.shop-cat-header {
-  display: flex; align-items: center; gap: 10px;
-  padding: 13px 18px;
-  background: var(--warm);
-  border-bottom: 1px solid var(--border);
-}
-.shop-cat-icon { font-size: 20px; }
-.shop-cat-title { font-weight: 700; color: var(--brown); font-size: 15px; }
-.shop-items { padding: 14px 18px; display: flex; flex-wrap: wrap; gap: 8px; }
-.shop-item {
-  background: var(--highlight);
-  border: 1px solid #E8D5C0;
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 13px;
-  display: flex; align-items: center; gap: 6px;
-  cursor: pointer;
-  transition: all 0.15s;
-  user-select: none;
-}
-.shop-item.checked {
-  background: #E8F5EE; border-color: #B5D5C5; color: var(--muted);
-  text-decoration: line-through;
-}
-.shop-item .cb { font-size: 14px; }
+.shop-cat{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;box-shadow:0 2px 8px rgba(107,76,53,.06);}
+.shop-cat-header{display:flex;align-items:center;gap:10px;padding:11px 16px;background:var(--warm);border-bottom:1px solid var(--border);}
+.shop-cat-icon{font-size:18px;}
+.shop-cat-title{font-weight:700;color:var(--brown);font-size:14px;}
+.shop-items{padding:12px 16px;display:flex;flex-wrap:wrap;gap:7px;}
+.shop-item{background:var(--highlight);border:1px solid #E8D5C0;border-radius:8px;padding:5px 11px;font-size:12px;display:flex;align-items:center;gap:5px;cursor:pointer;transition:all .15s;user-select:none;}
+.shop-item.checked{background:#E8F5EE;border-color:#B5D5C5;color:var(--muted);text-decoration:line-through;}
+.seasonal-dot{color:var(--green);font-size:10px;}
 
-/* ─── RECIPES ─── */
-.recipe-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  margin-bottom: 16px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(107,76,53,0.08);
-}
-.recipe-header {
-  padding: 14px 18px;
-  background: linear-gradient(135deg, var(--brown) 0%, #8B5E3C 100%);
-  cursor: pointer;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.recipe-header h3 { color: #FAF6F0; font-family: 'Playfair Display', serif; font-size: 16px; }
-.recipe-meta { font-size: 11px; color: rgba(250,246,240,0.65); margin-top: 3px; }
-.recipe-body { display: none; padding: 16px 18px; }
-.recipe-body.open { display: block; }
-.recipe-section-title {
-  font-size: 11px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.8px; color: var(--orange); margin-bottom: 8px; margin-top: 14px;
-}
-.recipe-section-title:first-child { margin-top: 0; }
-.recipe-ing { font-size: 13px; color: var(--text); padding: 3px 0; border-bottom: 1px solid var(--border); }
-.recipe-step {
-  font-size: 13px; color: var(--text); padding: 6px 0;
-  display: flex; gap: 10px; align-items: flex-start;
-  border-bottom: 1px solid var(--border);
-}
-.step-num {
-  min-width: 22px; height: 22px; background: var(--orange);
-  color: white; border-radius: 50%; display: flex; align-items: center;
-  justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
-}
-.tip-box {
-  background: #EFF8F3; border-left: 3px solid var(--green);
-  padding: 10px 14px; border-radius: 0 8px 8px 0;
-  font-size: 13px; color: var(--green); margin-top: 12px;
-}
-.badge {
-  display: inline-block; padding: 3px 10px; border-radius: 20px;
-  font-size: 11px; font-weight: 700; margin-right: 4px;
-}
-.badge-oven { background: #FFE8D6; color: #C4561A; }
-.badge-air  { background: #D6ECFF; color: #1A6FAA; }
-.badge-grill{ background: #FFE8F0; color: #AA1A4F; }
-.badge-stove{ background: #E8FFD6; color: #2A7A1A; }
-.note-box {
-  background: var(--highlight);
-  border: 1px solid #E8D5C0;
-  border-radius: 10px;
-  padding: 14px 16px;
-  font-size: 13px;
-  margin-bottom: 16px;
-  line-height: 1.6;
-  color: var(--brown);
-}
-.note-box strong { color: var(--orange); }
+/* MODAL */
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(44,31,20,.55);z-index:100;backdrop-filter:blur(3px);}
+.modal-backdrop.open{display:flex;align-items:flex-end;justify-content:center;}
+@media(min-width:600px){.modal-backdrop.open{align-items:center;}}
+.modal{background:var(--card);border-radius:18px 18px 0 0;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;position:relative;animation:slideUp .28s cubic-bezier(.22,1,.36,1);}
+@media(min-width:600px){.modal{border-radius:16px;max-height:85vh;}}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.modal-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:10px auto 0;}
+@media(min-width:600px){.modal-handle{display:none;}}
+.modal-header{background:linear-gradient(135deg,var(--brown),#8B5E3C);padding:16px 48px 16px 20px;position:sticky;top:0;z-index:1;}
+.modal-header h2{font-family:'Playfair Display',serif;font-size:18px;color:#FAF6F0;line-height:1.3;}
+.modal-meta{font-size:11px;color:rgba(250,246,240,.65);margin-top:4px;}
+.modal-close{position:absolute;top:12px;right:14px;background:rgba(255,255,255,.15);border:none;color:white;width:30px;height:30px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.modal-close:hover{background:rgba(255,255,255,.3);}
+.modal-body{padding:18px 20px 28px;}
 
-/* ══════════════════════════════════════════════════
-   PRINT STYLES — A5 landscape (148mm × 210mm)
-   Одна сторінка — весь тиждень на холодильник
-   ══════════════════════════════════════════════════ */
-@media print {
-  @page {
-    size: A5 landscape;
-    margin: 8mm 8mm 8mm 8mm;
-  }
+.rec-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--orange);margin-bottom:7px;margin-top:16px;}
+.rec-section-title:first-child{margin-top:0;}
+.rec-ing-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px;}
+.rec-ing{background:var(--highlight);border:1px solid #E8D5C0;border-radius:6px;padding:4px 10px;font-size:12px;color:var(--text);}
+.rec-ing.seasonal{border-color:#B5D5C5;background:#EFF8F3;color:var(--green);font-weight:600;}
+.rec-step{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;line-height:1.5;}
+.rec-step:last-of-type{border-bottom:none;}
+.step-num{min-width:22px;height:22px;background:var(--orange);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.tip-box{background:#EFF8F3;border-left:3px solid var(--green);padding:9px 13px;border-radius:0 8px 8px 0;font-size:12px;color:#2A5A3A;margin-top:14px;}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;margin-right:3px;}
+.badge-oven{background:#FFE8D6;color:#C4561A;}
+.badge-air{background:#D6ECFF;color:#1A6FAA;}
+.badge-grill{background:#FFE8F0;color:#AA1A4F;}
+.badge-stove{background:#E8FFD6;color:#2A7A1A;}
 
-  /* Приховати все, крім print-view */
-  body > *:not(#print-view) { display: none !important; }
-
-  #print-view {
-    display: block !important;
-    font-family: 'Source Sans 3', Arial, sans-serif;
-    font-size: 7.5pt;
-    color: #2C1F14;
-    width: 100%;
-  }
-
-  .pv-header {
-    text-align: center;
-    margin-bottom: 4mm;
-    border-bottom: 2pt solid #6B4C35;
-    padding-bottom: 2mm;
-  }
-  .pv-header h1 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 13pt;
-    color: #6B4C35;
-    letter-spacing: -0.3px;
-  }
-  .pv-header p { font-size: 6.5pt; color: #8C7B6E; margin-top: 1mm; }
-
-  .pv-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2mm;
-    margin-bottom: 3mm;
-  }
-  .pv-day {
-    border: 0.5pt solid #D4C4B8;
-    border-radius: 2mm;
-    overflow: hidden;
-  }
-  .pv-day-header {
-    background: #6B4C35;
-    color: white;
-    text-align: center;
-    padding: 1.2mm 1mm;
-    font-weight: 700;
-    font-size: 7pt;
-    letter-spacing: 0.2px;
-  }
-  .pv-day-body { padding: 1.5mm 1.5mm; }
-  .pv-meal { margin-bottom: 1.5mm; }
-  .pv-meal:last-child { margin-bottom: 0; }
-  .pv-meal-label {
-    font-size: 5.5pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #D4622A;
-    letter-spacing: 0.3px;
-    display: block;
-  }
-  .pv-meal-name { font-size: 6.5pt; font-weight: 600; line-height: 1.3; color: #2C1F14; }
-  .pv-meal-sub  { font-size: 5.5pt; color: #8C7B6E; line-height: 1.3; }
-  .pv-sep { border: none; border-top: 0.5pt solid #E8DDD3; margin: 1.2mm 0; }
-
-  .pv-footer {
-    border-top: 0.5pt solid #D4C4B8;
-    padding-top: 2mm;
-    display: flex;
-    gap: 3mm;
-    flex-wrap: wrap;
-  }
-  .pv-legend-title { font-weight: 700; font-size: 6pt; color: #6B4C35; margin-bottom: 0.8mm; }
-  .pv-legend-item  { font-size: 6pt; color: #5A4A3E; margin-bottom: 0.3mm; }
-  .pv-note { font-size: 6pt; color: #8C7B6E; flex: 1; }
+@media print{
+  @page{size:A5 landscape;margin:7mm;}
+  body>*:not(#print-view){display:none!important;}
+  .modal-backdrop{display:none!important;}
+  #print-view{display:block!important;font-family:Arial,sans-serif;font-size:7.5pt;color:#2C1F14;width:100%;}
+  .pv-header{text-align:center;margin-bottom:4mm;border-bottom:2pt solid #6B4C35;padding-bottom:2mm;}
+  .pv-header h1{font-family:Georgia,serif;font-size:13pt;color:#6B4C35;}
+  .pv-header p{font-size:6pt;color:#8C7B6E;margin-top:1mm;}
+  .pv-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2mm;margin-bottom:3mm;}
+  .pv-day{border:.5pt solid #D4C4B8;border-radius:2mm;overflow:hidden;}
+  .pv-day-header{background:#6B4C35;color:white;text-align:center;padding:1.2mm 1mm;font-weight:700;font-size:7pt;}
+  .pv-day-body{padding:1.5mm;}
+  .pv-meal{margin-bottom:1.5mm;}.pv-meal:last-child{margin-bottom:0;}
+  .pv-meal-label{font-size:5.5pt;font-weight:700;text-transform:uppercase;color:#D4622A;letter-spacing:.3px;display:block;}
+  .pv-meal-name{font-size:6.5pt;font-weight:600;line-height:1.3;color:#2C1F14;}
+  .pv-meal-sub{font-size:5.5pt;color:#8C7B6E;line-height:1.3;}
+  .pv-sep{border:none;border-top:.5pt solid #E8DDD3;margin:1.2mm 0;}
+  .pv-footer{border-top:.5pt solid #D4C4B8;padding-top:2mm;display:flex;gap:3mm;flex-wrap:wrap;}
+  .pv-legend-title{font-weight:700;font-size:6pt;color:#6B4C35;margin-bottom:.8mm;}
+  .pv-legend-item{font-size:6pt;color:#5A4A3E;margin-bottom:.3mm;}
+  .pv-note{font-size:6pt;color:#8C7B6E;flex:1;}
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════ PRINT VIEW (A5 landscape) ══════════════════════════ -->
-<div id="print-view" style="display:none;">
+<div id="print-view" style="display:none">
   <div class="pv-header">
-    <h1>🍽️ Сімейне меню на тиждень</h1>
-    <p>2 дорослих + малюк 1р10м · Максимум 10 хв активної участі · Без гострого · Збалансоване</p>
+    <h1>🍽️ Сімейне меню · Квітень · Тиждень 2</h1>
+    <p>2 дорослих + малюк 1р10м · 🌿 Сезонні квітневі продукти · Макс 10 хв активної участі</p>
   </div>
-
   <div class="pv-grid">
-    <!-- ПН -->
-    <div class="pv-day">
-      <div class="pv-day-header">Понеділок</div>
-      <div class="pv-day-body">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌅 Сніданок</span>
-          <div class="pv-meal-name">Яєчня-болтунья з помідорами</div>
-          <div class="pv-meal-sub">Плита · 5 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">☀️ Обід</span>
-          <div class="pv-meal-name">Куряче стегно + картопля</div>
-          <div class="pv-meal-sub">Духовка 180°C · 50 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌙 Вечеря</span>
-          <div class="pv-meal-name">Тріска + броколі</div>
-          <div class="pv-meal-sub">Гриль + аерогриль · 12 хв</div>
-        </div>
-      </div>
-    </div>
-    <!-- ВТ -->
-    <div class="pv-day">
-      <div class="pv-day-header">Вівторок</div>
-      <div class="pv-day-body">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌅 Сніданок</span>
-          <div class="pv-meal-name">Вівсянка з бананом</div>
-          <div class="pv-meal-sub">Плита · 5 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">☀️ Обід</span>
-          <div class="pv-meal-name">Яловичі котлети + гречка</div>
-          <div class="pv-meal-sub">Гриль · 8 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌙 Вечеря</span>
-          <div class="pv-meal-name">Кабачок з яйцем і сиром</div>
-          <div class="pv-meal-sub">Духовка 190°C · 25 хв</div>
-        </div>
-      </div>
-    </div>
-    <!-- СР -->
-    <div class="pv-day">
-      <div class="pv-day-header">Середа</div>
-      <div class="pv-day-body">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌅 Сніданок</span>
-          <div class="pv-meal-name">Сирники з духовки</div>
-          <div class="pv-meal-sub">Духовка 180°C · 20 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">☀️ Обід</span>
-          <div class="pv-meal-name">Свинячий карбонат + рис</div>
-          <div class="pv-meal-sub">Гриль · 12 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌙 Вечеря</span>
-          <div class="pv-meal-name">Морква+картопля + яйця</div>
-          <div class="pv-meal-sub">Аерогриль 200°C · 20 хв</div>
-        </div>
-      </div>
-    </div>
-    <!-- ЧТ -->
-    <div class="pv-day">
-      <div class="pv-day-header">Четвер</div>
-      <div class="pv-day-body">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌅 Сніданок</span>
-          <div class="pv-meal-name">Тост з авокадо і яйцем</div>
-          <div class="pv-meal-sub">Плита · 5 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">☀️ Обід</span>
-          <div class="pv-meal-name">Лосось + цвітна капуста</div>
-          <div class="pv-meal-sub">Духовка 200°C · 25 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌙 Вечеря</span>
-          <div class="pv-meal-name">Булгур з овочами</div>
-          <div class="pv-meal-sub">Плита · 15 хв</div>
-        </div>
-      </div>
-    </div>
-    <!-- ПТ -->
-    <div class="pv-day">
-      <div class="pv-day-header">П'ятниця</div>
-      <div class="pv-day-body">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌅 Сніданок</span>
-          <div class="pv-meal-name">Омлет зі шпинатом</div>
-          <div class="pv-meal-sub">Плита · 5 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">☀️ Обід</span>
-          <div class="pv-meal-name">Грудка + паста вершкова</div>
-          <div class="pv-meal-sub">Гриль + плита · 15 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌙 Вечеря</span>
-          <div class="pv-meal-name">Курячі крила</div>
-          <div class="pv-meal-sub">Аерогриль 200°C · 22 хв</div>
-        </div>
-      </div>
-    </div>
-    <!-- СБ -->
-    <div class="pv-day">
-      <div class="pv-day-header">Субота</div>
-      <div class="pv-day-body">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌅 Сніданок</span>
-          <div class="pv-meal-name">Млинці з бананом</div>
-          <div class="pv-meal-sub">Плита · 10 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">☀️ Обід</span>
-          <div class="pv-meal-name">Індичка + рататуй</div>
-          <div class="pv-meal-sub">Гриль + духовка · 35 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌙 Вечеря</span>
-          <div class="pv-meal-name">Батат з фетою</div>
-          <div class="pv-meal-sub">Духовка 200°C · 40 хв</div>
-        </div>
-      </div>
-    </div>
-    <!-- НД -->
-    <div class="pv-day">
-      <div class="pv-day-header">Неділя</div>
-      <div class="pv-day-body">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌅 Сніданок</span>
-          <div class="pv-meal-name">Гарбуз з медом і горіхами</div>
-          <div class="pv-meal-sub">Духовка 180°C · 30 хв</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">☀️ Обід</span>
-          <div class="pv-meal-name">Яловичина з морквою</div>
-          <div class="pv-meal-sub">Духовка у рукаві · 1.5 год</div>
-        </div>
-        <hr class="pv-sep">
-        <div class="pv-meal">
-          <span class="pv-meal-label">🌙 Вечеря</span>
-          <div class="pv-meal-name">Фрітата з овочами</div>
-          <div class="pv-meal-sub">Духовка 180°C · 18 хв</div>
-        </div>
-      </div>
-    </div>
+    <div class="pv-day"><div class="pv-day-header">Понеділок</div><div class="pv-day-body">
+      <div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Омлет зі шпинатом і редискою</div><div class="pv-meal-sub">Плита · 7 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Куряче стегно + картопля + спаржа</div><div class="pv-meal-sub">Духовка 180°C · 50 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Лосось + броколі + лимон</div><div class="pv-meal-sub">Духовка 200°C · 25 хв</div></div>
+    </div></div>
+    <div class="pv-day"><div class="pv-day-header">Вівторок</div><div class="pv-day-body">
+      <div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Вівсянка з бананом і апельсином</div><div class="pv-meal-sub">Плита · 5 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Яловичі котлети + гречка + огірок</div><div class="pv-meal-sub">Гриль + Плита · 8 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Кабачок з яйцем, сиром і зеленою цибулею</div><div class="pv-meal-sub">Духовка 190°C · 25 хв · 🌿</div></div>
+    </div></div>
+    <div class="pv-day"><div class="pv-day-header">Середа</div><div class="pv-day-body">
+      <div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Сирники з духовки + яблуко</div><div class="pv-meal-sub">Духовка 180°C · 20 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Свинина + рис + печений буряк</div><div class="pv-meal-sub">Гриль + Духовка · 40 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря 🌿</span><div class="pv-meal-name">Яйця зі шпинатом і щавлем</div><div class="pv-meal-sub">Духовка 180°C · 18 хв</div></div>
+    </div></div>
+    <div class="pv-day"><div class="pv-day-header">Четвер</div><div class="pv-day-body">
+      <div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Тост з авокадо, яйцем і редискою</div><div class="pv-meal-sub">Плита · 6 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Тріска + спаржа в аерогрилі</div><div class="pv-meal-sub">Гриль + Аерогриль · 12 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Булгур з весняними овочами</div><div class="pv-meal-sub">Плита · 15 хв · 🌿</div></div>
+    </div></div>
+    <div class="pv-day"><div class="pv-day-header">П'ятниця</div><div class="pv-day-body">
+      <div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Яєчня з зеленою цибулею і помідором</div><div class="pv-meal-sub">Плита · 5 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Куряча грудка + паста + огірковий салат</div><div class="pv-meal-sub">Гриль + Плита · 15 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Курячі крила + салат редиска-огірок</div><div class="pv-meal-sub">Аерогриль 200°C · 22 хв · 🌿</div></div>
+    </div></div>
+    <div class="pv-day"><div class="pv-day-header">Субота</div><div class="pv-day-body">
+      <div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Млинці з тертим яблуком і корицею</div><div class="pv-meal-sub">Плита · 12 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Стейк індички + весняний рататуй</div><div class="pv-meal-sub">Гриль + Духовка · 35 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Батат з фетою і свіжою зеленню</div><div class="pv-meal-sub">Духовка 200°C · 40 хв · 🌿</div></div>
+    </div></div>
+    <div class="pv-day"><div class="pv-day-header">Неділя</div><div class="pv-day-body">
+      <div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Яйця запечені з щавлем і сиром</div><div class="pv-meal-sub">Духовка 180°C · 15 хв · 🌿</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Яловичина у рукаві з морквою</div><div class="pv-meal-sub">Духовка 180°C · 1.5 год</div></div><hr class="pv-sep">
+      <div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Фрітата зі шпинатом і зеленою цибулею</div><div class="pv-meal-sub">Духовка 180°C · 18 хв · 🌿</div></div>
+    </div></div>
   </div>
-
   <div class="pv-footer">
-    <div>
-      <div class="pv-legend-title">⚙️ Техніка</div>
-      <div class="pv-legend-item">🔥 Духовка — довгі страви</div>
-      <div class="pv-legend-item">💨 Аерогриль — овочі, крила</div>
-      <div class="pv-legend-item">🥩 Прижимний гриль — м'ясо/риба</div>
-      <div class="pv-legend-item">🍳 Плита — сніданки</div>
-    </div>
-    <div class="pv-note">
-      💡 <strong>Для малюка:</strong> відокремити порцію без солі та спецій, розм'яти виделкою. 
-      Чоловіку +40% порції м'яса та крупи. Всі рецепти — у QR-версії меню.
-    </div>
+    <div><div class="pv-legend-title">⚙️ Техніка</div><div class="pv-legend-item">🔥 Духовка — довгі страви</div><div class="pv-legend-item">💨 Аерогриль — овочі, крила</div><div class="pv-legend-item">🥩 Гриль — м'ясо/риба</div><div class="pv-legend-item">🍳 Плита — сніданки</div></div>
+    <div class="pv-note">🌿 <strong>Квітень:</strong> шпинат, щавель, редиска, зелена цибуля, спаржа, огірки теплич., апельсини, яблука. Малюку — без солі й спецій у порцію. Чоловіку +40% м'яса та крупи.</div>
   </div>
 </div>
-<!-- ════════════════════════════════════════════════════════════ -->
 
+<!-- MODAL -->
+<div class="modal-backdrop" id="recipeModal" onclick="closeModal(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeRecipe()">✕</button>
+      <h2 id="modalTitle"></h2>
+      <div class="modal-meta" id="modalMeta"></div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
 
-<!-- ═══ SCREEN UI ═══ -->
 <header>
-  <div class="emoji-row">🍽️ 👨‍👩‍👧 🥦</div>
-  <h1>Меню на 7 днів</h1>
-  <p>Для родини · Максимум 10 хв активної участі · Дружнє до малюка</p>
+  <div style="font-size:20px;margin-bottom:6px;position:relative">🍽️ 👨‍👩‍👧 🌱</div>
+  <h1>Меню на тиждень · Квітень</h1>
+  <p>Для родини · Макс 10 хв активної участі · <strong style="color:#A8D5B5">Натисніть на страву — відкриється рецепт</strong></p>
+  <div class="season-badge">🌿 Сезонні квітневі продукти</div>
 </header>
 
 <div class="tabs">
-  <button class="tab active" onclick="showSection('menu', this)">📅 Меню</button>
-  <button class="tab" onclick="showSection('shop', this)">🛒 Покупки</button>
-  <button class="tab" onclick="showSection('recipes', this)">📖 Рецепти</button>
+  <button class="tab active" onclick="showSection('menu',this)">📅 Меню</button>
+  <button class="tab" onclick="showSection('shop',this)">🛒 Покупки</button>
   <button class="tab-print" onclick="printA5()">🖨️ Друк А5</button>
 </div>
 
 <div class="content">
-
-<!-- ═══ MENU ═══ -->
 <div class="section active" id="section-menu">
-  <div class="note-box">
-    <strong>Принципи меню:</strong> Сніданок — швидкий (до 10 хв). Обід/вечеря — закинув і забув. Все підходить малюку (1р10м): без гострого, без твердих шматків. Чоловіку +30–40% порції та додатковий білок на вечерю. 💡 Якщо малюк ще не їсть щось — просто дайте менше солі у його порцію.
-  </div>
+  <div class="note-box"><strong>Квітень — сезон:</strong> шпинат, щавель, редиска, зелена цибуля, спаржа, тепличний огірок 🌿, апельсини, яблука. Кожна страва містить сезонний компонент. <strong>Клацніть на назву страви</strong> щоб відкрити повний рецепт.</div>
 
   <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div><div class="day-title">День 1 — Понеділок</div><div class="day-subtitle">Курка + картопля + яйця</div></div>
-      <span class="chevron">▼</span>
-    </div>
+    <div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Понеділок</div><div class="day-subtitle">Курка · Лосось · Шпинат і спаржа</div></div><span class="chevron">▼</span></div>
     <div class="day-body">
-      <div class="meal"><div class="meal-label">🌅 Сніданок</div><div class="meal-name">Яєчня-болтунья з помідорами <span class="meal-tech">Плита</span></div><div class="meal-note">4 яйця, 1 помідор, масло, сіль — 5 хв</div></div>
+      <div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('omelet_spinach')">Омлет зі шпинатом і редискою <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">4 яйця, жменя шпинату, редиска — 7 хв під кришкою</div><div class="meal-seasonal">🌿 Шпинат, редиска — сезонні</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">☀️ Обід</div><div class="meal-name">Куряче стегно запечене + картопля <span class="meal-tech">Духовка</span></div><div class="meal-note">Все на одне деко: м'ясо + картопля + часник. 180°C, 50 хв</div></div>
+      <div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('chicken_asparagus')">Куряче стегно + картопля + спаржа <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Все на одне деко. 180°C, 50 хв</div><div class="meal-seasonal">🌿 Спаржа — квітневий хіт</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">🌙 Вечеря</div><div class="meal-name">Філе тріски на прижимному грилі + броколі <span class="meal-tech">Гриль + Аерогриль</span></div><div class="meal-note">Риба 8 хв, броколі 12 хв при 180°C</div></div>
+      <div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('salmon_broccoli')">Лосось + броколі + лимон <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Все на деко. 200°C, 25 хв</div><div class="meal-seasonal">🌿 Лимон — вітамін C навесні</div></div>
     </div>
   </div>
 
   <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div><div class="day-title">День 2 — Вівторок</div><div class="day-subtitle">Яловичина + гречка + йогурт</div></div>
-      <span class="chevron">▼</span>
-    </div>
+    <div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Вівторок</div><div class="day-subtitle">Яловичина · Кабачок · Огірок і апельсин</div></div><span class="chevron">▼</span></div>
     <div class="day-body">
-      <div class="meal"><div class="meal-label">🌅 Сніданок</div><div class="meal-name">Вівсянка з бананом і медом <span class="meal-tech">Плита</span></div><div class="meal-note">Вівсяні пластівці на молоці 5 хв, банан нарізати</div></div>
+      <div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('oatmeal_orange')">Вівсянка з бананом і апельсином <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Пластівці на молоці 5 хв + свіжий апельсин</div><div class="meal-seasonal">🌿 Апельсин — ще в сезоні</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">☀️ Обід</div><div class="meal-name">Яловичі котлети-бургери + гречка <span class="meal-tech">Гриль + Плита</span></div><div class="meal-note">Котлети 4+4 хв на грилі, гречку залити окропом 1:2</div></div>
+      <div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('beef_buckwheat')">Яловичі котлети + гречка + свіжий огірок <span class="meal-tech">Гриль</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Котлети 4+4 хв на грилі, гречка 15 хв</div><div class="meal-seasonal">🌿 Тепличний огірок</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">🌙 Вечеря</div><div class="meal-name">Запечені кабачки з яйцем і сиром <span class="meal-tech">Духовка</span></div><div class="meal-note">Кабачки нарізати, вбити яйця, сир зверху. 190°C, 25 хв</div></div>
+      <div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('zucchini_egg')">Кабачок з яйцем, сиром і зеленою цибулею <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">190°C, 25 хв. Сир зарум'яниться — готово</div><div class="meal-seasonal">🌿 Зелена цибуля</div></div>
     </div>
   </div>
 
   <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div><div class="day-title">День 3 — Середа</div><div class="day-subtitle">Свинина + рис + морква</div></div>
-      <span class="chevron">▼</span>
-    </div>
+    <div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Середа</div><div class="day-subtitle">Свинина · Буряк · Щавель (вегет. вечеря)</div></div><span class="chevron">▼</span></div>
     <div class="day-body">
-      <div class="meal"><div class="meal-label">🌅 Сніданок</div><div class="meal-name">Сирники з духовки <span class="meal-tech">Духовка</span></div><div class="meal-note">Сир + яйце + борошно + ложка цукру. Ложкою на деко. 180°C, 20 хв</div></div>
+      <div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('syrnyky_apple')">Сирники з духовки + яблуко <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Ложкою на деко, 180°C, 20 хв. Яблуко поряд</div><div class="meal-seasonal">🌿 Яблуко</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">☀️ Обід</div><div class="meal-name">Свинячий карбонат на грилі + рис <span class="meal-tech">Гриль + Плита</span></div><div class="meal-note">М'ясо 6+6 хв, рис відварний</div></div>
+      <div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('pork_beet')">Свинячий карбонат + рис + печений буряк <span class="meal-tech">Гриль + Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Буряк у фользі 40 хв, м'ясо на грилі 12 хв</div><div class="meal-seasonal">🌿 Буряк</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">🌙 Вечеря</div><div class="meal-name">Морква і картопля в аерогрилі + яйця варені <span class="meal-tech">Аерогриль + Плита</span></div><div class="meal-note">Морква і картопля шматками, оливкова олія. 200°C, 20 хв</div></div>
+      <div class="meal"><div class="meal-label">🌙 Вечеря 🌿</div><button class="meal-name-btn" onclick="openRecipe('eggs_sorrel')">Яйця запечені зі шпинатом і щавлем <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Форма: зелень + яйця + сир. 180°C, 18 хв</div><div class="meal-seasonal">🌿 Щавель і шпинат — пік сезону</div></div>
     </div>
   </div>
 
   <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div><div class="day-title">День 4 — Четвер</div><div class="day-subtitle">Лосось + булгур + цвітна капуста</div></div>
-      <span class="chevron">▼</span>
-    </div>
+    <div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Четвер</div><div class="day-subtitle">Тріска · Спаржа · Булгур з весняними овочами</div></div><span class="chevron">▼</span></div>
     <div class="day-body">
-      <div class="meal"><div class="meal-label">🌅 Сніданок</div><div class="meal-name">Тост з авокадо та яйцем пашот <span class="meal-tech">Плита</span></div><div class="meal-note">Авокадо розм'яти виделкою, яйце в окропі 3 хв</div></div>
+      <div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('toast_radish')">Тост з авокадо, яйцем пашот і редискою <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Авокадо розм'яти, яйце в окропі 3 хв, редиска зверху</div><div class="meal-seasonal">🌿 Редиска</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">☀️ Обід</div><div class="meal-name">Лосось запечений + цвітна капуста <span class="meal-tech">Духовка</span></div><div class="meal-note">Все на одне деко. Олія, сіль, лимон. 200°C, 25 хв</div></div>
+      <div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('cod_asparagus')">Тріска на грилі + спаржа в аерогрилі <span class="meal-tech">Гриль + Аерогриль</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Риба 8 хв, спаржа 10 хв при 190°C. Лимон</div><div class="meal-seasonal">🌿 Спаржа — квітень–травень</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">🌙 Вечеря</div><div class="meal-name">Булгур з овочами (перець, помідори) <span class="meal-tech">Плита</span></div><div class="meal-note">Залити окропом 1:1.5, накрити кришкою. 15 хв. Овочі додати.</div></div>
+      <div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('bulgur_spring')">Булгур з весняними овочами і зеленню <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Булгур + огірок + зелена цибуля + кріп. 15 хв</div><div class="meal-seasonal">🌿 Зелена цибуля, кріп, огірок</div></div>
     </div>
   </div>
 
   <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div><div class="day-title">День 5 — П'ятниця</div><div class="day-subtitle">Курка + паста + шпинат</div></div>
-      <span class="chevron">▼</span>
-    </div>
+    <div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">П'ятниця</div><div class="day-subtitle">Курка · Крила · Свіжий салат</div></div><span class="chevron">▼</span></div>
     <div class="day-body">
-      <div class="meal"><div class="meal-label">🌅 Сніданок</div><div class="meal-name">Омлет зі шпинатом і сиром <span class="meal-tech">Плита</span></div><div class="meal-note">4 яйця + жменя шпинату + тертий сир. Під кришкою 5 хв</div></div>
+      <div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('eggs_scallion')">Яєчня з зеленою цибулею і помідором <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">4 яйця, 1 помідор, зелена цибуля — 5 хв</div><div class="meal-seasonal">🌿 Зелена цибуля</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">☀️ Обід</div><div class="meal-name">Куряча грудка на грилі + паста <span class="meal-tech">Гриль + Плита</span></div><div class="meal-note">Грудка 8+8 хв, паста відварна. Соус: вершки + часник 3 хв</div></div>
+      <div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('chicken_pasta')">Куряча грудка + паста + огірковий салат <span class="meal-tech">Гриль + Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Грудка 14 хв, паста + вершки. Салат: огірок + цибуля</div><div class="meal-seasonal">🌿 Тепличний огірок, зелена цибуля</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">🌙 Вечеря</div><div class="meal-name">Запечені курячі крила <span class="meal-tech">Аерогриль</span></div><div class="meal-note">Крила + олія + паприка + часник. 200°C, 22 хв. Перевернути раз.</div></div>
+      <div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('wings_salad')">Курячі крила + салат редиска-огірок <span class="meal-tech">Аерогриль</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Крила 200°C, 22 хв. Салат: редиска + огірок + олія</div><div class="meal-seasonal">🌿 Редиска і огірок</div></div>
     </div>
   </div>
 
   <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div><div class="day-title">День 6 — Субота</div><div class="day-subtitle">Індичка + запечені овочі + сир</div></div>
-      <span class="chevron">▼</span>
-    </div>
+    <div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Субота</div><div class="day-subtitle">Індичка · Весняний рататуй · Батат</div></div><span class="chevron">▼</span></div>
     <div class="day-body">
-      <div class="meal"><div class="meal-label">🌅 Сніданок</div><div class="meal-name">Млинці з бананом <span class="meal-tech">Плита</span></div><div class="meal-note">Яйце + молоко + борошно + банан. Смажити по 2 хв з кожного боку</div></div>
+      <div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('pancakes_apple')">Млинці з тертим яблуком і корицею <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Тісто + терте яблуко всередині. 2 хв з кожного боку</div><div class="meal-seasonal">🌿 Яблуко</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">☀️ Обід</div><div class="meal-name">Стейк з індички + рататуй <span class="meal-tech">Гриль + Духовка</span></div><div class="meal-note">Кабачок, баклажан, перець, помідор — 200°C, 35 хв. М'ясо 7+7 хв</div></div>
+      <div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('turkey_ratatouille')">Стейк індички + весняний рататуй <span class="meal-tech">Гриль + Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Кабачок, помідор, перець, спаржа. 200°C, 35 хв. М'ясо 7+7 хв</div><div class="meal-seasonal">🌿 Спаржа у рататуї</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">🌙 Вечеря</div><div class="meal-name">Запечений батат з сиром фета <span class="meal-tech">Духовка</span></div><div class="meal-note">Батат половинками, зверху фета. 200°C, 40 хв</div></div>
+      <div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('sweet_potato_feta')">Батат з фетою і свіжою зеленню <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Батат половинками, фета зверху. 200°C, 40 хв</div><div class="meal-seasonal">🌿 Кріп і петрушка свіжі</div></div>
     </div>
   </div>
 
   <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div><div class="day-title">День 7 — Неділя</div><div class="day-subtitle">Яловичина + гарбуз + яйця</div></div>
-      <span class="chevron">▼</span>
-    </div>
+    <div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Неділя</div><div class="day-subtitle">Яловичина · Щавель · Фрітата</div></div><span class="chevron">▼</span></div>
     <div class="day-body">
-      <div class="meal"><div class="meal-label">🌅 Сніданок</div><div class="meal-name">Запечений гарбуз з медом і горіхами <span class="meal-tech">Духовка</span></div><div class="meal-note">Гарбуз шматками, мед, волоські горіхи. 180°C, 30 хв</div></div>
+      <div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('eggs_sorrel_sun')">Яйця запечені з щавлем і сиром <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Щавель + яйця + тертий сир. 180°C, 15 хв</div><div class="meal-seasonal">🌿 Щавель — пік квітня</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">☀️ Обід</div><div class="meal-name">Яловичина запечена з цибулею і морквою <span class="meal-tech">Духовка</span></div><div class="meal-note">У рукав: м'ясо + морква + цибуля + лавровий лист. 180°C, 1.5 год</div></div>
+      <div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('beef_sleeve')">Яловичина у рукаві з морквою і цибулею <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">У рукав: м'ясо + морква + цибуля + лаврушка. 180°C, 1.5 год</div><div class="meal-seasonal">🌿 Молода морква</div></div>
       <div class="divider"></div>
-      <div class="meal"><div class="meal-label">🌙 Вечеря</div><div class="meal-name">Фрітата з овочами у духовці <span class="meal-tech">Духовка</span></div><div class="meal-note">6 яєць + залишки овочів + сир. Жаровня у духовку. 180°C, 18 хв</div></div>
+      <div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('frittata_spring')">Фрітата зі шпинатом і зеленою цибулею <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">6 яєць + шпинат + зелена цибуля + сир. 180°C, 18 хв</div><div class="meal-seasonal">🌿 Шпинат і зелена цибуля</div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ SHOPPING ═══ -->
 <div class="section" id="section-shop">
-  <div class="note-box">
-    <strong>Натисніть на продукт</strong> — щоб позначити як куплений ✅ Список розрахований на 7 днів для 2 дорослих + малюк.
-  </div>
-
-  <div class="shop-cat">
-    <div class="shop-cat-header"><span class="shop-cat-icon">🥩</span><span class="shop-cat-title">М'ясо та риба</span></div>
-    <div class="shop-items">
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Куряче стегно — 1.2 кг</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Куряча грудка — 800 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Курячі крила — 800 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Яловичий фарш — 600 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Яловичина (шматок) — 800 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Свинячий карбонат — 600 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Стейк індички — 600 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Філе тріски — 600 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Лосось (стейки) — 500 г</div>
-    </div>
-  </div>
-
-  <div class="shop-cat">
-    <div class="shop-cat-header"><span class="shop-cat-icon">🥚</span><span class="shop-cat-title">Яйця та молочне</span></div>
-    <div class="shop-items">
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Яйця — 30 шт</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Молоко — 1 л</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сир твердий — 300 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сир кисломолочний — 500 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сир фета — 200 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Вершки 20% — 200 мл</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Масло вершкове — 200 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Йогурт натуральний — 400 г</div>
-    </div>
-  </div>
-
-  <div class="shop-cat">
-    <div class="shop-cat-header"><span class="shop-cat-icon">🥦</span><span class="shop-cat-title">Овочі та зелень</span></div>
-    <div class="shop-items">
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Картопля — 2 кг</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Морква — 1 кг</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Кабачок — 3 шт</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Баклажан — 2 шт</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Помідори — 6 шт</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Перець болгарський — 4 шт</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Броколі — 500 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Цвітна капуста — 500 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Шпинат — 200 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Цибуля — 4 шт</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Часник — 1 головка</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Батат — 2 шт</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Гарбуз — 600 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Авокадо — 2 шт</div>
-    </div>
-  </div>
-
-  <div class="shop-cat">
-    <div class="shop-cat-header"><span class="shop-cat-icon">🍌</span><span class="shop-cat-title">Фрукти</span></div>
-    <div class="shop-items">
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Банани — 6 шт</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Лимон — 2 шт</div>
-    </div>
-  </div>
-
-  <div class="shop-cat">
-    <div class="shop-cat-header"><span class="shop-cat-icon">🌾</span><span class="shop-cat-title">Крупи та паста</span></div>
-    <div class="shop-items">
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Гречка — 500 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Рис — 500 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Булгур — 400 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Вівсяні пластівці — 500 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Паста (пенне або спагеті) — 400 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Борошно — 300 г</div>
-    </div>
-  </div>
-
-  <div class="shop-cat">
-    <div class="shop-cat-header"><span class="shop-cat-icon">🫙</span><span class="shop-cat-title">Олії, спеції та інше</span></div>
-    <div class="shop-items">
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Оливкова олія — 500 мл</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Соняшникова олія — 500 мл</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сіль</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Чорний перець мелений</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Паприка солодка</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сушений часник</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Орегано / прованські трави</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Лавровий лист</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Мед — 1 баночка</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Цукор — 200 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Волоські горіхи — 100 г</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Хліб / тости</div>
-      <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Рукав для запікання</div>
-    </div>
-  </div>
+  <div class="note-box"><strong>Натисніть на продукт</strong> — щоб позначити як куплений ✅ &nbsp;🌿 — сезонні квітневі продукти</div>
+  <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🥩</span><span class="shop-cat-title">М'ясо та риба</span></div><div class="shop-items">
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Куряче стегно — 1.2 кг</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Куряча грудка — 800 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Курячі крила — 800 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Яловичий фарш — 600 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Яловичина шматком — 800 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Свинячий карбонат — 600 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Стейк індички — 600 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Філе тріски — 600 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Лосось стейки — 500 г</div>
+  </div></div>
+  <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🌿</span><span class="shop-cat-title">Сезонні квітневі овочі та зелень</span></div><div class="shop-items">
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Шпинат свіжий — 300 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Щавель — 200 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Редиска — 2 пучки</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Зелена цибуля — 3 пучки</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Спаржа — 500 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Огірки тепличні — 6 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Кріп — 1 пучок</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Петрушка — 1 пучок</div>
+  </div></div>
+  <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🥦</span><span class="shop-cat-title">Решта овочів</span></div><div class="shop-items">
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Картопля — 1.5 кг</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Морква — 800 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Буряк — 3 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Кабачок — 3 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Помідори — 5 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Перець болгарський — 3 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Броколі — 400 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Батат — 2 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Цибуля — 4 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Часник — 1 головка</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Авокадо — 2 шт</div>
+  </div></div>
+  <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🍎</span><span class="shop-cat-title">Сезонні фрукти</span></div><div class="shop-items">
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Апельсини — 4 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Яблука — 6 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Банани — 6 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Лимони — 3 шт</div>
+  </div></div>
+  <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🥚</span><span class="shop-cat-title">Яйця та молочне</span></div><div class="shop-items">
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Яйця — 30 шт</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Молоко — 1 л</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сир твердий — 300 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сир кисломолочний — 500 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сир фета — 200 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Вершки 20% — 200 мл</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Масло вершкове — 150 г</div>
+  </div></div>
+  <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🌾</span><span class="shop-cat-title">Крупи та паста</span></div><div class="shop-items">
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Гречка — 400 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Рис — 400 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Булгур — 400 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Вівсяні пластівці — 500 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Паста — 400 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Борошно — 200 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Хліб / тости</div>
+  </div></div>
+  <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🫙</span><span class="shop-cat-title">Олії, спеції, інше</span></div><div class="shop-items">
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Оливкова олія — 500 мл</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Соняшникова олія</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сіль, перець чорний</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Паприка солодка</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Орегано / прованські трави</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Кориця мелена</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Лавровий лист</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Мед</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Цукор — 200 г</div>
+    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Рукав для запікання</div>
+  </div></div>
 </div>
-
-<!-- ═══ RECIPES ═══ -->
-<div class="section" id="section-recipes">
-
-  <div class="recipe-card">
-    <div class="recipe-header" onclick="toggleRecipe(this)">
-      <div><h3>🍗 Куряче стегно з картоплею на деку</h3><div class="recipe-meta"><span class="badge badge-oven">Духовка</span> · 10 хв підготовки · 50 хв готується само</div></div>
-      <span class="chevron" style="color:rgba(250,246,240,0.7)">▼</span>
-    </div>
-    <div class="recipe-body">
-      <div class="recipe-section-title">Інгредієнти (на родину)</div>
-      <div class="recipe-ing">Куряче стегно — 4 шт (~1 кг)</div>
-      <div class="recipe-ing">Картопля — 700 г</div>
-      <div class="recipe-ing">Часник — 4 зубці</div>
-      <div class="recipe-ing">Оливкова олія — 3 ст.л.</div>
-      <div class="recipe-ing">Сіль, паприка, орегано</div>
-      <div class="recipe-section-title">Приготування</div>
-      <div class="recipe-step"><span class="step-num">1</span>Картоплю нарізати часточками. Розкласти на деко з папером.</div>
-      <div class="recipe-step"><span class="step-num">2</span>Зверху покласти стегна. Полити олією, посолити, посипати паприкою і орегано.</div>
-      <div class="recipe-step"><span class="step-num">3</span>Часник покласти цілим поруч. Духовка 180°C, 50 хв.</div>
-      <div class="tip-box">💡 Для малюка — відокремте шматок без шкіри з середини, де м'ясо найніжніше.</div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-header" onclick="toggleRecipe(this)">
-      <div><h3>🐟 Тріска на прижимному грилі + броколі</h3><div class="recipe-meta"><span class="badge badge-grill">Гриль</span><span class="badge badge-air">Аерогриль</span> · 5 хв підготовки</div></div>
-      <span class="chevron" style="color:rgba(250,246,240,0.7)">▼</span>
-    </div>
-    <div class="recipe-body">
-      <div class="recipe-section-title">Інгредієнти</div>
-      <div class="recipe-ing">Філе тріски — 600 г</div>
-      <div class="recipe-ing">Броколі — 400 г</div>
-      <div class="recipe-ing">Оливкова олія, сіль, лимонний сік</div>
-      <div class="recipe-section-title">Приготування</div>
-      <div class="recipe-step"><span class="step-num">1</span>Броколі поділити на суцвіття, полити олією, посолити → аерогриль 180°C, 12 хв.</div>
-      <div class="recipe-step"><span class="step-num">2</span>Рибу посолити, збризнути лимоном → прижимний гриль 8 хв.</div>
-      <div class="recipe-step"><span class="step-num">3</span>Все готово одночасно. Подавати разом.</div>
-      <div class="tip-box">💡 Малюку — броколі розімніть виделкою, рибу перевірте на кістки пальцями!</div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-header" onclick="toggleRecipe(this)">
-      <div><h3>🥩 Яловичі котлети-бургери</h3><div class="recipe-meta"><span class="badge badge-grill">Гриль</span> · 8 хв підготовки</div></div>
-      <span class="chevron" style="color:rgba(250,246,240,0.7)">▼</span>
-    </div>
-    <div class="recipe-body">
-      <div class="recipe-section-title">Інгредієнти</div>
-      <div class="recipe-ing">Яловичий фарш — 600 г</div>
-      <div class="recipe-ing">Яйце — 1 шт</div>
-      <div class="recipe-ing">Сіль, чорний перець (небагато)</div>
-      <div class="recipe-section-title">Приготування</div>
-      <div class="recipe-step"><span class="step-num">1</span>Фарш + яйце + сіль + трохи перцю. Перемішати руками.</div>
-      <div class="recipe-step"><span class="step-num">2</span>Сформувати 6 плоских котлет — натиснути долонею.</div>
-      <div class="recipe-step"><span class="step-num">3</span>Прижимний гриль: 4+4 хв. Готово.</div>
-      <div class="tip-box">💡 Для малюка — зробіть одну котлету без солі і перцю. Або розімніть виделкою.</div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-header" onclick="toggleRecipe(this)">
-      <div><h3>🧀 Кабачок запечений з яйцем і сиром</h3><div class="recipe-meta"><span class="badge badge-oven">Духовка</span> · 7 хв підготовки</div></div>
-      <span class="chevron" style="color:rgba(250,246,240,0.7)">▼</span>
-    </div>
-    <div class="recipe-body">
-      <div class="recipe-section-title">Інгредієнти</div>
-      <div class="recipe-ing">Кабачок великий — 2 шт</div>
-      <div class="recipe-ing">Яйця — 4 шт</div>
-      <div class="recipe-ing">Твердий сир — 100 г (натерти)</div>
-      <div class="recipe-ing">Сіль, орегано, олія</div>
-      <div class="recipe-section-title">Приготування</div>
-      <div class="recipe-step"><span class="step-num">1</span>Кабачки нарізати кружечками ~1 см. Викласти на змащене деко.</div>
-      <div class="recipe-step"><span class="step-num">2</span>Посолити. Зверху вилити яйця. Посипати сиром.</div>
-      <div class="recipe-step"><span class="step-num">3</span>Духовка 190°C, 25 хв. Сир зарум'яниться — готово.</div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-header" onclick="toggleRecipe(this)">
-      <div><h3>🧆 Сирники з духовки (без ліпки)</h3><div class="recipe-meta"><span class="badge badge-oven">Духовка</span> · 5 хв підготовки · дитячий фаворит!</div></div>
-      <span class="chevron" style="color:rgba(250,246,240,0.7)">▼</span>
-    </div>
-    <div class="recipe-body">
-      <div class="recipe-section-title">Інгредієнти (10–12 сирників)</div>
-      <div class="recipe-ing">Кисломолочний сир — 500 г</div>
-      <div class="recipe-ing">Яйця — 2 шт</div>
-      <div class="recipe-ing">Борошно — 4 ст.л.</div>
-      <div class="recipe-ing">Цукор — 2 ст.л., ванілін — дрібка</div>
-      <div class="recipe-section-title">Приготування</div>
-      <div class="recipe-step"><span class="step-num">1</span>Всі інгредієнти змішати ложкою в мисці — однорідна маса.</div>
-      <div class="recipe-step"><span class="step-num">2</span>Ложкою викласти гірочки на деко з папером для випічки.</div>
-      <div class="recipe-step"><span class="step-num">3</span>Духовка 180°C, 20 хв. Золотисті — готово! З йогуртом або медом.</div>
-      <div class="tip-box">💡 Ідеальні для малюка — м'які, не гострі, можна взяти в руку.</div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-header" onclick="toggleRecipe(this)">
-      <div><h3>🐟 Лосось з цвітною капустою на деку</h3><div class="recipe-meta"><span class="badge badge-oven">Духовка</span> · 5 хв підготовки</div></div>
-      <span class="chevron" style="color:rgba(250,246,240,0.7)">▼</span>
-    </div>
-    <div class="recipe-body">
-      <div class="recipe-section-title">Інгредієнти</div>
-      <div class="recipe-ing">Стейки лосося — 3–4 шт</div>
-      <div class="recipe-ing">Цвітна капуста — 500 г</div>
-      <div class="recipe-ing">Лимон — 1 шт (кружечками)</div>
-      <div class="recipe-ing">Оливкова олія, сіль</div>
-      <div class="recipe-section-title">Приготування</div>
-      <div class="recipe-step"><span class="step-num">1</span>Капусту розібрати на суцвіття, розкласти на деко. Полити олією, посолити.</div>
-      <div class="recipe-step"><span class="step-num">2</span>Зверху покласти стейки лосося і кружечки лимона.</div>
-      <div class="recipe-step"><span class="step-num">3</span>200°C, 25 хв. Лосось легко розпадається виделкою — готово.</div>
-      <div class="tip-box">💡 Малюку — шматок лосося без шкіри, капуста добре пропечена і м'яка.</div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-header" onclick="toggleRecipe(this)">
-      <div><h3>🌿 Куряча грудка з вершковим соусом + паста</h3><div class="recipe-meta"><span class="badge badge-grill">Гриль</span><span class="badge badge-stove">Плита</span> · 10 хв</div></div>
-      <span class="chevron" style="color:rgba(250,246,240,0.7)">▼</span>
-    </div>
-    <div class="recipe-body">
-      <div class="recipe-section-title">Інгредієнти</div>
-      <div class="recipe-ing">Куряча грудка — 800 г (2 шт)</div>
-      <div class="recipe-ing">Вершки 20% — 200 мл</div>
-      <div class="recipe-ing">Часник — 2 зубці</div>
-      <div class="recipe-ing">Паста відварна — 300 г</div>
-      <div class="recipe-ing">Сіль, чорний перець</div>
-      <div class="recipe-section-title">Приготування</div>
-      <div class="recipe-step"><span class="step-num">1</span>Грудку посолити. Прижимний гриль — 14–15 хв (закритий).</div>
-      <div class="recipe-step"><span class="step-num">2</span>Соус: часник 1 хв, влити вершки, посолити, кип'ятити 3 хв.</div>
-      <div class="recipe-step"><span class="step-num">3</span>Паста + нарізана грудка + соус зверху.</div>
-      <div class="tip-box">💡 Малюку — грудка + вершковий соус без перцю + паста.</div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-header" onclick="toggleRecipe(this)">
-      <div><h3>🔥 Крила в аерогрилі</h3><div class="recipe-meta"><span class="badge badge-air">Аерогриль</span> · 5 хв підготовки</div></div>
-      <span class="chevron" style="color:rgba(250,246,240,0.7)">▼</span>
-    </div>
-    <div class="recipe-body">
-      <div class="recipe-section-title">Інгредієнти</div>
-      <div class="recipe-ing">Курячі крила — 800 г</div>
-      <div class="recipe-ing">Оливкова олія — 2 ст.л.</div>
-      <div class="recipe-ing">Паприка солодка — 1 ч.л.</div>
-      <div class="recipe-ing">Сушений часник — 0.5 ч.л., сіль</div>
-      <div class="recipe-section-title">Приготування</div>
-      <div class="recipe-step"><span class="step-num">1</span>Крила + олія + всі спеції. Перемішати руками у мисці.</div>
-      <div class="recipe-step"><span class="step-num">2</span>Аерогриль 200°C, 22 хв. Перевернути раз через 11 хв.</div>
-      <div class="recipe-step"><span class="step-num">3</span>Шкіра хрустка — готово!</div>
-      <div class="tip-box">💡 Малюку — м'ясо знімати з кістки, без хрустких шматків.</div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-header" onclick="toggleRecipe(this)">
-      <div><h3>🥗 Рататуй + стейк індички</h3><div class="recipe-meta"><span class="badge badge-oven">Духовка</span><span class="badge badge-grill">Гриль</span> · 10 хв</div></div>
-      <span class="chevron" style="color:rgba(250,246,240,0.7)">▼</span>
-    </div>
-    <div class="recipe-body">
-      <div class="recipe-section-title">Інгредієнти</div>
-      <div class="recipe-ing">Стейк індички — 600 г</div>
-      <div class="recipe-ing">Кабачок — 1 шт, баклажан — 1 шт</div>
-      <div class="recipe-ing">Перець — 2 шт, помідори — 3 шт</div>
-      <div class="recipe-ing">Оливкова олія, сіль, орегано</div>
-      <div class="recipe-section-title">Приготування</div>
-      <div class="recipe-step"><span class="step-num">1</span>Всі овочі нарізати великими шматками. Скласти у форму, полити олією, сіль, орегано.</div>
-      <div class="recipe-step"><span class="step-num">2</span>Духовка 200°C, 35 хв.</div>
-      <div class="recipe-step"><span class="step-num">3</span>За 10 хв до подачі: стейк індички на грилі — 7 хв з кожного боку.</div>
-      <div class="tip-box">💡 Рататуй чудово їдять малюки — м'який, смачний, без гострого!</div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-header" onclick="toggleRecipe(this)">
-      <div><h3>🥚 Фрітата з овочами</h3><div class="recipe-meta"><span class="badge badge-oven">Духовка</span> · 5 хв підготовки · ідеально для залишків</div></div>
-      <span class="chevron" style="color:rgba(250,246,240,0.7)">▼</span>
-    </div>
-    <div class="recipe-body">
-      <div class="recipe-section-title">Інгредієнти</div>
-      <div class="recipe-ing">Яйця — 6 шт</div>
-      <div class="recipe-ing">Будь-які залишки овочів — 300 г</div>
-      <div class="recipe-ing">Твердий сир — 80 г, сіль</div>
-      <div class="recipe-section-title">Приготування</div>
-      <div class="recipe-step"><span class="step-num">1</span>Яйця збити виделкою з сіллю. Вилити у жаровню.</div>
-      <div class="recipe-step"><span class="step-num">2</span>Додати нарізані овочі, перемішати. Зверху тертий сир.</div>
-      <div class="recipe-step"><span class="step-num">3</span>Духовка 180°C, 18 хв. Яйця схопляться — готово.</div>
-      <div class="tip-box">💡 Ідеальна страва для неділі — мінімум зусиль, максимум білка!</div>
-    </div>
-  </div>
-
-</div><!-- end recipes -->
-</div><!-- end content -->
+</div>
 
 <script>
-function showSection(id, btn) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('section-' + id).classList.add('active');
-  if (btn) btn.classList.add('active');
+const R={
+omelet_spinach:{title:"Омлет зі шпинатом і редискою",meta:'<span class="badge badge-stove">Плита</span> · 7 хв · 🌿 Шпинат, редиска',ing:[{t:"Яйця — 4 шт"},{t:"Шпинат свіжий — велика жменя (50 г)",s:1},{t:"Редиска — 4 шт",s:1},{t:"Твердий сир — 40 г (натерти)"},{t:"Масло вершкове — 1 ч.л."},{t:"Сіль — щіпка"}],steps:["Шпинат промити. Редиску нарізати тонкими кружечками.","Яйця збити виделкою з сіллю в мисці — 20 секунд.","На сковороді розтопити масло. Додати шпинат — 1 хв, він вм'якне. Вилити яйця.","Накрити кришкою, вогонь середній — 4–5 хв. Зверху натерти сир.","Подавати з редискою зверху або поряд."],tip:"💡 Малюку — шматок без редиски (може бути гостра). Чоловіку — подвійна порція або +2 яйця."},
+chicken_asparagus:{title:"Куряче стегно + картопля + спаржа",meta:'<span class="badge badge-oven">Духовка</span> · 10 хв підготовки · 50 хв само · 🌿 Спаржа',ing:[{t:"Куряче стегно — 4 шт (~1 кг)"},{t:"Картопля — 600 г"},{t:"Спаржа — 200 г",s:1},{t:"Часник — 4 зубці"},{t:"Оливкова олія — 3 ст.л."},{t:"Сіль, паприка, орегано"}],steps:["Картоплю нарізати часточками, розкласти на деко з папером.","Зверху покласти стегна. Часник — цілим поруч. Полити олією, посолити, паприка, орегано.","Духовка 180°C — завантажити на 35 хв.","Через 35 хв дістати деко, додати спаржу цілою. Повернути ще на 15 хв.","Шкіра золотиста, картопля м'яка — готово!"],tip:"💡 Спаржу додають пізніше — вона готується швидше. Малюку — стегно без шкіри, спаржу нарізати."},
+salmon_broccoli:{title:"Лосось + броколі + лимон",meta:'<span class="badge badge-oven">Духовка</span> · 5 хв · 25 хв · 🌿 Лимон',ing:[{t:"Стейки лосося — 3–4 шт"},{t:"Броколі — 400 г"},{t:"Лимон — 1 шт",s:1},{t:"Оливкова олія — 2 ст.л."},{t:"Сіль"}],steps:["Броколі розібрати на суцвіття. Розкласти на деко, полити олією, посолити.","Між броколі покласти стейки лосося. Зверху — кружечки лимона.","Духовка 200°C, 25 хв. Лосось готовий, коли легко розпадається виделкою."],tip:"💡 Малюку — шматок лосося без шкіри, перевірити на кістки. Броколі розім'яти виделкою."},
+oatmeal_orange:{title:"Вівсянка з бананом і апельсином",meta:'<span class="badge badge-stove">Плита</span> · 5 хв · 🌿 Апельсин',ing:[{t:"Вівсяні пластівці — 6 ст.л."},{t:"Молоко — 300 мл"},{t:"Банан — 1 шт"},{t:"Апельсин — 1 шт",s:1},{t:"Мед — 1 ч.л."}],steps:["Пластівці + молоко в каструлю. Помішувати на середньому вогні 4–5 хв.","Банан нарізати кружечками, апельсин очистити і поділити на часточки.","Вівсянку розлити по тарілках, зверху фрукти і крапля меду."],tip:"💡 Малюку — без меду до 1.5 років. Банан розім'яти у кашу."},
+beef_buckwheat:{title:"Яловичі котлети + гречка + огірок",meta:'<span class="badge badge-grill">Гриль</span><span class="badge badge-stove">Плита</span> · 8 хв · 🌿 Огірок',ing:[{t:"Яловичий фарш — 600 г"},{t:"Яйце — 1 шт"},{t:"Гречка — 200 г"},{t:"Тепличний огірок — 2 шт",s:1},{t:"Сіль, чорний перець"},{t:"Оливкова олія — 1 ст.л."}],steps:["Гречку залити окропом 1:2, накрити кришкою — 15 хв без плити.","Фарш + яйце + сіль + трохи перцю. Перемішати, сформувати 6 плоских котлет.","Прижимний гриль: 4+4 хв. Не відкривати раніше!","Огірок нарізати кружечками, посолити, крапля олії."],tip:"💡 Малюку — котлету без перцю, гречку без солі. Огірок нарізати дуже дрібно."},
+zucchini_egg:{title:"Кабачок з яйцем, сиром і зеленою цибулею",meta:'<span class="badge badge-oven">Духовка</span> · 7 хв · 25 хв · 🌿 Зелена цибуля',ing:[{t:"Кабачок великий — 2 шт"},{t:"Яйця — 4 шт"},{t:"Твердий сир — 100 г (натерти)"},{t:"Зелена цибуля — 1 пучок",s:1},{t:"Сіль, орегано, олія"}],steps:["Кабачки нарізати кружечками ~1 см. Викласти на змащене деко.","Посолити, орегано. Зелену цибулю дрібно нарізати — рівномірно розсипати зверху.","Вилити яйця рівномірно зверху. Посипати тертим сиром.","Духовка 190°C, 25 хв. Сир зарум'яниться — готово!"],tip:"💡 Малюку — шматок без зеленої цибулі зверху, відокремте до додавання."},
+syrnyky_apple:{title:"Сирники з духовки + яблуко",meta:'<span class="badge badge-oven">Духовка</span> · 5 хв · 20 хв · 🌿 Яблуко',ing:[{t:"Кисломолочний сир — 500 г"},{t:"Яйця — 2 шт"},{t:"Борошно — 4 ст.л."},{t:"Цукор — 2 ст.л."},{t:"Ванілін — дрібка"},{t:"Яблуко — 2 шт",s:1}],steps:["Всі інгредієнти (крім яблука) змішати ложкою — однорідна маса.","Ложкою викласти гірочки на деко з папером для випічки.","Духовка 180°C, 20 хв. Золотисті — виймати.","Яблука нарізати часточками поряд. Або натерти прямо в тісто!"],tip:"💡 Якщо натерти яблуко в тісто — сирники будуть ще соковитіші. Дитячий фаворит!"},
+pork_beet:{title:"Свинячий карбонат + рис + печений буряк",meta:'<span class="badge badge-grill">Гриль</span><span class="badge badge-oven">Духовка</span> · 🌿 Буряк',ing:[{t:"Свинячий карбонат — 600 г"},{t:"Рис — 200 г"},{t:"Буряк — 3 шт",s:1},{t:"Оливкова олія, сіль"}],steps:["Буряк вимити, кожен загорнути у фольгу (не чистити). Духовка 180°C — на 40 хв.","Рис залити 1:2 окропом + сіль. Накрити кришкою, 15 хв без вогню.","За 10 хв до подачі: карбонат посолити. Прижимний гриль — 6 хв з кожного боку.","Буряк дістати, охолодити 5 хв, зняти шкірку рукою — злітає сама. Нарізати."],tip:"💡 Буряк можна запекти заздалегідь або з вечора — добре зберігається. Малюку — рис і буряк, м'ясо перевірити на м'якість."},
+eggs_sorrel:{title:"Яйця запечені зі шпинатом і щавлем",meta:'<span class="badge badge-oven">Духовка</span> · 5 хв · 18 хв · 🌿 Шпинат, щавель',ing:[{t:"Яйця — 6 шт"},{t:"Шпинат — 100 г",s:1},{t:"Щавель — 80 г",s:1},{t:"Твердий сир — 80 г"},{t:"Вершкове масло — 1 ч.л."},{t:"Сіль"}],steps:["Шпинат і щавель грубо порізати, викласти у змащену форму.","Зверху зробити заглибини ложкою і вбити яйця.","Посолити, засипати тертим сиром.","Духовка 180°C, 18 хв. Сир зарум'яниться — готово."],tip:"💡 Щавель дає приємну кислинку. Малюку — шматок з краю де менше щавлю (якщо кисло для нього)."},
+toast_radish:{title:"Тост з авокадо, яйцем пашот і редискою",meta:'<span class="badge badge-stove">Плита</span> · 6 хв · 🌿 Редиска',ing:[{t:"Хліб — 2 скибки"},{t:"Авокадо — 1 шт"},{t:"Яйця — 2 шт"},{t:"Редиска — 4 шт",s:1},{t:"Лимонний сік — декілька крапель"},{t:"Сіль"}],steps:["Хліб підсмажити в тостері або на сухій сковороді.","Авокадо розрізати, вийняти ложкою, розм'яти виделкою з сіллю і лимоном.","Яйця пашот: окріп у каструлі, збовтати воронку, опустити яйце — 3 хв.","Намазати авокадо на тост, зверху яйце, нарізана редиска."],tip:"💡 Малюку — хліб з розтертим авокадо + варене яйце замість пашот."},
+cod_asparagus:{title:"Тріска на грилі + спаржа в аерогрилі",meta:'<span class="badge badge-grill">Гриль</span><span class="badge badge-air">Аерогриль</span> · 5 хв · 🌿 Спаржа',ing:[{t:"Філе тріски — 600 г"},{t:"Спаржа — 300 г",s:1},{t:"Лимон — 1 шт"},{t:"Оливкова олія — 2 ст.л."},{t:"Сіль"}],steps:["Спаржу промити, відламати тверді кінці (самі відломляться де треба). Полити олією, посолити.","Аерогриль 190°C — спаржу на 10 хв.","Тріску посолити, збризнути лимоном. Прижимний гриль — 8 хв.","Подавати з лимоном і спаржею."],tip:"💡 Спаржа і тріска готуються майже одночасно. Малюку — тріска без кісток (перевірте!), спаржу нарізати дрібно."},
+bulgur_spring:{title:"Булгур з весняними овочами і зеленню",meta:'<span class="badge badge-stove">Плита</span> · 5 хв · 15 хв · 🌿 Огірок, цибуля, кріп',ing:[{t:"Булгур — 250 г"},{t:"Тепличний огірок — 2 шт",s:1},{t:"Зелена цибуля — пучок",s:1},{t:"Кріп — пучок",s:1},{t:"Лимонний сік — 1 ст.л."},{t:"Оливкова олія — 2 ст.л."},{t:"Сіль"}],steps:["Булгур залити гарячою водою 1:1.5, посолити. Накрити кришкою — 15 хв, без вогню.","Огірок нарізати кубиками, зелену цибулю і кріп — дрібно.","Булгур трохи охолодив — додати всі овочі, зелень, олію, лимонний сік. Перемішати."],tip:"💡 Смачний і теплим, і холодним. Малюку — без лимонного соку, зелень і огірок дрібно."},
+eggs_scallion:{title:"Яєчня з зеленою цибулею і помідором",meta:'<span class="badge badge-stove">Плита</span> · 5 хв · 🌿 Зелена цибуля',ing:[{t:"Яйця — 4 шт"},{t:"Помідор — 1 великий"},{t:"Зелена цибуля — пучок",s:1},{t:"Вершкове масло — 1 ч.л."},{t:"Сіль"}],steps:["На сковороді розтопити масло. Помідор нарізати кубиками, обсмажити 1 хв.","Вбити яйця зверху. Посолити.","Зелену цибулю дрібно нарізати — посипати на яйця.","Накрити кришкою, вогонь середній — 3 хв."],tip:"💡 Малюку — яйця збити до виливання (скремблед), без зеленої цибулі або зовсім дрібно."},
+chicken_pasta:{title:"Куряча грудка + паста вершкова + огірковий салат",meta:'<span class="badge badge-grill">Гриль</span><span class="badge badge-stove">Плита</span> · 15 хв · 🌿 Огірок, цибуля',ing:[{t:"Куряча грудка — 800 г (2 шт)"},{t:"Паста — 300 г"},{t:"Вершки 20% — 200 мл"},{t:"Часник — 2 зубці"},{t:"Тепличний огірок — 2 шт",s:1},{t:"Зелена цибуля — пучок",s:1},{t:"Сіль, перець"}],steps:["Грудку посолити. Прижимний гриль — 14 хв (закритий).","Пасту відварити за інструкцією.","Соус: часник подрібнити, 1 хв на сковороді, влити вершки, сіль, 3 хв кипіти.","Салат: огірок + зелена цибуля + крапля олії + сіль.","Грудку нарізати. Паста + соус + м'ясо. Салат окремо."],tip:"💡 Малюку — грудка + паста + вершковий соус без часнику. Огірок дрібно."},
+wings_salad:{title:"Курячі крила + салат редиска-огірок",meta:'<span class="badge badge-air">Аерогриль</span> · 5 хв · 22 хв · 🌿 Редиска, огірок',ing:[{t:"Курячі крила — 800 г"},{t:"Оливкова олія — 2 ст.л."},{t:"Паприка солодка — 1 ч.л."},{t:"Сушений часник — 0.5 ч.л."},{t:"Редиска — 1 пучок",s:1},{t:"Огірок тепличний — 2 шт",s:1},{t:"Кріп, олія, сіль"}],steps:["Крила + олія + паприка + сушений часник + сіль. Перемішати руками.","Аерогриль 200°C, 22 хв. Перевернути раз на 11-й хвилині.","Поки крила — салат: редиска і огірок нарізати, кріп, олія, сіль."],tip:"💡 Малюку — м'ясо знімати з кістки, без шкіри. Салат: огірок без редиски."},
+pancakes_apple:{title:"Млинці з тертим яблуком і корицею",meta:'<span class="badge badge-stove">Плита</span> · 5 хв тісто · 12 хв · 🌿 Яблуко',ing:[{t:"Яйця — 2 шт"},{t:"Молоко — 250 мл"},{t:"Борошно — 150 г"},{t:"Яблуко — 2 шт (натерти)",s:1},{t:"Цукор — 1 ст.л."},{t:"Кориця — 0.5 ч.л."},{t:"Масло для смаження"}],steps:["Яблука натерти на крупній тертці.","Яйця + молоко + борошно + цукор + кориця — збити виделкою. Додати яблуко, перемішати.","Сковорода на середньому вогні, трохи масла. Ложку тіста — по 2 хв з кожного боку."],tip:"💡 Тісто густіше за класичні млинці — це нормально. Малюку обожнює! Без цукру в порцію малюка."},
+turkey_ratatouille:{title:"Стейк індички + весняний рататуй зі спаржею",meta:'<span class="badge badge-oven">Духовка</span><span class="badge badge-grill">Гриль</span> · 10 хв · 🌿 Спаржа',ing:[{t:"Стейк індички — 600 г"},{t:"Кабачок — 1 шт"},{t:"Помідори — 2 шт"},{t:"Перець болгарський — 2 шт"},{t:"Спаржа — 200 г",s:1},{t:"Цибуля — 1 шт"},{t:"Оливкова олія, сіль, орегано"}],steps:["Всі овочі і спаржу нарізати великими шматками (~3 см). Скласти у форму.","Полити олією, посолити, орегано. Духовка 200°C, 35 хв.","За 10 хв до подачі: стейк індички на прижимному грилі — 7 хв з кожного боку."],tip:"💡 Рататуй чудово їдять малюки. Спаржа у рататуї стає дуже ніжною."},
+sweet_potato_feta:{title:"Батат з фетою і свіжою зеленню",meta:'<span class="badge badge-oven">Духовка</span> · 5 хв · 40 хв · 🌿 Кріп, петрушка',ing:[{t:"Батат — 2 великих шт"},{t:"Сир фета — 200 г"},{t:"Кріп свіжий — пучок",s:1},{t:"Петрушка свіжа — пучок",s:1},{t:"Оливкова олія — 1 ст.л."},{t:"Сіль"}],steps:["Батат розрізати навпіл вздовж. Покласти зрізом вгору на деко.","Полити олією, посолити. Духовка 200°C, 40 хв.","За 5 хв до готовності — покласти шматочки фети зверху.","Зелень дрібно нарізати, посипати перед подачею."],tip:"💡 Батат солодкий — малюки зазвичай обожнюють. Фету в дитячу порцію менше (солона)."},
+eggs_sorrel_sun:{title:"Яйця запечені з щавлем і сиром",meta:'<span class="badge badge-oven">Духовка</span> · 5 хв · 15 хв · 🌿 Щавель',ing:[{t:"Яйця — 5 шт"},{t:"Щавель свіжий — 100 г",s:1},{t:"Твердий сир — 80 г (натерти)"},{t:"Вершкове масло — 1 ч.л."},{t:"Сіль"}],steps:["Щавель грубо нарізати. Викласти у змащену форму.","Зверху вбити яйця або вилити збиті.","Посолити, засипати тертим сиром.","Духовка 180°C, 15 хв. Сир зарум'яниться — готово."],tip:"💡 Щавель дає приємну кислинку — ідеальний весняний сніданок. Малюку — шматок з краю де менше щавлю."},
+beef_sleeve:{title:"Яловичина у рукаві з морквою і цибулею",meta:'<span class="badge badge-oven">Духовка</span> · 10 хв · 1.5 год само · 🌿 Молода морква',ing:[{t:"Яловичина шматком — 800 г"},{t:"Морква — 3 шт",s:1},{t:"Цибуля — 2 шт"},{t:"Лавровий лист — 2 шт"},{t:"Часник — 3 зубці"},{t:"Сіль, перець чорний"}],steps:["М'ясо посолити, поперчити з усіх боків.","Моркву нарізати великими шматками, цибулю — четвертинками.","Все скласти у кулінарний рукав: м'ясо + морква + цибуля + лавровий лист + часник. Зав'язати.","Духовка 180°C, 1 год 30 хв. М'ясо буде дуже м'яким у власному соку."],tip:"💡 Можна поставити вранці і забути. Малюку — м'ясо волокнами руками (дуже м'яке), морква стає солодкою."},
+frittata_spring:{title:"Фрітата зі шпинатом і зеленою цибулею",meta:'<span class="badge badge-oven">Духовка</span> · 5 хв · 18 хв · 🌿 Шпинат, зелена цибуля',ing:[{t:"Яйця — 6 шт"},{t:"Шпинат — 100 г",s:1},{t:"Зелена цибуля — пучок",s:1},{t:"Твердий сир — 80 г"},{t:"Оливкова олія — 1 ст.л."},{t:"Сіль"}],steps:["Яйця збити виделкою з сіллю. Шпинат і цибулю дрібно нарізати.","Додати шпинат і цибулю до яєць, перемішати. Вилити у змащену форму.","Зверху рівномірно посипати тертим сиром.","Духовка 180°C, 18 хв. Яйця схопляться, сир зарум'яниться."],tip:"💡 Ідеальна неділя — мінімум зусиль. Малюку — шматок де менше цибулі."},
+};
+
+function openRecipe(id){
+  const r=R[id]; if(!r)return;
+  document.getElementById('modalTitle').textContent=r.title;
+  document.getElementById('modalMeta').innerHTML=r.meta;
+  let h='<div class="rec-section-title">Інгредієнти</div><div class="rec-ing-list">';
+  r.ing.forEach(i=>{ h+=`<span class="rec-ing${i.s?' seasonal':''}">${i.s?'🌿 ':''}${i.t}</span>`; });
+  h+='</div><div class="rec-section-title">Приготування</div>';
+  r.steps.forEach((s,n)=>{ h+=`<div class="rec-step"><span class="step-num">${n+1}</span>${s}</div>`; });
+  if(r.tip) h+=`<div class="tip-box">${r.tip}</div>`;
+  document.getElementById('modalBody').innerHTML=h;
+  document.getElementById('recipeModal').classList.add('open');
+  document.body.style.overflow='hidden';
 }
-function toggleDay(header) {
-  const body = header.nextElementSibling;
-  const chevron = header.querySelector('.chevron');
-  body.classList.toggle('open');
-  chevron.classList.toggle('open');
+function closeRecipe(){
+  document.getElementById('recipeModal').classList.remove('open');
+  document.body.style.overflow='';
 }
-function toggleRecipe(header) {
-  const body = header.nextElementSibling;
-  const chevron = header.querySelector('.chevron');
-  body.classList.toggle('open');
-  chevron.classList.toggle('open');
+function closeModal(e){ if(e.target===document.getElementById('recipeModal')) closeRecipe(); }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeRecipe(); });
+
+function showSection(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('section-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
 }
-function toggleItem(el) {
+function toggleDay(h){
+  const b=h.nextElementSibling,c=h.querySelector('.chevron');
+  b.classList.toggle('open'); c.classList.toggle('open');
+}
+function toggleItem(el){
   el.classList.toggle('checked');
-  el.querySelector('.cb').textContent = el.classList.contains('checked') ? '✅' : '☐';
+  el.querySelector('.cb').textContent=el.classList.contains('checked')?'✅':'☐';
 }
-function printA5() {
-  document.getElementById('print-view').style.display = 'block';
+function printA5(){
+  document.getElementById('print-view').style.display='block';
   window.print();
-  setTimeout(() => {
-    document.getElementById('print-view').style.display = 'none';
-  }, 1000);
+  setTimeout(()=>{ document.getElementById('print-view').style.display='none'; },1200);
 }
-// Open first day on load
+
 document.querySelector('.day-header').click();
 </script>
 </body>
