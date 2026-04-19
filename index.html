@@ -77,6 +77,22 @@ header p{color:rgba(250,246,240,.7);font-size:12px;margin-top:5px;position:relat
 .shop-items{padding:12px 16px;display:flex;flex-wrap:wrap;gap:7px;}
 .shop-item{background:var(--highlight);border:1px solid #E8D5C0;border-radius:8px;padding:5px 11px;font-size:12px;display:flex;align-items:center;gap:5px;cursor:pointer;transition:all .15s;user-select:none;}
 .shop-item.checked{background:#E8F5EE;border-color:#B5D5C5;color:var(--muted);text-decoration:line-through;}
+/* ── SYNC / STORAGE UI ─────────────────────────── */
+.sync-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--warm);border:1px solid var(--border);border-radius:10px;margin-bottom:12px;flex-wrap:wrap;}
+.sync-status{font-size:12px;color:var(--muted);flex:1;}
+.sync-status.loading{color:#1A6FAA;}
+.sync-status.ok{color:var(--green);}
+.sync-status.err{color:#C0392B;}
+.btn-reset{background:#C0392B;color:white;border:none;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background .15s;}
+.btn-reset:hover{background:#A93226;}
+.btn-reset:disabled{background:var(--muted);cursor:default;}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);flex-shrink:0;}
+.sync-dot.ok{background:var(--green);}
+.sync-dot.loading{background:#1A6FAA;animation:pulse .8s infinite;}
+.sync-dot.err{background:#C0392B;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.shop-item.saving{opacity:.6;}
+
 .seasonal-dot{color:var(--green);font-size:10px;}
 
 /* MODAL */
@@ -307,76 +323,81 @@ header p{color:rgba(250,246,240,.7);font-size:12px;margin-top:5px;position:relat
 </div>
 
 <div class="section" id="section-shop">
-  <div class="note-box"><strong>Натисніть на продукт</strong> — щоб позначити як куплений ✅ &nbsp;🌿 — сезонні квітневі продукти</div>
+  <div class="note-box"><strong>Натисніть на продукт</strong> — щоб позначити як куплений ✅ &nbsp;🌿 — сезонні квітневі продукти. Стан зберігається у Google Sheets.</div>
+<div class="sync-bar">
+  <span class="sync-dot" id="syncDot"></span>
+  <span class="sync-status" id="syncStatus">Підключення до Google Sheets…</span>
+  <button class="btn-reset" id="btnReset" onclick="resetAll()" disabled>🗑️ Скинути всі</button>
+</div>
   <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🥩</span><span class="shop-cat-title">М'ясо та риба</span></div><div class="shop-items">
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Куряче стегно — 1.2 кг <span style="color:var(--muted)">(пн)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Куряча грудка — 800 г <span style="color:var(--muted)">(пт)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Курячі крила — 800 г <span style="color:var(--muted)">(пт)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Яловичий фарш — 600 г <span style="color:var(--muted)">(вт)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Яловичина шматком — 800 г <span style="color:var(--muted)">(нд)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Свинячий карбонат — 600 г <span style="color:var(--muted)">(ср)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Стейк індички — 600 г <span style="color:var(--muted)">(сб)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Хек філе — 600 г <span style="color:var(--muted)">(чт)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Лосось стейки — 500 г <span style="color:var(--muted)">(пн)</span></div>
+    <div class="shop-item" data-key="Куряче_стегно__12_кг" onclick="toggleItem(this)"><span class="cb">☐</span> Куряче стегно — 1.2 кг <span style="color:var(--muted)">(пн)</span></div>
+    <div class="shop-item" data-key="Куряча_грудка__800_г" onclick="toggleItem(this)"><span class="cb">☐</span> Куряча грудка — 800 г <span style="color:var(--muted)">(пт)</span></div>
+    <div class="shop-item" data-key="Курячі_крила__800_г" onclick="toggleItem(this)"><span class="cb">☐</span> Курячі крила — 800 г <span style="color:var(--muted)">(пт)</span></div>
+    <div class="shop-item" data-key="Яловичий_фарш__600_г" onclick="toggleItem(this)"><span class="cb">☐</span> Яловичий фарш — 600 г <span style="color:var(--muted)">(вт)</span></div>
+    <div class="shop-item" data-key="Яловичина_шматком__800_г" onclick="toggleItem(this)"><span class="cb">☐</span> Яловичина шматком — 800 г <span style="color:var(--muted)">(нд)</span></div>
+    <div class="shop-item" data-key="Свинячий_карбонат__600_г" onclick="toggleItem(this)"><span class="cb">☐</span> Свинячий карбонат — 600 г <span style="color:var(--muted)">(ср)</span></div>
+    <div class="shop-item" data-key="Стейк_індички__600_г" onclick="toggleItem(this)"><span class="cb">☐</span> Стейк індички — 600 г <span style="color:var(--muted)">(сб)</span></div>
+    <div class="shop-item" data-key="Хек_філе__600_г" onclick="toggleItem(this)"><span class="cb">☐</span> Хек філе — 600 г <span style="color:var(--muted)">(чт)</span></div>
+    <div class="shop-item" data-key="Лосось_стейки__500_г" onclick="toggleItem(this)"><span class="cb">☐</span> Лосось стейки — 500 г <span style="color:var(--muted)">(пн)</span></div>
   </div></div>
   <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🌿</span><span class="shop-cat-title">Сезонні квітневі овочі та зелень</span></div><div class="shop-items">
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Шпинат свіжий — 300 г <span style="color:var(--muted)">(пн, ср, нд)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Щавель — 200 г <span style="color:var(--muted)">(ср, нд)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Редиска — 2 пучки <span style="color:var(--muted)">(пн, чт, пт)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Зелена цибуля — 3 пучки <span style="color:var(--muted)">(вт, чт, пт, нд)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Спаржа — 500 г <span style="color:var(--muted)">(пн, чт, сб)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Огірки тепличні — 6 шт <span style="color:var(--muted)">(вт, чт, пт)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Кріп — 1 пучок <span style="color:var(--muted)">(чт, пт, сб)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Петрушка — 1 пучок <span style="color:var(--muted)">(сб)</span></div>
+    <div class="shop-item" data-key="Шпинат_свіжий__300_г" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Шпинат свіжий — 300 г <span style="color:var(--muted)">(пн, ср, нд)</span></div>
+    <div class="shop-item" data-key="Щавель__200_г" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Щавель — 200 г <span style="color:var(--muted)">(ср, нд)</span></div>
+    <div class="shop-item" data-key="Редиска__2_пучки" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Редиска — 2 пучки <span style="color:var(--muted)">(пн, чт, пт)</span></div>
+    <div class="shop-item" data-key="Зелена_цибуля__3_пучки" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Зелена цибуля — 3 пучки <span style="color:var(--muted)">(вт, чт, пт, нд)</span></div>
+    <div class="shop-item" data-key="Спаржа__500_г" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Спаржа — 500 г <span style="color:var(--muted)">(пн, чт, сб)</span></div>
+    <div class="shop-item" data-key="Огірки_тепличні__6_шт" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Огірки тепличні — 6 шт <span style="color:var(--muted)">(вт, чт, пт)</span></div>
+    <div class="shop-item" data-key="Кріп__1_пучок" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Кріп — 1 пучок <span style="color:var(--muted)">(чт, пт, сб)</span></div>
+    <div class="shop-item" data-key="Петрушка__1_пучок" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Петрушка — 1 пучок <span style="color:var(--muted)">(сб)</span></div>
   </div></div>
   <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🥦</span><span class="shop-cat-title">Решта овочів</span></div><div class="shop-items">
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Картопля — 1.5 кг</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Морква — 800 г</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Буряк — 3 шт</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Кабачок — 3 шт <span style="color:var(--muted)">(вт, сб)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Помідори — 5 шт <span style="color:var(--muted)">(пт, сб)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Перець болгарський — 3 шт <span style="color:var(--muted)">(сб)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Броколі — 400 г <span style="color:var(--muted)">(пн)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Батат — 2 шт <span style="color:var(--muted)">(сб)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Цибуля — 4 шт</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Часник — 1 головка</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Авокадо — 2 шт <span style="color:var(--muted)">(чт)</span></div>
+    <div class="shop-item" data-key="Картопля__15_кг" onclick="toggleItem(this)"><span class="cb">☐</span> Картопля — 1.5 кг</div>
+    <div class="shop-item" data-key="Морква__800_г" onclick="toggleItem(this)"><span class="cb">☐</span> Морква — 800 г</div>
+    <div class="shop-item" data-key="Буряк__3_шт" onclick="toggleItem(this)"><span class="cb">☐</span> Буряк — 3 шт</div>
+    <div class="shop-item" data-key="Кабачок__3_шт" onclick="toggleItem(this)"><span class="cb">☐</span> Кабачок — 3 шт <span style="color:var(--muted)">(вт, сб)</span></div>
+    <div class="shop-item" data-key="Помідори__5_шт" onclick="toggleItem(this)"><span class="cb">☐</span> Помідори — 5 шт <span style="color:var(--muted)">(пт, сб)</span></div>
+    <div class="shop-item" data-key="Перець_болгарський__3_шт" onclick="toggleItem(this)"><span class="cb">☐</span> Перець болгарський — 3 шт <span style="color:var(--muted)">(сб)</span></div>
+    <div class="shop-item" data-key="Броколі__400_г" onclick="toggleItem(this)"><span class="cb">☐</span> Броколі — 400 г <span style="color:var(--muted)">(пн)</span></div>
+    <div class="shop-item" data-key="Батат__2_шт" onclick="toggleItem(this)"><span class="cb">☐</span> Батат — 2 шт <span style="color:var(--muted)">(сб)</span></div>
+    <div class="shop-item" data-key="Цибуля__4_шт" onclick="toggleItem(this)"><span class="cb">☐</span> Цибуля — 4 шт</div>
+    <div class="shop-item" data-key="Часник__1_головка" onclick="toggleItem(this)"><span class="cb">☐</span> Часник — 1 головка</div>
+    <div class="shop-item" data-key="Авокадо__2_шт" onclick="toggleItem(this)"><span class="cb">☐</span> Авокадо — 2 шт <span style="color:var(--muted)">(чт)</span></div>
   </div></div>
   <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🍎</span><span class="shop-cat-title">Сезонні фрукти</span></div><div class="shop-items">
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Апельсини — 4 шт <span style="color:var(--muted)">(вт)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Яблука — 6 шт <span style="color:var(--muted)">(ср, сб)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Банани — 6 шт <span style="color:var(--muted)">(вт)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Лимони — 3 шт <span style="color:var(--muted)">(пн, чт)</span></div>
+    <div class="shop-item" data-key="Апельсини__4_шт" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Апельсини — 4 шт <span style="color:var(--muted)">(вт)</span></div>
+    <div class="shop-item" data-key="Яблука__6_шт" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Яблука — 6 шт <span style="color:var(--muted)">(ср, сб)</span></div>
+    <div class="shop-item" data-key="Банани__6_шт" onclick="toggleItem(this)"><span class="cb">☐</span> Банани — 6 шт <span style="color:var(--muted)">(вт)</span></div>
+    <div class="shop-item" data-key="Лимони__3_шт" onclick="toggleItem(this)"><span class="cb">☐</span> Лимони — 3 шт <span style="color:var(--muted)">(пн, чт)</span></div>
   </div></div>
   <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🥚</span><span class="shop-cat-title">Яйця та молочне</span></div><div class="shop-items">
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Яйця — 30 шт</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Молоко — 1 л <span style="color:var(--muted)">(вт, сб)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сир твердий — 300 г</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сир кисломолочний — 500 г <span style="color:var(--muted)">(ср)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сир фета — 200 г <span style="color:var(--muted)">(сб)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Вершки 20% — 200 мл <span style="color:var(--muted)">(пт)</span></div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Масло вершкове — 150 г</div>
+    <div class="shop-item" data-key="Яйця__30_шт" onclick="toggleItem(this)"><span class="cb">☐</span> Яйця — 30 шт</div>
+    <div class="shop-item" data-key="Молоко__1_л" onclick="toggleItem(this)"><span class="cb">☐</span> Молоко — 1 л <span style="color:var(--muted)">(вт, сб)</span></div>
+    <div class="shop-item" data-key="Сир_твердий__300_г" onclick="toggleItem(this)"><span class="cb">☐</span> Сир твердий — 300 г</div>
+    <div class="shop-item" data-key="Сир_кисломолочний__500_г" onclick="toggleItem(this)"><span class="cb">☐</span> Сир кисломолочний — 500 г <span style="color:var(--muted)">(ср)</span></div>
+    <div class="shop-item" data-key="Сир_фета__200_г" onclick="toggleItem(this)"><span class="cb">☐</span> Сир фета — 200 г <span style="color:var(--muted)">(сб)</span></div>
+    <div class="shop-item" data-key="Вершки_20__200_мл" onclick="toggleItem(this)"><span class="cb">☐</span> Вершки 20% — 200 мл <span style="color:var(--muted)">(пт)</span></div>
+    <div class="shop-item" data-key="Масло_вершкове__150_г" onclick="toggleItem(this)"><span class="cb">☐</span> Масло вершкове — 150 г</div>
   </div></div>
   <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🌾</span><span class="shop-cat-title">Крупи та паста</span></div><div class="shop-items">
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Гречка — 400 г</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Рис — 400 г</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Булгур — 400 г</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Вівсяні пластівці — 500 г</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Паста — 400 г</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Борошно — 200 г</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Хліб / тости</div>
+    <div class="shop-item" data-key="Гречка__400_г" onclick="toggleItem(this)"><span class="cb">☐</span> Гречка — 400 г</div>
+    <div class="shop-item" data-key="Рис__400_г" onclick="toggleItem(this)"><span class="cb">☐</span> Рис — 400 г</div>
+    <div class="shop-item" data-key="Булгур__400_г" onclick="toggleItem(this)"><span class="cb">☐</span> Булгур — 400 г</div>
+    <div class="shop-item" data-key="Вівсяні_пластівці__500_г" onclick="toggleItem(this)"><span class="cb">☐</span> Вівсяні пластівці — 500 г</div>
+    <div class="shop-item" data-key="Паста__400_г" onclick="toggleItem(this)"><span class="cb">☐</span> Паста — 400 г</div>
+    <div class="shop-item" data-key="Борошно__200_г" onclick="toggleItem(this)"><span class="cb">☐</span> Борошно — 200 г</div>
+    <div class="shop-item" data-key="Хліб__тости" onclick="toggleItem(this)"><span class="cb">☐</span> Хліб / тости</div>
   </div></div>
   <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🫙</span><span class="shop-cat-title">Олії, спеції, інше</span></div><div class="shop-items">
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Оливкова олія — 500 мл</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Соняшникова олія</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Сіль, перець чорний</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Паприка солодка</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Орегано / прованські трави</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Кориця мелена</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Лавровий лист</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Мед</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Цукор — 200 г</div>
-    <div class="shop-item" onclick="toggleItem(this)"><span class="cb">☐</span> Рукав для запікання</div>
+    <div class="shop-item" data-key="Оливкова_олія__500_мл" onclick="toggleItem(this)"><span class="cb">☐</span> Оливкова олія — 500 мл</div>
+    <div class="shop-item" data-key="Соняшникова_олія" onclick="toggleItem(this)"><span class="cb">☐</span> Соняшникова олія</div>
+    <div class="shop-item" data-key="Сіль_перець_чорний" onclick="toggleItem(this)"><span class="cb">☐</span> Сіль, перець чорний</div>
+    <div class="shop-item" data-key="Паприка_солодка" onclick="toggleItem(this)"><span class="cb">☐</span> Паприка солодка</div>
+    <div class="shop-item" data-key="Орегано__прованські_трави" onclick="toggleItem(this)"><span class="cb">☐</span> Орегано / прованські трави</div>
+    <div class="shop-item" data-key="Кориця_мелена" onclick="toggleItem(this)"><span class="cb">☐</span> Кориця мелена</div>
+    <div class="shop-item" data-key="Лавровий_лист" onclick="toggleItem(this)"><span class="cb">☐</span> Лавровий лист</div>
+    <div class="shop-item" data-key="Мед" onclick="toggleItem(this)"><span class="cb">☐</span> Мед</div>
+    <div class="shop-item" data-key="Цукор__200_г" onclick="toggleItem(this)"><span class="cb">☐</span> Цукор — 200 г</div>
+    <div class="shop-item" data-key="Рукав_для_запікання" onclick="toggleItem(this)"><span class="cb">☐</span> Рукав для запікання</div>
   </div></div>
 </div>
 </div>
@@ -436,10 +457,104 @@ function toggleDay(h){
   const b=h.nextElementSibling,c=h.querySelector('.chevron');
   b.classList.toggle('open'); c.classList.toggle('open');
 }
-function toggleItem(el){
-  el.classList.toggle('checked');
-  el.querySelector('.cb').textContent=el.classList.contains('checked')?'✅':'☐';
+// ════ GOOGLE SHEETS SYNC ════════════════════════════════════
+// Вставте сюди URL вашого Apps Script Web App після деплою:
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwy4qUdbkEoveyKQc1-3GNyu1l_7aPCQntGi6253YC3WBsM0fgYJQUEenoKkek-zz8/exec";
+
+function setStatus(msg, state) {
+  const dot = document.getElementById('syncDot');
+  const txt = document.getElementById('syncStatus');
+  if (!dot || !txt) return;
+  dot.className = 'sync-dot ' + (state || '');
+  txt.className = 'sync-status ' + (state || '');
+  txt.textContent = msg;
 }
+
+// Завантажити стан при відкритті сторінки
+async function loadChecked() {
+  if (SCRIPT_URL === "PASTE_YOUR_APPS_SCRIPT_URL_HERE") {
+    setStatus("⚠️ Вставте URL Apps Script у файл (рядок SCRIPT_URL)", "err");
+    document.getElementById('btnReset').disabled = false;
+    return;
+  }
+  setStatus("Завантаження…", "loading");
+  try {
+    const res  = await fetch(SCRIPT_URL + "?action=get");
+    const data = await res.json();
+    if (data.ok && data.checked) {
+      data.checked.forEach(key => {
+        const el = document.querySelector(\`.shop-item[data-key="\${key}"]\`);
+        if (el) {
+          el.classList.add('checked');
+          el.querySelector('.cb').textContent = '✅';
+        }
+      });
+      setStatus(\`✓ Синхронізовано (\${data.checked.length} куплено)\`, "ok");
+    }
+  } catch(e) {
+    setStatus("Не вдалось підключитись до Sheets", "err");
+  }
+  document.getElementById('btnReset').disabled = false;
+}
+
+// Зберегти стан одного продукту
+async function saveItem(key, checked) {
+  if (SCRIPT_URL === "PASTE_YOUR_APPS_SCRIPT_URL_HERE") return;
+  try {
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      body: JSON.stringify({ action: "toggle", key, checked }),
+    });
+  } catch(e) {
+    setStatus("Помилка збереження — перевірте інтернет", "err");
+  }
+}
+
+// Скинути всі галочки
+async function resetAll() {
+  if (!confirm("Скинути всі куплені продукти?")) return;
+  document.getElementById('btnReset').disabled = true;
+  setStatus("Скидання…", "loading");
+
+  // Знімаємо локально
+  document.querySelectorAll('.shop-item.checked').forEach(el => {
+    el.classList.remove('checked');
+    el.querySelector('.cb').textContent = '☐';
+  });
+
+  if (SCRIPT_URL !== "PASTE_YOUR_APPS_SCRIPT_URL_HERE") {
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({ action: "reset" }),
+      });
+    } catch(e) {}
+  }
+  setStatus("✓ Список очищено", "ok");
+  document.getElementById('btnReset').disabled = false;
+}
+
+// ════ SHOP ITEM TOGGLE ═══════════════════════════════════════
+function toggleItem(el) {
+  const key     = el.getAttribute('data-key');
+  const checked = !el.classList.contains('checked');
+  el.classList.toggle('checked');
+  el.querySelector('.cb').textContent = checked ? '✅' : '☐';
+  // Зберегти у Sheets
+  if (key) {
+    setStatus("Збереження…", "loading");
+    saveItem(key, checked).then(() => {
+      const n = document.querySelectorAll('.shop-item.checked').length;
+      setStatus(\`✓ Збережено (\${n} куплено)\`, "ok");
+    });
+  }
+}
+
+// Запустити завантаження після відкриття вкладки Покупки
+document.querySelector('.tab:nth-child(2)').addEventListener('click', function() {
+  if (!this._loaded) { this._loaded = true; loadChecked(); }
+});
+
 function printA5(){
   document.getElementById('print-view').style.display='block';
   window.print();
