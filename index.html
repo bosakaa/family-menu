@@ -458,99 +458,91 @@ function toggleDay(h){
   b.classList.toggle('open'); c.classList.toggle('open');
 }
 // ════ GOOGLE SHEETS SYNC ════════════════════════════════════
-// Вставте сюди URL вашого Apps Script Web App після деплою:
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDAfxRjperXg4F1NReKezxZa3NqKqx0bpb36-DZPd4j_h-vo0PJ9E8s4KHrY9QVy8/exec";
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDAfxRjperXg4F1NReKezxZa3NqKqx0bpb36-DZPd4j_h-vo0PJ9E8s4KHrY9QVy8/exec";
 
 function setStatus(msg, state) {
-  const dot = document.getElementById('syncDot');
-  const txt = document.getElementById('syncStatus');
+  var dot = document.getElementById('syncDot');
+  var txt = document.getElementById('syncStatus');
   if (!dot || !txt) return;
   dot.className = 'sync-dot ' + (state || '');
   txt.className = 'sync-status ' + (state || '');
   txt.textContent = msg;
 }
 
-// Завантажити стан при відкритті сторінки
-async function loadChecked() {
-  if (SCRIPT_URL === "PASTE_YOUR_APPS_SCRIPT_URL_HERE") {
-    setStatus("⚠️ Вставте URL Apps Script у файл (рядок SCRIPT_URL)", "err");
-    document.getElementById('btnReset').disabled = false;
-    return;
-  }
-  setStatus("Завантаження…", "loading");
-  try {
-    const res  = await fetch(SCRIPT_URL + "?action=get");
-    const data = await res.json();
-    if (data.ok && data.checked) {
-      data.checked.forEach(key => {
-        const el = document.querySelector(\`.shop-item[data-key="\${key}"]\`);
-        if (el) {
-          el.classList.add('checked');
-          el.querySelector('.cb').textContent = '✅';
-        }
-      });
-      setStatus(\`✓ Синхронізовано (\${data.checked.length} куплено)\`, "ok");
-    }
-  } catch(e) {
-    setStatus("Не вдалось підключитись до Sheets", "err");
-  }
-  document.getElementById('btnReset').disabled = false;
-}
-
-// Зберегти стан одного продукту
-async function saveItem(key, checked) {
-  if (SCRIPT_URL === "PASTE_YOUR_APPS_SCRIPT_URL_HERE") return;
-  try {
-    await fetch(SCRIPT_URL, {
-      method: "POST",
-      body: JSON.stringify({ action: "toggle", key, checked }),
+function loadChecked() {
+  setStatus("Завантаження...", "loading");
+  fetch(SCRIPT_URL + "?action=get")
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.ok && data.checked) {
+        data.checked.forEach(function(key) {
+          var el = document.querySelector('.shop-item[data-key="' + key + '"]');
+          if (el) {
+            el.classList.add('checked');
+            el.querySelector('.cb').textContent = '✅';
+          }
+        });
+        setStatus('✓ Синхронізовано (' + data.checked.length + ' куплено)', "ok");
+      } else {
+        setStatus('✓ Синхронізовано (0 куплено)', "ok");
+      }
+      document.getElementById('btnReset').disabled = false;
+    })
+    .catch(function() {
+      setStatus("Не вдалось підключитись до Sheets", "err");
+      document.getElementById('btnReset').disabled = false;
     });
-  } catch(e) {
-    setStatus("Помилка збереження — перевірте інтернет", "err");
-  }
 }
 
-// Скинути всі галочки
-async function resetAll() {
+function saveItem(key, checked) {
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify({ action: "toggle", key: key, checked: checked })
+  })
+  .then(function() {
+    var n = document.querySelectorAll('.shop-item.checked').length;
+    setStatus('✓ Збережено (' + n + ' куплено)', "ok");
+  })
+  .catch(function() {
+    setStatus("Помилка збереження — перевірте інтернет", "err");
+  });
+}
+
+function resetAll() {
   if (!confirm("Скинути всі куплені продукти?")) return;
   document.getElementById('btnReset').disabled = true;
-  setStatus("Скидання…", "loading");
-
-  // Знімаємо локально
-  document.querySelectorAll('.shop-item.checked').forEach(el => {
+  setStatus("Скидання...", "loading");
+  document.querySelectorAll('.shop-item.checked').forEach(function(el) {
     el.classList.remove('checked');
     el.querySelector('.cb').textContent = '☐';
   });
-
-  if (SCRIPT_URL !== "PASTE_YOUR_APPS_SCRIPT_URL_HERE") {
-    try {
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify({ action: "reset" }),
-      });
-    } catch(e) {}
-  }
-  setStatus("✓ Список очищено", "ok");
-  document.getElementById('btnReset').disabled = false;
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify({ action: "reset" })
+  })
+  .then(function() {
+    setStatus("✓ Список очищено", "ok");
+    document.getElementById('btnReset').disabled = false;
+  })
+  .catch(function() {
+    setStatus("✓ Очищено локально", "ok");
+    document.getElementById('btnReset').disabled = false;
+  });
 }
 
 // ════ SHOP ITEM TOGGLE ═══════════════════════════════════════
 function toggleItem(el) {
-  const key     = el.getAttribute('data-key');
-  const checked = !el.classList.contains('checked');
+  var key = el.getAttribute('data-key');
+  var checked = !el.classList.contains('checked');
   el.classList.toggle('checked');
   el.querySelector('.cb').textContent = checked ? '✅' : '☐';
-  // Зберегти у Sheets
   if (key) {
-    setStatus("Збереження…", "loading");
-    saveItem(key, checked).then(() => {
-      const n = document.querySelectorAll('.shop-item.checked').length;
-      setStatus(\`✓ Збережено (\${n} куплено)\`, "ok");
-    });
+    setStatus("Збереження...", "loading");
+    saveItem(key, checked);
   }
 }
 
-// Запустити завантаження після відкриття вкладки Покупки
+// Завантажити при відкритті вкладки Покупки
 document.querySelector('.tab:nth-child(2)').addEventListener('click', function() {
   if (!this._loaded) { this._loaded = true; loadChecked(); }
 });
