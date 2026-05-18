@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Меню на тиждень · 11–17 Травня</title>
+<title>Меню на тиждень · 19–24 Травня</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -27,7 +27,6 @@ header p{color:rgba(250,246,240,.7);font-size:12px;margin-top:5px;position:relat
 .section{display:none;}.section.active{display:block;}
 .note-box{background:var(--highlight);border:1px solid #E8D5C0;border-radius:10px;padding:12px 15px;font-size:13px;margin-bottom:14px;line-height:1.6;color:var(--brown);}
 .note-box strong{color:var(--orange);}
-.away-box{background:#EFF8F3;border:1px solid #B5D5C5;border-radius:10px;padding:12px 15px;font-size:13px;margin-bottom:14px;line-height:1.6;color:#2A5A3A;}
 .day-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;box-shadow:0 2px 8px rgba(107,76,53,.08);}
 .day-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--highlight);cursor:pointer;border-bottom:1px solid var(--border);}
 .day-title{font-family:'Playfair Display',serif;font-size:16px;color:var(--brown);font-weight:700;}
@@ -96,7 +95,7 @@ header p{color:rgba(250,246,240,.7);font-size:12px;margin-top:5px;position:relat
 .badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;margin-right:3px;}
 .badge-oven{background:#FFE8D6;color:#C4561A;}.badge-air{background:#D6ECFF;color:#1A6FAA;}
 .badge-grill{background:#FFE8F0;color:#AA1A4F;}.badge-stove{background:#E8FFD6;color:#2A7A1A;}
-.badge-none{background:#F0F0F0;color:#666;}
+.overnight-badge{display:inline-block;background:rgba(107,76,53,.12);color:var(--brown);font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;border:1px dashed var(--brown);}
 
 @media print{
 @page{size:A4 landscape;margin:10mm;}
@@ -106,7 +105,7 @@ body>*:not(#print-view){display:none!important;}
 .pv-header{text-align:center;margin-bottom:4mm;border-bottom:2pt solid #6B4C35;padding-bottom:2mm;}
 .pv-header h1{font-family:Georgia,serif;font-size:16pt;color:#6B4C35;}
 .pv-header p{font-size:8pt;color:#8C7B6E;margin-top:1mm;}
-.pv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-bottom:3mm;}
+.pv-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm;margin-bottom:3mm;}
 .pv-day{border:.5pt solid #D4C4B8;border-radius:2mm;overflow:hidden;}
 .pv-day-header{background:#6B4C35;color:white;text-align:center;padding:1.8mm 1mm;font-weight:700;font-size:9pt;}
 .pv-day-body{padding:2mm;}
@@ -115,41 +114,51 @@ body>*:not(#print-view){display:none!important;}
 .pv-meal-name{font-size:8pt;font-weight:600;line-height:1.3;color:#2C1F14;}
 .pv-meal-sub{font-size:7pt;color:#8C7B6E;line-height:1.3;}
 .pv-sep{border:none;border-top:.5pt solid #E8DDD3;margin:1.5mm 0;}
-.pv-footer{font-size:7pt;color:#8C7B6E;text-align:center;margin-top:3mm;padding-top:2mm;border-top:.5pt solid #D4C4B8;}
+.pv-footer{display:none;}
 }
 </style>
 </head>
 <body>
 
-<!-- PRINT VIEW -->
+<!-- PRINT VIEW A4 LANDSCAPE -->
 <div id="print-view" style="display:none">
 <div class="pv-header">
-<h1>🍽️ Сімейне меню · 11–14 Травня 2026</h1>
-<p>2 дорослих + малюк 2 роки · Макс 10 хв активної участі · 15–17 травня — у батьків</p>
+<h1>🍽️ Сімейне меню · 19–24 Травня 2026</h1>
+<p>2 дорослих + малюк 2 роки · Макс 10 хв активної участі · Вт/Чт сніданок — overnight oats (готувати з вечора!)</p>
 </div>
 <div class="pv-grid">
-<div class="pv-day"><div class="pv-day-header">Понеділок · 11</div><div class="pv-day-body">
-<div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Вівсянка overnight oats з ягодами</div><div class="pv-meal-sub">Без готування · з вечора</div></div><hr class="pv-sep">
-<div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Зелений борщ зі щавлю + яйце</div><div class="pv-meal-sub">Плита · 25 хв</div></div><hr class="pv-sep">
-<div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Запіканка з кабачком і курячим фаршем</div><div class="pv-meal-sub">Духовка 190°C · 30 хв</div></div>
+<div class="pv-day"><div class="pv-day-header">Вівторок 19</div><div class="pv-day-body">
+<div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Overnight oats з бананом і горіхами</div><div class="pv-meal-sub">З вечора · 0 хв вранці</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Тилапія в аерогрилі з часником + кус-кус</div><div class="pv-meal-sub">Аерогриль 200°C · 15 хв</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Кріль тушкований у рукаві</div><div class="pv-meal-sub">Духовка 180°C · 1.5 год само</div></div>
 </div></div>
-<div class="pv-day"><div class="pv-day-header">Вівторок · 12</div><div class="pv-day-body">
-<div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Гречана каша на молоці</div><div class="pv-meal-sub">Плита · 10 хв</div></div><hr class="pv-sep">
-<div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Лосось на грилі + рис + салат з редиски</div><div class="pv-meal-sub">Гриль + Плита · 15 хв</div></div><hr class="pv-sep">
-<div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Шакшука зі шпинатом і фетою</div><div class="pv-meal-sub">Плита · 15 хв</div></div>
+<div class="pv-day"><div class="pv-day-header">Середа 20</div><div class="pv-day-body">
+<div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Яйця-болтунья з сиром і зеленою цибулею</div><div class="pv-meal-sub">Плита · 5 хв</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Кріль (залишки) + рис + огірок і редиска</div><div class="pv-meal-sub">Розігріти · 5 хв</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Тилапія у фользі з томатами і кропом + молода картопля</div><div class="pv-meal-sub">Духовка 190°C + Аерогриль · 20 хв</div></div>
 </div></div>
-<div class="pv-day"><div class="pv-day-header">Середа · 13</div><div class="pv-day-body">
-<div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Тост з авокадо і яйцем-пашот</div><div class="pv-meal-sub">Плита · 8 хв</div></div><hr class="pv-sep">
-<div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Стейки індички + молода капуста</div><div class="pv-meal-sub">Гриль + Плита · 15 хв</div></div><hr class="pv-sep">
-<div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Куряче рагу з томатами і перцем + рис</div><div class="pv-meal-sub">Плита · 25 хв</div></div>
+<div class="pv-day"><div class="pv-day-header">Четвер 21</div><div class="pv-day-body">
+<div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Overnight oats з тертим яблуком і корицею</div><div class="pv-meal-sub">З вечора · 0 хв вранці</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Свиняча шийка на грилі + кабачок кружечками</div><div class="pv-meal-sub">Гриль · 10 хв</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Курячі стегна в аерогрилі + рис</div><div class="pv-meal-sub">Аерогриль 190°C · 25 хв само</div></div>
 </div></div>
-<div class="pv-day"><div class="pv-day-header">Четвер · 14</div><div class="pv-day-body">
-<div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Сирники з замороженими ягодами</div><div class="pv-meal-sub">Плита · 10 хв</div></div><hr class="pv-sep">
-<div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Яловичі котлети + спаржа + картопля</div><div class="pv-meal-sub">Плита · 20 хв</div></div><hr class="pv-sep">
-<div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Хек у вершково-часниковому соусі + горошок</div><div class="pv-meal-sub">Плита · 15 хв</div></div>
+<div class="pv-day"><div class="pv-day-header">П'ятниця 22</div><div class="pv-day-body">
+<div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Яєчня з редискою і зеленою цибулею</div><div class="pv-meal-sub">Плита · 5 хв</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Яловичий стейк на грилі + картопля кубиками в аерогрилі</div><div class="pv-meal-sub">Гриль + Аерогриль · 15 хв</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Кабачкові оладки з сиром</div><div class="pv-meal-sub">Плита · 10 хв</div></div>
+</div></div>
+<div class="pv-day"><div class="pv-day-header">Субота 23</div><div class="pv-day-body">
+<div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Пшоняна каша на молоці із замороженими ягодами</div><div class="pv-meal-sub">Плита · 10 хв</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Курячі крильця в аерогрилі + молода картопля</div><div class="pv-meal-sub">Аерогриль 200°C · 25 хв само</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Свинина відбивна на грилі + гречка термосом</div><div class="pv-meal-sub">Гриль · 8 хв</div></div>
+</div></div>
+<div class="pv-day"><div class="pv-day-header">Неділя 24</div><div class="pv-day-body">
+<div class="pv-meal"><span class="pv-meal-label">🌅 Сніданок</span><div class="pv-meal-name">Французькі тости з медом</div><div class="pv-meal-sub">Плита · 8 хв</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">☀️ Обід</span><div class="pv-meal-name">Куряча грудка запечена з кабачком і молодою картоплею</div><div class="pv-meal-sub">Духовка 190°C · 40 хв само</div></div><hr class="pv-sep">
+<div class="pv-meal"><span class="pv-meal-label">🌙 Вечеря</span><div class="pv-meal-name">Фриттата з кабачком, томатами і сиром</div><div class="pv-meal-sub">Плита під кришкою · 8 хв</div></div>
 </div></div>
 </div>
-<div class="pv-footer">🌿 Щавель · Редиска · Шпинат · Кабачок · Молода капуста · Спаржа · Зелена цибуля · 🫐 Заморожені ягоди &nbsp;|&nbsp; 15–17 травня — у батьків, не готуємо</div>
+<div class="pv-footer"></div>
 </div>
 
 <!-- MODAL -->
@@ -167,21 +176,21 @@ body>*:not(#print-view){display:none!important;}
 
 <header>
 <div style="font-size:20px;margin-bottom:6px;position:relative">🍽️ 👨‍👩‍👧 🌿</div>
-<h1>Меню · 11–17 Травня 2026</h1>
-<p>Для родини · Готуємо 11–14 · <strong style="color:#A8D5B5">Натисніть на страву — відкриється рецепт</strong></p>
-<div class="season-badge">🌿 Щавель · Редиска · Шпинат · Кабачок · Молода капуста · Спаржа · 🫐 Заморожені ягоди</div>
+<h1>Меню · 19–24 Травня 2026</h1>
+<p>Для родини · Макс 10 хв активної участі · <strong style="color:#A8D5B5">Натисніть на страву — відкриється рецепт</strong></p>
+<div class="season-badge">🥒 Кабачок · Молода картопля · Редиска · Зелена цибуля · 🍓 Перша полуниця</div>
 </header>
 
 <div class="tabs">
 <button class="tab active" onclick="showSection('menu',this)">📅 Меню</button>
 <button class="tab" onclick="showSection('shop',this)">🛒 Покупки</button>
-<button class="tab-print" onclick="printView()">🖨️ Друк</button>
+<button class="tab-print" onclick="printA5()">🖨️ Друк</button>
 </div>
 
 <div class="content">
 <div class="section active" id="section-menu">
 
-<div class="note-box" style="border-left:3px solid var(--orange);">
+<div class="note-box" style="margin-bottom:14px;border-left:3px solid var(--orange);">
 <strong>🎯 Щоденні цілі КБЖУ:</strong><br>
 <strong style="color:var(--brown)">👨 Чоловік (93 кг, набір м'язів):</strong> ~3 400–3 500 ккал · Б:170–200г · Ж:90–105г · В:380–420г<br>
 <strong style="color:var(--brown)">👩 Жінка:</strong> ~1 850–1 950 ккал · Б:105–125г · Ж:55–65г · В:200–220г<br>
@@ -189,59 +198,83 @@ body>*:not(#print-view){display:none!important;}
 <span style="color:var(--muted)">💡 КБЖУ під кожною стравою — тільки страви з меню. Різницю закривайте снеками: горіхи, йогурт, сир, фрукти, протеїновий коктейль.</span>
 </div>
 
-<div class="note-box">🌿 <strong>Середина травня в Києві:</strong> щавель, редиска, шпинат, кабачок, молода капуста, спаржа, зелена цибуля, молода картопля. Жодна страва не повторюється з попередніх тижнів. <strong>Клацніть на назву страви</strong> щоб відкрити повний рецепт.</div>
-
-<div class="away-box">🏠 <strong>15–17 травня (чт–нд) — у батьків в гостях.</strong> Не готуємо, продукти не купуємо. Список покупок тільки на 4 дні (11–14 травня).</div>
-
-<!-- ПОНЕДІЛОК -->
-<div class="day-card">
-<div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Понеділок · 11 травня</div><div class="day-subtitle">Overnight oats · Щавель · Кабачок</div></div><span class="chevron">▼</span></div>
-<div class="day-body">
-<div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('overnight_oats')">Вівсянка overnight oats з ягодами <span class="meal-tech">Без готування</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Готується з вечора — зранку тільки дістати з холодильника. 2 хв ранком</div><div class="meal-baby">💡 Малюк: без меду, ягоди розм'яти — каша стане кольоровою</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">280 ккал</span><span class="kbju-macro">Б:9 Ж:7 В:48</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">390 ккал</span><span class="kbju-macro">Б:13 Ж:10 В:66</span></div></div>
-<div class="divider"></div>
-<div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('green_borscht')">🌿 Зелений борщ зі щавлю + варене яйце <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">На готовому бульйоні: картопля 10 хв, зажарка 3 хв, щавель 2 хв. Яйце половинкою + ложка сметани</div><div class="meal-seasonal">🌿 Щавель — перший тижень сезону, травень</div><div class="meal-baby">💡 Малюк: окрема тарілочка без зажарки, щавель помірно (кислий)</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">350 ккал</span><span class="kbju-macro">Б:18 Ж:14 В:35</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">490 ккал</span><span class="kbju-macro">Б:25 Ж:20 В:48</span></div></div>
-<div class="divider"></div>
-<div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('zucchini_casserole')">🌿 Запіканка з кабачком, курячим фаршем і сиром <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Кабачок натерти+віджати, фарш сирий + яйце + сіль, сир зверху. Духовка 190°C, 30 хв само</div><div class="meal-seasonal">🌿 Кабачок — перший сезон, травень</div><div class="meal-baby">💡 Малюк: виходить м'яка запіканка — легко розім'яти, ідеально</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">420 ккал</span><span class="kbju-macro">Б:28 Ж:24 В:18</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">580 ккал</span><span class="kbju-macro">Б:38 Ж:34 В:24</span></div></div>
-<div class="day-totals"><div class="dt-title">📊 Підсумок дня</div><div class="dt-row"><div class="dt-person">👩 <strong>1050 ккал</strong> Б:55г Ж:45г В:101г</div><span class="dt-sep">|</span><div class="dt-person">👨 <strong>1460 ккал</strong> Б:76г Ж:64г В:138г</div></div><div class="dt-note">💡 Понеділок — свіжий старт, щавель сезон. Жінці ще ~850 ккал. Чоловіку ще ~1940 ккал зі снеків і протеїну.</div></div>
-</div>
-</div>
+<div class="note-box">🌿 <strong>Кінець травня в Києві:</strong> кабачок, молода картопля, редиска, тепличний огірок, зелена цибуля, перша полуниця. Тижень починається вівторком — вдома з 19 по 24. <strong>Overnight oats у вт і чт — готувати з вечора напередодні!</strong> Клацніть на назву страви щоб відкрити повний рецепт.</div>
 
 <!-- ВІВТОРОК -->
 <div class="day-card">
-<div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Вівторок · 12 травня</div><div class="day-subtitle">Гречана · Лосось · Шакшука</div></div><span class="chevron">▼</span></div>
+<div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Вівторок · 19 травня</div><div class="day-subtitle">Overnight oats · Тилапія · Кріль</div></div><span class="chevron">▼</span></div>
 <div class="day-body">
-<div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('buckwheat_milk')">Гречана каша на молоці <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Гречку промити, молоко 1:2.5 + щіпка солі. Кип'ятити 8 хв на малому. Масло наприкінці</div><div class="meal-baby">💡 Малюк: без солі, можна трохи розтерти — гречка корисна з дитинства</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">290 ккал</span><span class="kbju-macro">Б:11 Ж:7 В:48</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">400 ккал</span><span class="kbju-macro">Б:15 Ж:10 В:65</span></div></div>
+<div class="meal"><div class="meal-label">🌅 Сніданок <span class="overnight-badge">🌙 готується з вечора</span></div><button class="meal-name-btn" onclick="openRecipe('overnight_oats_banana')">Overnight oats з бананом і горіхами <span class="recipe-icon">📖</span></button><div class="meal-note">Ввечері в пн: пластівці + молоко/йогурт + мед → в холодильник. Вранці: банан + горіхи зверху. 0 хв</div><div class="meal-baby">💡 Малюк: без меду і горіхів (до 3 р горіхи — ризик). Банан розім'яти у кашу</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">280 ккал</span><span class="kbju-macro">Б:8 Ж:8 В:48</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">380 ккал</span><span class="kbju-macro">Б:11 Ж:10 В:66</span></div></div>
 <div class="divider"></div>
-<div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('salmon_rice_radish')">🌿 Лосось на прижимному грилі + рис + салат з редиски і огірка <span class="meal-tech">Гриль + Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Лосось на гриль 8 хв. Рис 1:2 вода, 12 хв паралельно. Редиска + огірок + зелена цибуля + олія</div><div class="meal-seasonal">🌿 Редиска і зелена цибуля — свіжі, травень</div><div class="meal-baby">💡 Малюк: лосось без шкіри, перевірити кістки, рис без солі</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">520 ккал</span><span class="kbju-macro">Б:34 Ж:22 В:46</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">720 ккал</span><span class="kbju-macro">Б:48 Ж:30 В:64</span></div></div>
+<div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('tilapia_airfryer_couscous')">Тилапія в аерогрилі з часником і лимоном + кус-кус <span class="meal-tech">Аерогриль</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Тилапія 200°C, 12–15 хв. Кус-кус залити окропом 1:1.5, накрити на 10 хв</div><div class="meal-baby">💡 Малюк: тилапія без кісток і дуже ніжна — перевірити, розім'яти виделкою. Кус-кус з бульйоном</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">450 ккал</span><span class="kbju-macro">Б:38 Ж:10 В:48</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">630 ккал</span><span class="kbju-macro">Б:54 Ж:14 В:66</span></div></div>
 <div class="divider"></div>
-<div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('shakshuka_spinach')">🌿 Шакшука зі шпинатом і фетою <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Цибуля+часник 3 хв → томати конс.+паприка 5 хв → шпинат 1 хв → 4 яйця вбити → фета → кришка 6 хв</div><div class="meal-seasonal">🌿 Шпинат — молодий, травневий</div><div class="meal-baby">💡 Малюк: яйця добре прогріти, фету не додавати (солона), соус з томатів дуже смачний</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">340 ккал</span><span class="kbju-macro">Б:22 Ж:22 В:14</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">470 ккал</span><span class="kbju-macro">Б:30 Ж:30 В:18</span></div></div>
-<div class="day-totals"><div class="dt-title">📊 Підсумок дня</div><div class="dt-row"><div class="dt-person">👩 <strong>1150 ккал</strong> Б:67г Ж:51г В:108г</div><span class="dt-sep">|</span><div class="dt-person">👨 <strong>1590 ккал</strong> Б:93г Ж:70г В:147г</div></div><div class="dt-note">💡 Вівторок — риба + яйця. Жінці ще ~750 ккал. Чоловіку ще ~1810 ккал.</div></div>
+<div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('rabbit_sleeve_oven')">Кріль тушкований у рукаві з морквою і цибулею <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Рукав + морква + цибуля + лавровий лист. Духовка 180°C, 1.5 год. Активної участі — 7 хв</div><div class="meal-baby">💡 Малюк: кріль дієтичний і ніжний — ідеально. М'ясо дрібно нарізати, підлива зверху</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">360 ккал</span><span class="kbju-macro">Б:32 Ж:14 В:18</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">500 ккал</span><span class="kbju-macro">Б:46 Ж:20 В:24</span></div></div>
+<div class="day-totals"><div class="dt-title">📊 Підсумок дня</div><div class="dt-row"><div class="dt-person">👩 <strong>1090 ккал</strong> Б:78г Ж:32г В:114г</div><span class="dt-sep">|</span><div class="dt-person">👨 <strong>1510 ккал</strong> Б:111г Ж:44г В:156г</div></div><div class="dt-note">💡 Жінці ще ~810 ккал зі снеків. Чоловіку ще ~1890 ккал (протеїн + снеки).</div></div>
 </div>
 </div>
 
 <!-- СЕРЕДА -->
 <div class="day-card">
-<div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Середа · 13 травня</div><div class="day-subtitle">Авокадо · Індичка · Куряче рагу</div></div><span class="chevron">▼</span></div>
+<div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Середа · 20 травня</div><div class="day-subtitle">Яйця-болтунья · Кріль залишки · Тилапія у фользі</div></div><span class="chevron">▼</span></div>
 <div class="day-body">
-<div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('avocado_toast_poached')">Тост з авокадо і яйцем-пашот <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Хліб підсмажити. Авокадо+лимон розім'яти. Яйце-пашот в окропі 3 хв. Черрі половинками зверху</div><div class="meal-baby">💡 Малюк: авокадо з хлібом без яйця-пашот (складно контролювати прожарку), яйце некруто варене окремо</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">340 ккал</span><span class="kbju-macro">Б:14 Ж:22 В:22</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">470 ккал</span><span class="kbju-macro">Б:19 Ж:30 В:30</span></div></div>
+<div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('scrambled_eggs_cheese_scallion')">Яйця-болтунья з сиром і зеленою цибулею <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Постійно мішати на малому вогні — яйця кремові. Сир тертий зверху, цибуля свіжа. 5 хв</div><div class="meal-seasonal">🌿 Зелена цибуля — свіжа, травень</div><div class="meal-baby">💡 Малюк: яйця добре прогріти, цибулі менше</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">280 ккал</span><span class="kbju-macro">Б:18 Ж:20 В:4</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">380 ккал</span><span class="kbju-macro">Б:25 Ж:26 В:6</span></div></div>
 <div class="divider"></div>
-<div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('turkey_cabbage')">🌿 Стейки індички на прижимному грилі + молода капуста тушкована <span class="meal-tech">Гриль + Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Індичка на гриль 6+6 хв. Капуста нашаткована + цибуля+морква+ложка томату, тушити 12 хв</div><div class="meal-seasonal">🌿 Молода капуста — перший сезон, травень</div><div class="meal-baby">💡 Малюк: капусту добре протушити до м'якості, індичку нарізати дрібно</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">470 ккал</span><span class="kbju-macro">Б:42 Ж:14 В:30</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">660 ккал</span><span class="kbju-macro">Б:60 Ж:20 В:42</span></div></div>
+<div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('rabbit_rice_salad')">Кріль (залишки) + рис + свіжий огірок і редиска <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Рис відварити або термосом. Кроля розігріти 5 хв. Огірок + редиска свіжі збоку</div><div class="meal-seasonal">🌿 Редиска і тепличний огірок — сезон</div><div class="meal-baby">💡 Малюк: кріль дрібно, рис добре розварити, огірок без шкірки</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">430 ккал</span><span class="kbju-macro">Б:28 Ж:12 В:44</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">590 ккал</span><span class="kbju-macro">Б:40 Ж:16 В:62</span></div></div>
 <div class="divider"></div>
-<div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('chicken_ragu')">Куряче рагу з томатами і болгарським перцем + рис басматі <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Цибуля+часник 3 хв → курка кубиками 3 хв → перець смужками 2 хв → томати конс.+паприка 15 хв. Рис паралельно</div><div class="meal-baby">💡 Малюк: м'яке м'ясо в соусі + рис — ідеально, без гострого</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">480 ккал</span><span class="kbju-macro">Б:36 Ж:14 В:52</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">680 ккал</span><span class="kbju-macro">Б:50 Ж:20 В:72</span></div></div>
-<div class="day-totals"><div class="dt-title">📊 Підсумок дня</div><div class="dt-row"><div class="dt-person">👩 <strong>1290 ккал</strong> Б:92г Ж:50г В:104г</div><span class="dt-sep">|</span><div class="dt-person">👨 <strong>1810 ккал</strong> Б:129г Ж:70г В:144г</div></div><div class="dt-note">💡 Середа — рекорд по білку! Жінці ще ~610 ккал. Чоловіку ще ~1590 ккал.</div></div>
+<div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('tilapia_foil_potato')">Тилапія у фользі з томатами і кропом + молода картопля в аерогрилі <span class="meal-tech">Духовка + Аерогриль</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Тилапія + помідор + кріп у фольгу. Духовка 190°C, 20 хв. Молода картопля паралельно в аерогриль 200°C, 20 хв</div><div class="meal-seasonal">🌿 Молода картопля — кінець травня!</div><div class="meal-baby">💡 Малюк: тилапія ніжна і без кісток — ідеальна рибна вечеря</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">370 ккал</span><span class="kbju-macro">Б:30 Ж:8 В:40</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">510 ккал</span><span class="kbju-macro">Б:42 Ж:11 В:56</span></div></div>
+<div class="day-totals"><div class="dt-title">📊 Підсумок дня</div><div class="dt-row"><div class="dt-person">👩 <strong>1080 ккал</strong> Б:76г Ж:40г В:88г</div><span class="dt-sep">|</span><div class="dt-person">👨 <strong>1480 ккал</strong> Б:107г Ж:53г В:124г</div></div><div class="dt-note">💡 Середа — день риби і легкої їжі. Жінці ще ~820 ккал. Чоловіку ще ~1920 ккал.</div></div>
 </div>
 </div>
 
 <!-- ЧЕТВЕР -->
 <div class="day-card">
-<div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Четвер · 14 травня</div><div class="day-subtitle">Сирники · Котлети · Хек · Останній день вдома</div></div><span class="chevron">▼</span></div>
+<div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Четвер · 21 травня</div><div class="day-subtitle">Overnight oats · Свиняча шийка · Курячі стегна</div></div><span class="chevron">▼</span></div>
 <div class="day-body">
-<div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('cottage_pancakes')">Сирники з замороженими ягодами <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Творог 400г + яйце + 3 ст.л. борошна + 1 ст.л. цукру. Сформувати кружечки, смажити 3–4 хв з кожного боку. Ягоди зверху</div><div class="meal-baby">💡 Малюк: ідеальна страва — м'які, без цукру у дитячу порцію, ягоди розм'яти</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">280 ккал</span><span class="kbju-macro">Б:24 Ж:8 В:24</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">390 ккал</span><span class="kbju-macro">Б:34 Ж:11 В:34</span></div></div>
+<div class="meal"><div class="meal-label">🌅 Сніданок <span class="overnight-badge">🌙 готується з вечора</span></div><button class="meal-name-btn" onclick="openRecipe('overnight_oats_apple')">Overnight oats з тертим яблуком і корицею <span class="recipe-icon">📖</span></button><div class="meal-note">Ввечері в ср: пластівці + кефір/молоко + кориця → в холодильник. Вранці: яблуко натерти зверху. 0 хв</div><div class="meal-baby">💡 Малюк: без кориці, яблуко розім'яти у кашу — природна солодкість</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">270 ккал</span><span class="kbju-macro">Б:7 Ж:7 В:48</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">370 ккал</span><span class="kbju-macro">Б:10 Ж:9 В:66</span></div></div>
 <div class="divider"></div>
-<div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('beef_cutlets_asparagus')">🌿 Яловичі котлети + спаржа на пару + варена картопля <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Котлети (фарш+яйце+цибуля) смажити 5+5 хв під кришкою. Спаржу на пару 6 хв. Картопля паралельно</div><div class="meal-seasonal">🌿 Спаржа — травень, пік сезону!</div><div class="meal-baby">💡 Малюк: котлету розім'яти, спаржу добре проварити і нарізати, картоплю розім'яти</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">510 ккал</span><span class="kbju-macro">Б:34 Ж:22 В:42</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">720 ккал</span><span class="kbju-macro">Б:48 Ж:32 В:60</span></div></div>
+<div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('pork_neck_zucchini_grill')">Свиняча шийка на прижимному грилі + кабачок кружечками <span class="meal-tech">Гриль</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Шийку нарізати стейками. Гриль: шийка 5+5 хв, кабачок паралельно 3+3 хв. Разом 10 хв</div><div class="meal-seasonal">🌿 Кабачок — перший травневий сезон</div><div class="meal-baby">💡 Малюк: шийку нарізати дуже дрібно, кабачок м'який після грилю</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">490 ккал</span><span class="kbju-macro">Б:34 Ж:28 В:12</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">690 ккал</span><span class="kbju-macro">Б:48 Ж:38 В:16</span></div></div>
 <div class="divider"></div>
-<div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('hake_cream_sauce')">Хек у вершково-часниковому соусі + зелений горошок <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Хек в борошні — 3+3 хв. Витягнути. Часник 30 сек, вершки 200 мл, 3 хв. Рибу повернути. Горошок (зам.) 5 хв</div><div class="meal-baby">💡 Малюк: хек — ніжна риба, перевірити кістки, у вершковому соусі дуже смачно</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">360 ккал</span><span class="kbju-macro">Б:32 Ж:18 В:14</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">500 ккал</span><span class="kbju-macro">Б:46 Ж:25 В:20</span></div></div>
-<div class="day-totals"><div class="dt-title">📊 Підсумок дня</div><div class="dt-row"><div class="dt-person">👩 <strong>1150 ккал</strong> Б:90г Ж:48г В:80г</div><span class="dt-sep">|</span><div class="dt-person">👨 <strong>1610 ккал</strong> Б:128г Ж:68г В:114г</div></div><div class="dt-note">💡 Останній день вдома. Завтра — у батьків 🏠. Жінці ще ~750 ккал. Чоловіку ще ~1790 ккал.</div></div>
+<div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('chicken_thighs_rice')">Курячі стегна в аерогрилі з паприкою + рис <span class="meal-tech">Аерогриль + Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Стегна натерти паприкою + сіль. Аерогриль 190°C, 25 хв. Рис термосом паралельно</div><div class="meal-baby">💡 Малюк: м'ясо без шкіри, дрібно нарізати — стегно завжди соковите</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">430 ккал</span><span class="kbju-macro">Б:30 Ж:18 В:38</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">610 ккал</span><span class="kbju-macro">Б:44 Ж:25 В:54</span></div></div>
+<div class="day-totals"><div class="dt-title">📊 Підсумок дня</div><div class="dt-row"><div class="dt-person">👩 <strong>1190 ккал</strong> Б:71г Ж:53г В:98г</div><span class="dt-sep">|</span><div class="dt-person">👨 <strong>1670 ккал</strong> Б:102г Ж:72г В:136г</div></div><div class="dt-note">💡 Четвер — м'ясний день. Жінці ще ~710 ккал. Чоловіку ще ~1730 ккал.</div></div>
+</div>
+</div>
+
+<!-- П'ЯТНИЦЯ -->
+<div class="day-card">
+<div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">П'ятниця · 22 травня</div><div class="day-subtitle">Яєчня · Яловичий стейк · Кабачкові оладки</div></div><span class="chevron">▼</span></div>
+<div class="day-body">
+<div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('fried_eggs_radish_scallion')">Яєчня з редискою і зеленою цибулею <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Яєчня класична, редиска і цибуля свіжими зверху або збоку. 5 хв</div><div class="meal-seasonal">🌿 Редиска + зелена цибуля — сезонна пара</div><div class="meal-baby">💡 Малюк: яйця добре прожарити, редиску натерти дрібно</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">250 ккал</span><span class="kbju-macro">Б:14 Ж:18 В:6</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">350 ккал</span><span class="kbju-macro">Б:20 Ж:24 В:8</span></div></div>
+<div class="divider"></div>
+<div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('beef_steak_potato')">Яловичий стейк на прижимному грилі + картопля кубиками в аерогрилі <span class="meal-tech">Гриль + Аерогриль</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Картопля в аерогриль першою — 200°C, 20 хв. Стейк на гриль 5+5 хв. Відпочити 3 хв</div><div class="meal-baby">💡 Малюк: яловичину нарізати дрібно, картоплю розім'яти</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">520 ккал</span><span class="kbju-macro">Б:38 Ж:22 В:40</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">730 ккал</span><span class="kbju-macro">Б:54 Ж:30 В:56</span></div></div>
+<div class="divider"></div>
+<div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('zucchini_fritters')">Кабачкові оладки з тертим сиром <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Кабачок тертий + яйце + борошно + сир. Відтиснути воду — важливо! Смажити по 3 хв кожна. 10 хв</div><div class="meal-seasonal">🌿 Кабачок — сезон</div><div class="meal-baby">💡 Малюк: оладки м'які — ідеально. Сметана або йогурт зверху</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">320 ккал</span><span class="kbju-macro">Б:12 Ж:16 В:30</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">430 ккал</span><span class="kbju-macro">Б:16 Ж:20 В:42</span></div></div>
+<div class="day-totals"><div class="dt-title">📊 Підсумок дня</div><div class="dt-row"><div class="dt-person">👩 <strong>1090 ккал</strong> Б:64г Ж:56г В:76г</div><span class="dt-sep">|</span><div class="dt-person">👨 <strong>1510 ккал</strong> Б:90г Ж:74г В:106г</div></div><div class="dt-note">💡 П'ятниця — яловичина і легка вечеря. Жінці ще ~810 ккал. Чоловіку ще ~1890 ккал.</div></div>
+</div>
+</div>
+
+<!-- СУБОТА -->
+<div class="day-card">
+<div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Субота · 23 травня</div><div class="day-subtitle">Пшоняна каша · Крильця · Свинина відбивна</div></div><span class="chevron">▼</span></div>
+<div class="day-body">
+<div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('millet_porridge_berries')">Пшоняна каша на молоці із замороженими ягодами <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Пшоно промити гарячою водою. Молоко + вода + пшоно, 10 хв. Ягоди зверху при подачі</div><div class="meal-baby">💡 Малюк: пшоняна каша ідеальна — гладенька, солодкувата, ягоди охолоджують порцію</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">270 ккал</span><span class="kbju-macro">Б:6 Ж:6 В:52</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">370 ккал</span><span class="kbju-macro">Б:9 Ж:8 В:72</span></div></div>
+<div class="divider"></div>
+<div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('chicken_wings_potato')">Курячі крильця в аерогрилі + молода картопля <span class="meal-tech">Аерогриль</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Крильця + паприка + сіль. Аерогриль 200°C, 25 хв. Картопля цілою поряд — не чистити</div><div class="meal-seasonal">🌿 Молода картопля — шкірка їстівна</div><div class="meal-baby">💡 Малюк: м'ясо зняти з кістки, дрібно. Картоплю розім'яти</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">490 ккал</span><span class="kbju-macro">Б:32 Ж:26 В:26</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">690 ккал</span><span class="kbju-macro">Б:46 Ж:36 В:36</span></div></div>
+<div class="divider"></div>
+<div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('pork_chop_buckwheat')">Свинина відбивна на прижимному грилі + гречка термосом <span class="meal-tech">Гриль + Термос</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Гречка в термос зі окропом 1:2 за 20 хв до їжі. Відбивні на гриль 5+5 хв. Разом 8 хв</div><div class="meal-baby">💡 Малюк: відбивну нарізати дрібно, гречку без солі або дуже трохи</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">440 ккал</span><span class="kbju-macro">Б:30 Ж:20 В:36</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">620 ккал</span><span class="kbju-macro">Б:44 Ж:28 В:50</span></div></div>
+<div class="day-totals"><div class="dt-title">📊 Підсумок дня</div><div class="dt-row"><div class="dt-person">👩 <strong>1200 ккал</strong> Б:68г Ж:52г В:114г</div><span class="dt-sep">|</span><div class="dt-person">👨 <strong>1680 ккал</strong> Б:99г Ж:72г В:158г</div></div><div class="dt-note">💡 Субота — вихідний. Жінці ще ~700 ккал. Чоловіку ще ~1720 ккал зі снеків і протеїну.</div></div>
+</div>
+</div>
+
+<!-- НЕДІЛЯ -->
+<div class="day-card">
+<div class="day-header" onclick="toggleDay(this)"><div><div class="day-title">Неділя · 24 травня</div><div class="day-subtitle">Французькі тости · Грудка запечена · Фриттата</div></div><span class="chevron">▼</span></div>
+<div class="day-body">
+<div class="meal"><div class="meal-label">🌅 Сніданок</div><button class="meal-name-btn" onclick="openRecipe('french_toast')">Французькі тости з медом <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Хліб + яйце + молоко → вмочити → смажити 3 хв з кожного боку. 8 хв. Мед або ягоди зверху</div><div class="meal-baby">💡 Малюк: без меду (до 1 р), можна з ягодами або просто так — дітям обожнюють</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">320 ккал</span><span class="kbju-macro">Б:12 Ж:14 В:40</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">440 ккал</span><span class="kbju-macro">Б:16 Ж:18 В:56</span></div></div>
+<div class="divider"></div>
+<div class="meal"><div class="meal-label">☀️ Обід</div><button class="meal-name-btn" onclick="openRecipe('chicken_breast_zucchini_potato')">Куряча грудка запечена з кабачком і молодою картоплею <span class="meal-tech">Духовка</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Все на одне деко: грудка + кабачок + картопля + олія + паприка. Духовка 190°C, 40 хв само</div><div class="meal-seasonal">🌿 Кабачок + молода картопля — обидва в сезоні</div><div class="meal-baby">💡 Малюк: все м'яке після духовки — грудку розтягнути волокнами, картоплю розім'яти</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">460 ккал</span><span class="kbju-macro">Б:38 Ж:12 В:42</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">650 ккал</span><span class="kbju-macro">Б:54 Ж:16 В:60</span></div></div>
+<div class="divider"></div>
+<div class="meal"><div class="meal-label">🌙 Вечеря</div><button class="meal-name-btn" onclick="openRecipe('frittata_zucchini')">Фриттата з кабачком, томатами і твердим сиром <span class="meal-tech">Плита</span> <span class="recipe-icon">📖</span></button><div class="meal-note">Кабачок + помідор на пан 3 хв. Яйця вилити зверху. Накрити, 6–8 хв. Сир зверху. Не мішати!</div><div class="meal-seasonal">🌿 Кабачок сезонний</div><div class="meal-baby">💡 Малюк: фриттата рівна і зручна для нарізання — дітям подобається "запіканка"</div><div class="meal-kbju"><span class="kbju-person">👩</span><span class="kbju-kcal">300 ккал</span><span class="kbju-macro">Б:20 Ж:20 В:8</span><span class="kbju-bar">|</span><span class="kbju-person">👨</span><span class="kbju-kcal">410 ккал</span><span class="kbju-macro">Б:28 Ж:26 В:10</span></div></div>
+<div class="day-totals"><div class="dt-title">📊 Підсумок дня</div><div class="dt-row"><div class="dt-person">👩 <strong>1080 ккал</strong> Б:70г Ж:46г В:90г</div><span class="dt-sep">|</span><div class="dt-person">👨 <strong>1500 ккал</strong> Б:98г Ж:60г В:126г</div></div><div class="dt-note">💡 Неділя — легкий і відновний день. Жінці ще ~820 ккал. Чоловіку ще ~1900 ккал.</div></div>
 </div>
 </div>
 
@@ -249,7 +282,7 @@ body>*:not(#print-view){display:none!important;}
 
 <!-- ПОКУПКИ -->
 <div class="section" id="section-shop">
-<div class="note-box"><strong>Натисніть на продукт</strong> — щоб позначити як куплений ✅ &nbsp;🌿 — сезонні травневі продукти. Список тільки на 4 дні (11–14 травня). Стан зберігається у Google Sheets.</div>
+<div class="note-box"><strong>Натисніть на продукт</strong> — щоб позначити як куплений ✅ &nbsp;🌿 — сезонні травневі продукти. Стан зберігається у Google Sheets.</div>
 <div class="sync-bar">
 <span class="sync-dot" id="syncDot"></span>
 <span class="sync-status" id="syncStatus">Підключення до Google Sheets…</span>
@@ -257,146 +290,180 @@ body>*:not(#print-view){display:none!important;}
 </div>
 
 <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🥩</span><span class="shop-cat-title">М'ясо та риба</span></div><div class="shop-items">
-<div class="shop-item" data-key="Kuryachyi_farsh_500g" onclick="toggleItem(this)"><span class="cb">☐</span> Курячий фарш — 500 г <span style="color:var(--muted)">(пн - запіканка)</span></div>
-<div class="shop-item" data-key="Kuryache_fіle_500g" onclick="toggleItem(this)"><span class="cb">☐</span> Куряче філе — 500 г <span style="color:var(--muted)">(ср - рагу)</span></div>
-<div class="shop-item" data-key="Fіle_indychky_600g" onclick="toggleItem(this)"><span class="cb">☐</span> Філе індички — 600 г <span style="color:var(--muted)">(ср - стейки)</span></div>
-<div class="shop-item" data-key="Yalovychyi_farsh_500g" onclick="toggleItem(this)"><span class="cb">☐</span> Яловичий фарш — 500 г <span style="color:var(--muted)">(чт - котлети)</span></div>
-<div class="shop-item" data-key="Losos_steiky_500g" onclick="toggleItem(this)"><span class="cb">☐</span> Лосось (стейки) — 500 г <span style="color:var(--muted)">(вт)</span></div>
-<div class="shop-item" data-key="Fіle_kheka_500g" onclick="toggleItem(this)"><span class="cb">☐</span> Філе хека — 500 г <span style="color:var(--muted)">(чт)</span></div>
+<div class="shop-item" data-key="Tilapiya_file_500g" onclick="toggleItem(this)"><span class="cb">☐</span> Тилапія філе — 500 г <span style="color:var(--muted)">(вт обід + ср вечеря)</span></div>
+<div class="shop-item" data-key="Kril_1sht" onclick="toggleItem(this)"><span class="cb">☐</span> Кріль — 1 шт <span style="color:var(--muted)">(вт вечеря + ср обід залишки)</span></div>
+<div class="shop-item" data-key="Svynyacha_shyika_600g" onclick="toggleItem(this)"><span class="cb">☐</span> Свиняча шийка — 600 г <span style="color:var(--muted)">(чт обід)</span></div>
+<div class="shop-item" data-key="Kuryachi_stegna_800g" onclick="toggleItem(this)"><span class="cb">☐</span> Курячі стегна — 800 г <span style="color:var(--muted)">(чт вечеря)</span></div>
+<div class="shop-item" data-key="Yalovychyna_steiky_600g" onclick="toggleItem(this)"><span class="cb">☐</span> Яловичина (стейки) — 600 г <span style="color:var(--muted)">(пт обід)</span></div>
+<div class="shop-item" data-key="Kuryachi_kryltsya_800g" onclick="toggleItem(this)"><span class="cb">☐</span> Курячі крильця — 800 г <span style="color:var(--muted)">(сб обід)</span></div>
+<div class="shop-item" data-key="Svynyna_vidbyv_600g" onclick="toggleItem(this)"><span class="cb">☐</span> Свинина (відбивні) — 600 г <span style="color:var(--muted)">(сб вечеря)</span></div>
+<div class="shop-item" data-key="Kuryacha_grudka_500g" onclick="toggleItem(this)"><span class="cb">☐</span> Куряча грудка — 500 г <span style="color:var(--muted)">(нд обід)</span></div>
 </div></div>
 
 <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🌿</span><span class="shop-cat-title">Сезонні овочі та зелень</span></div><div class="shop-items">
-<div class="shop-item" data-key="Shchavel_1puchok" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Щавель — 1 пучок <span style="color:var(--muted)">(пн - борщ)</span></div>
-<div class="shop-item" data-key="Redyska_1puchok" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Редиска — 1 пучок <span style="color:var(--muted)">(вт - салат)</span></div>
-<div class="shop-item" data-key="Shpynat_100g" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Шпинат — 100 г <span style="color:var(--muted)">(вт - шакшука)</span></div>
-<div class="shop-item" data-key="Kabachok_2sht" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Кабачок — 2 шт <span style="color:var(--muted)">(пн - запіканка)</span></div>
-<div class="shop-item" data-key="Moloda_kapusta_1sht" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Молода капуста — 1 невелика <span style="color:var(--muted)">(ср)</span></div>
-<div class="shop-item" data-key="Sparsha_300g" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Спаржа — 300 г <span style="color:var(--muted)">(чт)</span></div>
-<div class="shop-item" data-key="Zelena_tsybulya_1puchok" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Зелена цибуля — 1 пучок <span style="color:var(--muted)">(вт - салат)</span></div>
+<div class="shop-item" data-key="Kabachok_6sht" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Кабачок — 6 шт <span style="color:var(--muted)">(чт, пт, нд)</span></div>
+<div class="shop-item" data-key="Moloda_kartoplya_1kg" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Молода картопля — 1 кг <span style="color:var(--muted)">(ср вечеря, сб, нд)</span></div>
+<div class="shop-item" data-key="Redyska_1puchok" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Редиска — 1 пучок <span style="color:var(--muted)">(пт, ср обід)</span></div>
+<div class="shop-item" data-key="Zelena_tsybulya_2puchky" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Зелена цибуля — 2 пучки <span style="color:var(--muted)">(ср, пт)</span></div>
+<div class="shop-item" data-key="Krip_1puchok" onclick="toggleItem(this)"><span class="cb">☐</span><span class="seasonal-dot">🌿</span> Кріп — 1 пучок <span style="color:var(--muted)">(ср вечеря)</span></div>
 </div></div>
 
 <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🥦</span><span class="shop-cat-title">Решта овочів</span></div><div class="shop-items">
-<div class="shop-item" data-key="Kartoplya_500g" onclick="toggleItem(this)"><span class="cb">☐</span> Картопля — 500 г <span style="color:var(--muted)">(пн борщ, чт)</span></div>
-<div class="shop-item" data-key="Pomidory_cheri_200g" onclick="toggleItem(this)"><span class="cb">☐</span> Помідори черрі — 200 г <span style="color:var(--muted)">(ср - тост)</span></div>
-<div class="shop-item" data-key="Bolgarskyi_perets_2sht" onclick="toggleItem(this)"><span class="cb">☐</span> Болгарський перець — 2 шт <span style="color:var(--muted)">(ср - рагу)</span></div>
-<div class="shop-item" data-key="Ogirky_1sht" onclick="toggleItem(this)"><span class="cb">☐</span> Огірок — 1 шт <span style="color:var(--muted)">(вт - салат)</span></div>
-<div class="shop-item" data-key="Avokado_2sht" onclick="toggleItem(this)"><span class="cb">☐</span> Авокадо — 2 шт <span style="color:var(--muted)">(ср)</span></div>
-<div class="shop-item" data-key="Tsybulya_4sht" onclick="toggleItem(this)"><span class="cb">☐</span> Цибуля — 4 шт</div>
-<div class="shop-item" data-key="Morkva_2sht" onclick="toggleItem(this)"><span class="cb">☐</span> Морква — 2 шт</div>
+<div class="shop-item" data-key="Pomidory_3sht" onclick="toggleItem(this)"><span class="cb">☐</span> Помідори — 3 шт <span style="color:var(--muted)">(ср вечеря, нд фриттата)</span></div>
+<div class="shop-item" data-key="Kartoplya_600g" onclick="toggleItem(this)"><span class="cb">☐</span> Картопля — 600 г <span style="color:var(--muted)">(пт обід)</span></div>
+<div class="shop-item" data-key="Morkva_3sht" onclick="toggleItem(this)"><span class="cb">☐</span> Морква — 3 шт <span style="color:var(--muted)">(вт кріль)</span></div>
+<div class="shop-item" data-key="Tsybulya_4sht" onclick="toggleItem(this)"><span class="cb">☐</span> Цибуля — 4 шт <span style="color:var(--muted)">(вт кріль)</span></div>
 <div class="shop-item" data-key="Chasnik_1golovka" onclick="toggleItem(this)"><span class="cb">☐</span> Часник — 1 головка</div>
-<div class="shop-item" data-key="Limon_1sht" onclick="toggleItem(this)"><span class="cb">☐</span> Лимон — 1 шт <span style="color:var(--muted)">(ср - авокадо)</span></div>
+<div class="shop-item" data-key="Ogirky_2sht" onclick="toggleItem(this)"><span class="cb">☐</span> Огірки тепличні — 2 шт <span style="color:var(--muted)">(ср обід)</span></div>
 </div></div>
 
-<div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🫙</span><span class="shop-cat-title">Консерви та заморожені</span></div><div class="shop-items">
-<div class="shop-item" data-key="Tomaty_konservovani_2banky" onclick="toggleItem(this)"><span class="cb">☐</span> Томати консервовані — 2 банки <span style="color:var(--muted)">(вт шакшука, ср рагу)</span></div>
-<div class="shop-item" data-key="Zelenyi_gorokhok_zam_200g" onclick="toggleItem(this)"><span class="cb">☐</span> Зелений горошок заморожений — 200 г <span style="color:var(--muted)">(чт)</span></div>
-<div class="shop-item" data-key="Yagody_zamorzhenyi_miks_200g" onclick="toggleItem(this)"><span class="cb">☐</span>🫐 Ягоди заморожені мікс — 300 г <span style="color:var(--muted)">(пн overnight oats, чт сирники)</span></div>
+<div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🍎</span><span class="shop-cat-title">Фрукти</span></div><div class="shop-items">
+<div class="shop-item" data-key="Banany_3sht" onclick="toggleItem(this)"><span class="cb">☐</span> Банани — 3 шт <span style="color:var(--muted)">(вт overnight)</span></div>
+<div class="shop-item" data-key="Yabluka_3sht" onclick="toggleItem(this)"><span class="cb">☐</span> Яблука — 3 шт <span style="color:var(--muted)">(чт overnight)</span></div>
+<div class="shop-item" data-key="Lymony_2sht" onclick="toggleItem(this)"><span class="cb">☐</span> Лимони — 2 шт <span style="color:var(--muted)">(вт, ср тилапія)</span></div>
 </div></div>
 
 <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🥚</span><span class="shop-cat-title">Яйця та молочне</span></div><div class="shop-items">
-<div class="shop-item" data-key="Yaytsa_15sht" onclick="toggleItem(this)"><span class="cb">☐</span> Яйця — 15 шт</div>
-<div class="shop-item" data-key="Moloko_1l" onclick="toggleItem(this)"><span class="cb">☐</span> Молоко — 1 л <span style="color:var(--muted)">(вт гречана, overnight oats)</span></div>
-<div class="shop-item" data-key="Tvorog_400g" onclick="toggleItem(this)"><span class="cb">☐</span> Творог — 400 г <span style="color:var(--muted)">(чт - сирники)</span></div>
-<div class="shop-item" data-key="Syr_tverdyi_150g" onclick="toggleItem(this)"><span class="cb">☐</span> Сир твердий — 150 г <span style="color:var(--muted)">(пн запіканка)</span></div>
-<div class="shop-item" data-key="Feta_100g" onclick="toggleItem(this)"><span class="cb">☐</span> Фета — 100 г <span style="color:var(--muted)">(вт шакшука)</span></div>
-<div class="shop-item" data-key="Vershky_20_200ml" onclick="toggleItem(this)"><span class="cb">☐</span> Вершки 20% — 200 мл <span style="color:var(--muted)">(чт - хек)</span></div>
-<div class="shop-item" data-key="Smetana_200g" onclick="toggleItem(this)"><span class="cb">☐</span> Сметана — 200 г <span style="color:var(--muted)">(пн - борщ)</span></div>
+<div class="shop-item" data-key="Yaytsa_20sht" onclick="toggleItem(this)"><span class="cb">☐</span> Яйця — 20 шт</div>
+<div class="shop-item" data-key="Moloko_800ml" onclick="toggleItem(this)"><span class="cb">☐</span> Молоко — 800 мл <span style="color:var(--muted)">(overnight, каша, тости)</span></div>
+<div class="shop-item" data-key="Kefir_500ml" onclick="toggleItem(this)"><span class="cb">☐</span> Кефір або йогурт натуральний — 500 мл <span style="color:var(--muted)">(overnight)</span></div>
 <div class="shop-item" data-key="Maslo_vershkove_100g" onclick="toggleItem(this)"><span class="cb">☐</span> Масло вершкове — 100 г</div>
+<div class="shop-item" data-key="Syr_tverdyi_200g" onclick="toggleItem(this)"><span class="cb">☐</span> Сир твердий — 200 г <span style="color:var(--muted)">(ср, пт оладки, нд фриттата)</span></div>
+<div class="shop-item" data-key="Smetana_200g" onclick="toggleItem(this)"><span class="cb">☐</span> Сметана — 200 г <span style="color:var(--muted)">(до оладок, опціонально)</span></div>
 </div></div>
 
-<div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🌾</span><span class="shop-cat-title">Крупи, хліб та інше</span></div><div class="shop-items">
-<div class="shop-item" data-key="Rys_basmati_300g" onclick="toggleItem(this)"><span class="cb">☐</span> Рис басматі — 300 г <span style="color:var(--muted)">(вт, ср)</span></div>
-<div class="shop-item" data-key="Grechka_200g" onclick="toggleItem(this)"><span class="cb">☐</span> Гречка — 200 г <span style="color:var(--muted)">(вт)</span></div>
-<div class="shop-item" data-key="Vivsyani_plastivtsi_200g" onclick="toggleItem(this)"><span class="cb">☐</span> Вівсяні пластівці — 200 г <span style="color:var(--muted)">(пн - overnight oats)</span></div>
-<div class="shop-item" data-key="Khlib_tosty" onclick="toggleItem(this)"><span class="cb">☐</span> Хліб / тости <span style="color:var(--muted)">(ср - авокадо тост)</span></div>
-<div class="shop-item" data-key="Boroshno_100g" onclick="toggleItem(this)"><span class="cb">☐</span> Борошно — 100 г <span style="color:var(--muted)">(чт - сирники, хек)</span></div>
+<div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🌾</span><span class="shop-cat-title">Крупи, борошно та хліб</span></div><div class="shop-items">
+<div class="shop-item" data-key="Vivisyani_plastivtsi_300g" onclick="toggleItem(this)"><span class="cb">☐</span> Вівсяні пластівці — 300 г <span style="color:var(--muted)">(вт + чт overnight)</span></div>
+<div class="shop-item" data-key="Kus_kus_200g" onclick="toggleItem(this)"><span class="cb">☐</span> Кус-кус — 200 г <span style="color:var(--muted)">(вт обід)</span></div>
+<div class="shop-item" data-key="Rys_300g" onclick="toggleItem(this)"><span class="cb">☐</span> Рис — 300 г <span style="color:var(--muted)">(ср обід, чт вечеря)</span></div>
+<div class="shop-item" data-key="Grechka_200g" onclick="toggleItem(this)"><span class="cb">☐</span> Гречка — 200 г <span style="color:var(--muted)">(сб вечеря)</span></div>
+<div class="shop-item" data-key="Pshonayana_krupa_200g" onclick="toggleItem(this)"><span class="cb">☐</span> Пшоняна крупа — 200 г <span style="color:var(--muted)">(сб сніданок)</span></div>
+<div class="shop-item" data-key="Boroshno_100g" onclick="toggleItem(this)"><span class="cb">☐</span> Борошно — 100 г <span style="color:var(--muted)">(пт оладки)</span></div>
+<div class="shop-item" data-key="Khlib_tosty" onclick="toggleItem(this)"><span class="cb">☐</span> Хліб / тости <span style="color:var(--muted)">(нд французькі тости)</span></div>
+</div></div>
+
+<div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🫙</span><span class="shop-cat-title">Заморожені та горіхи</span></div><div class="shop-items">
+<div class="shop-item" data-key="Yagody_zamorzhenyi_200g" onclick="toggleItem(this)"><span class="cb">☐</span>🫐 Ягоди заморожені — 200 г <span style="color:var(--muted)">(сб каша)</span></div>
+<div class="shop-item" data-key="Gorixy_100g" onclick="toggleItem(this)"><span class="cb">☐</span> Горіхи (мигдаль або волоські) — 100 г <span style="color:var(--muted)">(вт overnight)</span></div>
 </div></div>
 
 <div class="shop-cat"><div class="shop-cat-header"><span class="shop-cat-icon">🧂</span><span class="shop-cat-title">Олії, спеції, інше</span></div><div class="shop-items">
 <div class="shop-item" data-key="Olyvkova_oliya" onclick="toggleItem(this)"><span class="cb">☐</span> Оливкова олія</div>
 <div class="shop-item" data-key="Sonyashnykova_oliya" onclick="toggleItem(this)"><span class="cb">☐</span> Соняшникова олія</div>
 <div class="shop-item" data-key="Sil_perets" onclick="toggleItem(this)"><span class="cb">☐</span> Сіль, чорний перець</div>
-<div class="shop-item" data-key="Papryka_solodka" onclick="toggleItem(this)"><span class="cb">☐</span> Паприка солодка</div>
+<div class="shop-item" data-key="Papryka" onclick="toggleItem(this)"><span class="cb">☐</span> Паприка солодка</div>
+<div class="shop-item" data-key="Korytsia" onclick="toggleItem(this)"><span class="cb">☐</span> Кориця</div>
 <div class="shop-item" data-key="Lavrovyi_lyst" onclick="toggleItem(this)"><span class="cb">☐</span> Лавровий лист</div>
-<div class="shop-item" data-key="Tsukr_1st" onclick="toggleItem(this)"><span class="cb">☐</span> Цукор (для сирників)</div>
-<div class="shop-item" data-key="Otset_yabluchnyi" onclick="toggleItem(this)"><span class="cb">☐</span> Оцет яблучний — 1 ст.л. <span style="color:var(--muted)">(ср - яйце-пашот)</span></div>
+<div class="shop-item" data-key="Med" onclick="toggleItem(this)"><span class="cb">☐</span> Мед</div>
+<div class="shop-item" data-key="Rukav_zapikannya" onclick="toggleItem(this)"><span class="cb">☐</span> Рукав для запікання <span style="color:var(--muted)">(вт кріль)</span></div>
+<div class="shop-item" data-key="Foliga_zapikannya" onclick="toggleItem(this)"><span class="cb">☐</span> Фольга для запікання <span style="color:var(--muted)">(ср тилапія)</span></div>
 </div></div>
 
 </div><!-- /section-shop -->
 </div><!-- /content -->
 
 <script>
-const R = {
-overnight_oats:{title:"Вівсянка overnight oats з ягодами",meta:'<span class="badge badge-none">Без готування</span> · 3 хв (з вечора)',
-ing:[{t:"Вівсяні пластівці (не швидкі) — 80 г"},{t:"Молоко або кефір — 180 мл"},{t:"Ягоди заморожені мікс — 100 г"},{t:"Мед — 1 ч.л. (тільки дорослим)"},{t:"Щіпка солі"}],
-steps:["З вечора: пластівці + молоко + щіпка солі — перемішати в банці або мисці.","Накрити кришкою / плівкою, в холодильник на ніч (мінімум 6 годин).","Зранку: дістати — каша вже готова, пластівці набухли.","Зверху — заморожені ягоди. За 5 хв вони розтануть від температури.","Дорослим — мед. Малюку — без меду, ягоди розм'яти виделкою."],
-tip:"💡 Ідеальний сніданок коли часу немає зовсім — нічого готувати зранку. Пластівці беріть звичайні (не швидкого приготування) — вони краще набухають і смачніші."},
+var R = {
+overnight_oats_banana:{title:"Overnight oats з бананом і горіхами",meta:'<span class="badge badge-stove">З вечора</span> · 0 хв вранці',
+ing:[{t:"Вівсяні пластівці (звичайні, не швидкі) — 80 г"},{t:"Молоко або йогурт натуральний — 150 мл"},{t:"Банан — 1 шт",s:1},{t:"Горіхи (мигдаль або волоські) — 1 ст.л."},{t:"Мед — 1 ч.л. (тільки дорослим)"},{t:"Щіпка солі"}],
+steps:["ВВЕЧЕРІ: пластівці + молоко/йогурт + мед + щіпка солі — перемішати у скляній банці або контейнері.","Накрити кришкою, поставити в холодильник на ніч (мінімум 6 годин).","ВРАНЦІ: дістати з холодильника. Банан нарізати кружечками зверху.","Насипати горіхи. Їсти холодним або залишити на 10 хв при кімнатній температурі.","Консистенцію регулювати: якщо густо — додати молока."],
+tip:"💡 Overnight oats — ніяких зусиль вранці! Звичайні пластівці дають кращу текстуру ніж швидкі. Малюку: без меду і горіхів (алергени), банан розім'яти прямо у кашу — дитина отримає ніжне однорідне пюре."},
 
-green_borscht:{title:"Зелений борщ зі щавлю + варене яйце",meta:'<span class="badge badge-stove">Плита</span> · 10 хв активних · 25 хв',
-ing:[{t:"Щавель — 1 великий пучок (~150 г)",s:1},{t:"Картопля — 3 шт (кубиками)"},{t:"Яйця — 4 шт (варені)"},{t:"Цибуля — 1 шт"},{t:"Морква — 1 шт"},{t:"Бульйон курячий або вода — 1.5 л"},{t:"Сметана — для подачі"},{t:"Олія — 1 ст.л., сіль"}],
-steps:["Бульйон (або воду) довести до кипіння. Картоплю нарізати кубиками і кинути — варити 10 хв.","Поки вариться: цибулю дрібно, моркву натерти. Обсмажити на олії 3–4 хв до золотистого.","Зажарку додати до картоплі. Варити ще 3 хв.","Щавель нарізати смужками, додати в борщ — 2 хв, не більше (не треба переварювати).","Яйця зварити некруто (10 хв). Подати борщ з половинкою яйця і ложкою сметани."],
-tip:"💡 Щавель дає кислинку — борщ без оцту і лимона. Малюку: окрему тарілочку набрати ДО додавання щавлю (він кислий), яйце і трохи сметани."},
+tilapia_airfryer_couscous:{title:"Тилапія в аерогрилі з часником і лимоном + кус-кус",meta:'<span class="badge badge-air">Аерогриль</span> · 5 хв · 15 хв само',
+ing:[{t:"Філе тилапії — 500 г (2–3 шматки)"},{t:"Кус-кус — 200 г"},{t:"Часник — 3 зубці"},{t:"Лимон — ½ шт"},{t:"Оливкова олія — 2 ст.л."},{t:"Сіль, чорний перець"}],
+steps:["Тилапію посолити, поперчити. Натерти подрібненим часником, збризнути олією.","Аерогриль 200°C, 12–15 хв. Файно перевернути на 7-й хвилині.","Паралельно: кус-кус залити підсоленим окропом 1:1.5, накрити кришкою або тарілкою, залишити 10 хв.","Кус-кус розпушити виделкою, крапля олії.","Тилапія готова коли легко розпадається на пластівці. Лимонний сік зверху при подачі."],
+tip:"💡 Тилапія — бюджетна, ніжна, практично без кісток. Аерогриль дає легку скоринку. Малюку ідеально: ретельно перевірити на кістки і розім'яти виделкою. Кус-кус залити більшою кількістю води для малюка — буде м'якший."},
 
-zucchini_casserole:{title:"Запіканка з кабачком, курячим фаршем і сиром",meta:'<span class="badge badge-oven">Духовка</span> · 7 хв · 30 хв само',
-ing:[{t:"Курячий фарш — 500 г"},{t:"Кабачок — 2 шт (натерти на тертці)",s:1},{t:"Яйця — 2 шт"},{t:"Твердий сир — 100 г (натерти)"},{t:"Часник — 2 зубці"},{t:"Сіль, чорний перець"}],
-steps:["Кабачок натерти на крупній тертці. Посолити, залишити на 5 хв, потім ДОБРЕ віджати руками — прибрати зайву воду.","Фарш + кабачок (віджатий) + яйця + часник подрібнений + сіль + перець. Перемішати.","Форму для запікання змастити олією. Викласти суміш рівномірно.","Зверху — тертий сир.","Духовка 190°C, 30 хв. Сир зарум'яниться — готово."],
-tip:"💡 Обов'язково добре віджати кабачок — інакше запіканка буде рідкою! Малюку — виходить ніжна, м'яка, дуже смачна. Нарізати скибками."},
+rabbit_sleeve_oven:{title:"Кріль тушкований у рукаві з морквою і цибулею",meta:'<span class="badge badge-oven">Духовка</span> · 7 хв · 1.5 год само',
+ing:[{t:"Кріль — 1 шт (розрізати на порції)"},{t:"Морква — 2 шт (кружечками)"},{t:"Цибуля — 2 шт (чвертями)"},{t:"Часник — 3 зубці"},{t:"Оливкова олія — 2 ст.л."},{t:"Лавровий лист — 2 шт"},{t:"Сіль, чорний перець"}],
+steps:["Кроля розрізати на порції: 2 задні ніжки, 2 передні, спина 2–3 частини.","Посолити, поперчити, збризнути олією — перемішати руками.","Скласти в рукав для запікання: кріль + морква + цибуля + часник + лавровий лист.","Рукав зав'язати, зробити 2–3 проколи зубочисткою для пари.","Духовка 180°C, 1 год 30 хв. М'ясо само сходить з кісток — готово."],
+tip:"💡 Кріль у рукаві — дієтичне і ніжне м'ясо, тушкується у власному соку. Залишки (мінімум половина) — на наступний день обід. Малюку: кріль ідеальний — легкотравний, без алергенів, розім'яти з підливою."},
 
-buckwheat_milk:{title:"Гречана каша на молоці",meta:'<span class="badge badge-stove">Плита</span> · 10 хв',
-ing:[{t:"Гречка — 150 г"},{t:"Молоко — 350 мл"},{t:"Вода — 50 мл"},{t:"Вершкове масло — 1 ч.л."},{t:"Щіпка солі"}],
-steps:["Гречку промити холодною водою.","Молоко + вода + щіпка солі — довести до кипіння.","Всипати гречку, перемішати.","Зменшити вогонь до мінімуму, накрити кришкою. Варити 8 хв, помішуючи 1–2 рази.","Вершкове масло розмішати. Подавати гарячою."],
-tip:"💡 Гречана каша на молоці — ситна і нутрієнтна. Малюку: без солі, можна трохи розтерти ложкою або подати більш розвареною (додати ще трохи молока і потримати довше)."},
+scrambled_eggs_cheese_scallion:{title:"Яйця-болтунья з сиром і зеленою цибулею",meta:'<span class="badge badge-stove">Плита</span> · 5 хв',
+ing:[{t:"Яйця — 4 шт"},{t:"Твердий сир — 50 г (натерти)"},{t:"Зелена цибуля — 3–4 пера",s:1},{t:"Вершкове масло — 1 ч.л."},{t:"Сіль — щіпка"}],
+steps:["Яйця розбити у миску, додати щіпку солі, злегка збити виделкою.","На сковороді на малому вогні розтопити масло.","Вилити яйця і одразу почати безперервно помішувати лопаткою — великими колами.","Знімати з вогню кожні 30 секунд, продовжуючи мішати — яйця не мають бути сухими.","Зняти з вогню коли ще трохи рідкуваті. Зверху: сир тертий + нарізана цибуля. Подавати одразу."],
+tip:"💡 Секрет болтуньї — малий вогонь і постійний рух. Не пересмажити! Яйця дозрівають після зняття з вогню. Малюку — яйця потрібно добре прогріти, тому дитині доготовити трохи довше."},
 
-salmon_rice_radish:{title:"Лосось на прижимному грилі + рис басматі + салат з редиски і огірка",meta:'<span class="badge badge-grill">Гриль</span><span class="badge badge-stove">Плита</span> · 15 хв',
-ing:[{t:"Лосось стейки — 500 г"},{t:"Рис басматі — 200 г"},{t:"Редиска — 1 пучок (~8 шт)",s:1},{t:"Огірок — 1 шт"},{t:"Зелена цибуля — 3–4 пера",s:1},{t:"Оливкова олія — 2 ст.л."},{t:"Сіль, чорний перець"}],
-steps:["Рис басматі: промити, 1:2 вода, довести до кипіння, мінімальний вогонь, 12 хв під кришкою.","Лосось посолити, поперчити. Прижимний гриль — 8 хв (не відкривати!).","Редиску нарізати тонкими кружечками, огірок — кубиками або кружечками.","Зелена цибуля — дрібно. Все разом + олія + трохи солі — перемішати.","Подати: рис, лосось, салат поряд."],
-tip:"💡 Редиска + огірок + зелена цибуля — класичний весняний салат, жодної заправки крім олії не треба. Малюку: лосось ретельно перевірити на кістки, шкіру зняти, рис без солі."},
+rabbit_rice_salad:{title:"Кріль (залишки) + рис + свіжий огірок і редиска",meta:'<span class="badge badge-stove">Плита</span> · 5 хв (розігріти)',
+ing:[{t:"Кріль тушкований (залишки) — порції на сім'ю"},{t:"Рис — 200 г"},{t:"Огірок тепличний — 2 шт",s:1},{t:"Редиска — 4–5 шт",s:1},{t:"Зелена цибуля — 2–3 пера",s:1},{t:"Оливкова олія — 1 ст.л."},{t:"Сіль"}],
+steps:["Рис відварити або термосом (окріп 1:2, 20 хв).","Кроля розігріти на сковороді з невеликою кількістю води або підливи, 5 хв під кришкою.","Огірок нарізати кружечками, редиску — тонкими кружечками.","Цибулю нарізати дрібно.","Подати рис + кріль + свіжі овочі поряд. Олія + сіль на овочі."],
+tip:"💡 Залишки кроля — один з найсмачніших обідів! Рагу насичується за ніч. Редиска і огірок освіжають важчу страву. Малюку — кріль дрібно, рис без солі, огірок без шкірки."},
 
-shakshuka_spinach:{title:"Шакшука зі шпинатом і фетою",meta:'<span class="badge badge-stove">Плита</span> · 15 хв',
-ing:[{t:"Яйця — 4 шт"},{t:"Томати консервовані — 1 банка"},{t:"Шпинат — 100 г (свіжий або заморожений)",s:1},{t:"Фета — 80 г"},{t:"Цибуля — 1 шт"},{t:"Часник — 2 зубці"},{t:"Паприка солодка — 1 ч.л."},{t:"Оливкова олія — 1 ст.л., сіль"}],
-steps:["Цибулю дрібно, часник — подрібнити. На олії обсмажити 3 хв до прозорості.","Додати томати консервовані + паприку + сіль. Тушкувати 5 хв помішуючи.","Шпинат кинути в соус — 1 хв (він осяде).","Зробити заглиблення ложкою — вбити яйця одне за одним. Фету розкришити зверху.","Накрити кришкою, 5–6 хв. Жовток має залишитися трохи м'яким."],
-tip:"💡 Шакшука — ближньосхідна страва, дуже проста і смачна. Малюку: виокремити трохи соусу без гострого ДО додавання яєць, яйце зварити некруто окремо. Фету малюку не додавати — солона."},
+tilapia_foil_potato:{title:"Тилапія у фользі з томатами і кропом + молода картопля",meta:'<span class="badge badge-oven">Духовка</span><span class="badge badge-air">Аерогриль</span> · 5 хв · 20 хв само',
+ing:[{t:"Філе тилапії — 250 г (залишки)"},{t:"Помідор — 1 шт (кружечками)"},{t:"Кріп свіжий — ½ пучка",s:1},{t:"Часник — 1 зубець"},{t:"Лимон — ½ шт"},{t:"Молода картопля — 400 г (дрібна)",s:1},{t:"Оливкова олія — 2 ст.л."},{t:"Сіль"}],
+steps:["Тилапію посолити. Покласти на аркуш фольги.","Зверху: кружечки помідора, часник, кріп. Лимонний сік, краплина олії.","Загорнути фольгу щільно. Духовка 190°C, 20 хв.","Молоду картоплю (цілою, не чистити!) промити, збризнути олією, щіпка солі.","Аерогриль 200°C, 20 хв паралельно. Шкірка буде хрусткою."],
+tip:"💡 Тилапія у фользі — ніжна і дієтична. Молода картопля не вимагає чищення — шкірка їстівна і корисна. Малюку: рибу ретельно перевірити (тилапія майже без кісток), розім'яти. Картоплю розім'яти."},
 
-avocado_toast_poached:{title:"Тост з авокадо і яйцем-пашот",meta:'<span class="badge badge-stove">Плита</span> · 8 хв',
-ing:[{t:"Хліб тостовий — 2–3 скибки"},{t:"Авокадо — 1 шт"},{t:"Яйця — 2–3 шт"},{t:"Помідори черрі — 6–8 шт"},{t:"Лимон — ½ шт (сік)"},{t:"Оцет яблучний — 1 ст.л."},{t:"Сіль, чорний перець"}],
-steps:["Хліб підсмажити в тостері або на сухій сковороді.","Авокадо розрізати, видалити кісточку, ложкою вийняти м'якоть. Розім'яти виделкою з соком лимона + сіль.","Яйце-пашот: вода кипить, додати ложку оцту. Яйце розбити в чашку — акуратно вилити у воду. 3 хв, витягнути шумівкою.","На тост — авокадо, зверху яйце-пашот. Черрі половинками поряд.","Сіль, чорний перець зверху."],
-tip:"💡 Оцет допомагає яйцю не розпливтись у воді. Малюку: авокадо з хлібом — ідеально, яйце дати некруто варене (простіше контролювати прожарку). Черрі розрізати на чвертки."},
+overnight_oats_apple:{title:"Overnight oats з тертим яблуком і корицею",meta:'<span class="badge badge-stove">З вечора</span> · 0 хв вранці',
+ing:[{t:"Вівсяні пластівці (звичайні) — 80 г"},{t:"Кефір або молоко — 150 мл"},{t:"Яблуко — 1 шт (натерти вранці)",s:1},{t:"Кориця — дрібка"},{t:"Мед — 1 ч.л. (дорослим)"},{t:"Щіпка солі"}],
+steps:["ВВЕЧЕРІ В СЕРЕДУ: пластівці + кефір/молоко + кориця + мед + сіль — перемішати у банці.","Накрити, в холодильник на ніч.","ВРАНЦІ: яблуко натерти на крупній тертці зверху прямо перед їжею.","Перемішати або залишити шарами — красиво і смачно.","За бажанням — ще трохи меду або щіпка кориці зверху."],
+tip:"💡 Кефір дає легку кислинку і пробіотики. Яблуко додається вранці — не темніє у каші. Малюку: без кориці і меду, яблуко розім'яти у кашу — природна солодкість без цукру."},
 
-turkey_cabbage:{title:"Стейки індички на прижимному грилі + молода капуста тушкована",meta:'<span class="badge badge-grill">Гриль</span><span class="badge badge-stove">Плита</span> · 15 хв',
-ing:[{t:"Філе індички (стейки) — 600 г"},{t:"Молода капуста — ½ невеликого качана",s:1},{t:"Цибуля — 1 шт"},{t:"Морква — 1 шт"},{t:"Томатна паста — 1 ст.л."},{t:"Оливкова олія — 2 ст.л."},{t:"Сіль, чорний перець"}],
-steps:["Капусту нашаткувати тонко. Цибулю — дрібно, моркву — натерти.","На олії: цибуля + морква — 3 хв. Капуста — 2 хв помішуючи.","Томатна паста + 100 мл води + сіль — перемішати. Накрити кришкою, тушити 10 хв на малому вогні.","Паралельно: індичку посолити, поперчити. Прижимний гриль — 6+6 хв.","Подати стейки нарізаними з гарніром з капусти."],
-tip:"💡 Молода капуста тушкується у 2 рази швидше за зимову. Дуже ніжна і солодкувата. Малюку: капусту добре протушити до м'якості, індичку нарізати дрібно."},
+pork_neck_zucchini_grill:{title:"Свиняча шийка на прижимному грилі + кабачок кружечками",meta:'<span class="badge badge-grill">Гриль</span> · 10 хв',
+ing:[{t:"Свиняча шийка — 600 г (нарізати стейками 1.5 см)"},{t:"Кабачок — 2 шт",s:1},{t:"Часник — 2 зубці"},{t:"Оливкова олія — 2 ст.л."},{t:"Сіль, чорний перець"}],
+steps:["Шийку нарізати стейками завтовшки 1.5 см. Посолити, поперчити.","Кабачок нарізати кружечками 1.5 см. Збризнути олією, сіль.","Гриль розігріти. Стейки — 5 хв (не відкривати!), перевернути — ще 5 хв.","Кабачок на гриль паралельно або після стейків: 3 хв + 3 хв.","М'ясу дати відпочити 3 хв перед подачею."],
+tip:"💡 Шийка — найсоковитіша частина свинини для грилю, завдяки жировим прожилкам. Кабачок на грилі дає красиві смужки і м'яку текстуру. Малюку: шийку дрібно нарізати, кабачок після грилю м'який і легкий для жування."},
 
-chicken_ragu:{title:"Куряче рагу з томатами і болгарським перцем + рис басматі",meta:'<span class="badge badge-stove">Плита</span> · 8 хв · 15 хв само',
-ing:[{t:"Куряче філе — 500 г (кубиками 2–3 см)"},{t:"Болгарський перець — 2 шт (смужками)"},{t:"Томати консервовані — 1 банка"},{t:"Рис басматі — 200 г"},{t:"Цибуля — 1 шт"},{t:"Часник — 2 зубці"},{t:"Паприка — 1 ч.л., лавровий лист"},{t:"Оливкова олія — 1 ст.л., сіль"}],
-steps:["Рис поставити варитися паралельно: 1:2 вода, 12 хв на мінімумі під кришкою.","Цибулю і часник подрібнити, обсмажити на олії 3 хв.","Курку кубиками — кинути, обсмажити 3 хв з усіх боків.","Перець смужками — 2 хв. Томати + паприка + лавровий лист + сіль.","Накрити кришкою, тушити 15 хв на малому вогні. Подати з рисом."],
-tip:"💡 Рагу стає смачнішим на другий день — якщо залишиться, добре. Малюку: м'яке м'ясо в томатному соусі з рисом — одна з найкращих дитячих страв. Без гострого."},
+chicken_thighs_rice:{title:"Курячі стегна в аерогрилі з паприкою + рис",meta:'<span class="badge badge-air">Аерогриль</span> · 5 хв · 25 хв само',
+ing:[{t:"Курячі стегна — 800 г (4–5 шт)"},{t:"Рис — 200 г"},{t:"Паприка солодка — 1 ч.л."},{t:"Часник — 2 зубці"},{t:"Оливкова олія — 2 ст.л."},{t:"Сіль, чорний перець"}],
+steps:["Стегна натерти сіллю + паприка + подрібнений часник + олія.","Аерогриль 190°C, 25 хв. Перевернути на 12-й хвилині.","Рис термосом: залити окропом 1:2, накрити, 20 хв.","Або рис відварити звичайно: 1:2 вода, 18 хв.","Готовність стегон: проткнути — сік прозорий."],
+tip:"💡 Стегна завжди соковитіші за грудку — менше шансів пересушити. Аерогриль дає хрустку шкірку. Малюку: м'ясо зняти зі шкіри і дрібно нарізати — стегно дуже ніжне."},
 
-cottage_pancakes:{title:"Сирники з замороженими ягодами",meta:'<span class="badge badge-stove">Плита</span> · 10 хв',
-ing:[{t:"Творог 5–9% — 400 г"},{t:"Яйце — 1 шт"},{t:"Борошно — 3 ст.л. (+ для обвалювання)"},{t:"Цукор — 1 ст.л."},{t:"Ягоди заморожені — для подачі"},{t:"Олія — для смаження"},{t:"Сметана — за бажанням"}],
-steps:["Творог добре розм'яти. Додати яйце + цукор + борошно — перемішати до однорідності.","Руки змочити водою. Сформувати кружечки товщиною 1.5 см.","Обваляти в борошні з обох боків.","Олія на сковороді (не дуже багато). Середній вогонь. Смажити 3–4 хв з кожного боку під кришкою.","Ягоди викласти зверху при подачі — вони розтануть від тепла сирників."],
-tip:"💡 Якщо тісто рідке — додати ще трохи борошна. Не переборщити з олією — сирники вберуть. Малюку: без цукру в дитячу порцію, ягоди розм'яти. Сметана зверху — класично."},
+fried_eggs_radish_scallion:{title:"Яєчня з редискою і зеленою цибулею",meta:'<span class="badge badge-stove">Плита</span> · 5 хв',
+ing:[{t:"Яйця — 4 шт"},{t:"Редиска — 5–6 шт",s:1},{t:"Зелена цибуля — 3–4 пера",s:1},{t:"Вершкове масло — 1 ч.л."},{t:"Сіль"}],
+steps:["Редиску нарізати тонкими кружечками. Цибулю — дрібно.","На сковороді розтопити масло.","Вбити яйця, посолити. Середній вогонь.","Смажити 3 хв — до схоплення білка. Жовток за смаком (рідкий або твердий).","Подати: яєчня + редиска + цибуля зверху або збоку свіжими."],
+tip:"💡 Свіжа редиска і цибуля — весняний акцент до простої яєчні. Редиска і тепло не дружать, тому додавати свіжою. Малюку: яйця добре прожарити, редиску натерти дрібно або дати окремо."},
 
-beef_cutlets_asparagus:{title:"Яловичі котлети + спаржа на пару + варена картопля",meta:'<span class="badge badge-stove">Плита</span> · 20 хв',
-ing:[{t:"Яловичий фарш — 500 г"},{t:"Спаржа — 300 г",s:1},{t:"Картопля — 400 г"},{t:"Яйце — 1 шт"},{t:"Цибуля — 1 шт (натерти)"},{t:"Сіль, чорний перець"},{t:"Олія — для смаження"}],
-steps:["Картоплю нарізати, залити холодною водою, поставити варитися (20 хв).","Фарш + яйце + натерта цибуля + сіль + перець. Перемішати. Сформувати котлети 1.5 см завтовшки.","Олія на сковороді. Котлети — 5 хв на середньому вогні, перевернути, накрити кришкою, ще 5 хв.","Паралельно: спаржу зламати (де зломиться — там свіжа частина). У каструлі на решітці пар — 6 хв.","Подати: котлети + спаржа + картопля."],
-tip:"💡 Спаржа готується дуже швидко — не переварювати, має бути з легким хрустом. Малюку: котлету розім'яти, спаржу добре проварити і дрібно нарізати, картоплю розім'яти."},
+beef_steak_potato:{title:"Яловичий стейк на прижимному грилі + картопля кубиками в аерогрилі",meta:'<span class="badge badge-grill">Гриль</span><span class="badge badge-air">Аерогриль</span> · 5 хв · 20 хв само',
+ing:[{t:"Яловичина (стейки, вирізка або антрекот) — 600 г"},{t:"Картопля — 600 г (кубиками 2 см)"},{t:"Часник — 2 зубці"},{t:"Оливкова олія — 3 ст.л."},{t:"Сіль, чорний перець, розмарин (за бажанням)"}],
+steps:["Картоплю нарізати кубиками 2 см. Збризнути олією, сіль. Аерогриль 200°C, 20 хв — запустити першою.","Стейки посолити, поперчити. Дати постояти 5 хв при кімнатній температурі.","Гриль розігріти на максимум. Стейки — 5 хв, перевернути, ще 5 хв. Не відкривати!","Стейки зняти, накрити фольгою на 3–4 хв — м'ясо відпочиває і стає соковитішим.","Подати з картоплею. Нарізати стейк впоперек волокон."],
+tip:"💡 Яловичий стейк — найкраще medium (рожевий всередині). Але якщо є сумніви — доготовити до well done. Малюку: яловичину дрібно нарізати, картоплю розім'яти."},
 
-hake_cream_sauce:{title:"Хек у вершково-часниковому соусі + зелений горошок",meta:'<span class="badge badge-stove">Плита</span> · 15 хв',
-ing:[{t:"Філе хека — 500 г"},{t:"Вершки 20% — 200 мл"},{t:"Зелений горошок заморожений — 200 г"},{t:"Часник — 2 зубці"},{t:"Борошно — 2 ст.л. (для обвалювання)"},{t:"Вершкове масло — 1 ч.л."},{t:"Сіль, чорний перець"}],
-steps:["Хека нарізати порційно, посолити, поперчити. Обваляти у борошні.","На олії + масло: хек обсмажити 3 хв з кожного боку. Витягнути, відкласти.","У тій же сковороді: часник подрібнений — 30 сек. Вершки влити, прогріти 3 хв помішуючи.","Хека повернути у соус. Зелений горошок — 5 хв під кришкою.","Подати одразу — риба дуже ніжна."],
-tip:"💡 Хек — доступна, ніжна, мало кісток. У вершковому соусі стає ресторанною стравою. Малюку: дуже підходить, ретельно перевірити кістки, у соусі легко розім'яти виделкою."}
+zucchini_fritters:{title:"Кабачкові оладки з тертим сиром",meta:'<span class="badge badge-stove">Плита</span> · 10 хв',
+ing:[{t:"Кабачок — 2 шт",s:1},{t:"Яйця — 2 шт"},{t:"Борошно — 4 ст.л."},{t:"Твердий сир — 80 г (натерти дрібно)"},{t:"Сіль"},{t:"Соняшникова олія для смаження"},{t:"Сметана або йогурт — для подачі"}],
+steps:["Кабачок натерти на крупній тертці. Посолити, залишити 5 хв. ВАЖЛИВО: відтиснути зайву воду руками або через марлю.","Яйця + борошно + сир тертий + кабачок — перемішати до однорідності.","Сковорода + олія, середній вогонь. Столовою ложкою викласти оладки.","Смажити 3 хв до золотистої скоринки, перевернути, ще 3 хв.","Подати зі сметаною або йогуртом."],
+tip:"💡 Відтискання води — головний секрет: якщо не відтиснути, оладки будуть розпадатися. Сир дає пікантність і допомагає оладкам тримати форму. Малюку: оладки м'які і смачні — ідеальна вечеря."},
+
+millet_porridge_berries:{title:"Пшоняна каша на молоці із замороженими ягодами",meta:'<span class="badge badge-stove">Плита</span> · 10 хв',
+ing:[{t:"Пшоняна крупа (дрібна) — 150 г"},{t:"Молоко — 350 мл"},{t:"Вода — 200 мл"},{t:"Ягоди заморожені — 150 г"},{t:"Мед — 1 ч.л. (дорослим)"},{t:"Вершкове масло — 1 ч.л."},{t:"Щіпка солі"}],
+steps:["Пшоно промити ГАРЯЧОЮ водою кілька разів — прибирає гіркоту.","Молоко + вода + щіпка солі — довести до кипіння.","Пшоно всипати, зменшити вогонь до мінімуму. Варити 8–10 хв, помішуючи.","Масло розмішати. Розлити по тарілках.","Зверху — заморожені ягоди. За 2–3 хв вони розтануть і дадуть красивий колір і кислинку. Мед — дорослим."],
+tip:"💡 Промивання гарячою водою — обов'язково для пшона, інакше гірчить. Ягоди охолоджують порцію і природно підсолоджують — малюку ідеально без цукру."},
+
+chicken_wings_potato:{title:"Курячі крильця в аерогрилі + молода картопля",meta:'<span class="badge badge-air">Аерогриль</span> · 5 хв · 25 хв само',
+ing:[{t:"Курячі крильця — 800 г"},{t:"Молода картопля — 500 г (дрібна, не чистити)",s:1},{t:"Паприка солодка — 1 ч.л."},{t:"Часник — 2 зубці"},{t:"Оливкова олія — 3 ст.л."},{t:"Сіль, чорний перець"}],
+steps:["Крильця натерти паприкою + сіль + подрібнений часник + олія.","Картоплю (цілою, без чищення!) збризнути олією, посолити.","Якщо аерогриль великий: картопля знизу, крильця зверху. Або окремими партіями.","Аерогриль 200°C, 25 хв. На 12-й хвилині перевернути крильця.","Картопля готова коли м'яка всередині (зубочистка заходить легко). Крильця — золотисті."],
+tip:"💡 Молода картопля не вимагає чищення — шкірка тонка, ніжна і їстівна. Крильця в аерогрилі хрусткіші ніж у духовці. Малюку: м'ясо зняти з кісток, дрібно. Картоплю розім'яти."},
+
+pork_chop_buckwheat:{title:"Свинина відбивна на прижимному грилі + гречка термосом",meta:'<span class="badge badge-grill">Гриль</span> · 8 хв',
+ing:[{t:"Свинина (корейка або окіст) — 600 г (відбивні 1 см)"},{t:"Гречка — 200 г"},{t:"Олія — 1 ст.л."},{t:"Сіль, чорний перець"},{t:"Часник — 1 зубець (за бажанням)"}],
+steps:["За 20 хв до їжі: гречку залити окропом 1:2 у термосі (або каструля з кришкою + рушник). Не варити!","Відбивні посолити, поперчити з обох боків.","Прижимний гриль на максимум. Відбивні — 4–5 хв (не відкривати).","Перевірити: сік при проколюванні прозорий — готово.","Гречку розпушити виделкою, крапля олії. Подати разом."],
+tip:"💡 Гречка термосом — взагалі без варіння, зберігає всі вітаміни. Відбивна тонка — готується швидко. Малюку: відбивну дрібно нарізати, гречку без солі або мінімум."},
+
+french_toast:{title:"Французькі тости з медом",meta:'<span class="badge badge-stove">Плита</span> · 8 хв',
+ing:[{t:"Хліб (батон або тостовий) — 4–6 скибок"},{t:"Яйця — 3 шт"},{t:"Молоко — 80 мл"},{t:"Вершкове масло — 20 г"},{t:"Мед або ягоди — для подачі"},{t:"Щіпка солі, щіпка цукру (за бажанням)"}],
+steps:["Яйця + молоко + щіпка солі + щіпка цукру — збити виделкою у плоскій мисці.","Хліб вмочити у яєчну суміш з обох боків (30 секунд кожна сторона).","На сковороді розтопити масло на середньому вогні.","Тости смажити 2–3 хв з кожного боку до золотистої скоринки.","Подати з медом, свіжими або замороженими ягодами."],
+tip:"💡 Батон або вчорашній хліб — кращий вибір, він більше вбирає яєчну суміш і не розпадається. Малюку без меду, можна з бананом або просто так — діти обожнюють!"},
+
+chicken_breast_zucchini_potato:{title:"Куряча грудка запечена з кабачком і молодою картоплею",meta:'<span class="badge badge-oven">Духовка</span> · 7 хв · 40 хв само',
+ing:[{t:"Куряча грудка — 500 г"},{t:"Кабачок — 2 шт (кружечками)",s:1},{t:"Молода картопля — 400 г (цілою або навпіл)",s:1},{t:"Часник — 3 зубці"},{t:"Оливкова олія — 3 ст.л."},{t:"Паприка — 1 ч.л."},{t:"Сіль, чорний перець"}],
+steps:["Грудку нарізати великими шматками або залишити цілою (якщо ціла — збільшити час до 45 хв).","Кабачок — кружечками 1.5 см. Картоплю — цілою (якщо дрібна) або навпіл.","Все на деко: грудка + кабачок + картопля. Часник, олія, паприка, сіль — перемішати руками.","Духовка 190°C, 40 хв. Картопля і грудка мають зарум'янитися.","Перевірити грудку: проткнути — сік прозорий."],
+tip:"💡 Все на одне деко — мінімум посуду. Кабачок виділяє сік і зволожує грудку. Молода картопля не вимагає чищення. Малюку: грудку розтягнути волокнами, картоплю розім'яти прямо з соком від деко."},
+
+frittata_zucchini:{title:"Фриттата з кабачком, томатами і твердим сиром",meta:'<span class="badge badge-stove">Плита</span> · 8 хв',
+ing:[{t:"Яйця — 5 шт"},{t:"Кабачок — 1 шт (тонкими кружечками)",s:1},{t:"Помідор — 1 шт (кубиками)"},{t:"Твердий сир — 80 г (натерти)"},{t:"Оливкова олія — 1 ст.л."},{t:"Сіль, чорний перець"}],
+steps:["Кабачок нарізати тонкими кружечками 0.5 см. На сковороді з олією — 2–3 хв до легкого рум'янцю.","Помідор кубиками додати до кабачку, 1 хв.","Яйця збити з сіллю і перцем. Вилити рівномірно поверх овочів.","ВАЖЛИВО: не мішати! Накрити кришкою. Середній вогонь, 6–8 хв.","Зверху насипати тертий сир. Ще 1 хв під кришкою. Готово коли центр не тремтить."],
+tip:"💡 Фриттата ≠ омлет: не мішати, дати схопитися знизу і парою зверху. Можна довести під гриль духовки 2 хв для рум'яної шапки. Малюку: нарізати трикутниками — зручно тримати руками."}
 };
 
 function openRecipe(id){
-const r=R[id]; if(!r)return;
+var r=R[id]; if(!r)return;
 document.getElementById('modalTitle').textContent=r.title;
 document.getElementById('modalMeta').innerHTML=r.meta;
-let h='<div class="rec-section-title">Інгредієнти</div><div class="rec-ing-list">';
-r.ing.forEach(i=>{ h+=`<span class="rec-ing${i.s?' seasonal':''}">${i.s?'🌿 ':''}${i.t}</span>`; });
+var h='<div class="rec-section-title">Інгредієнти</div><div class="rec-ing-list">';
+r.ing.forEach(function(i){ h+='<span class="rec-ing'+(i.s?' seasonal':'')+'">'+( i.s?'🌿 ':'')+i.t+'</span>'; });
 h+='</div><div class="rec-section-title">Приготування</div>';
-r.steps.forEach((s,n)=>{ h+=`<div class="rec-step"><span class="step-num">${n+1}</span>${s}</div>`; });
-if(r.tip) h+=`<div class="tip-box">${r.tip}</div>`;
+r.steps.forEach(function(s,n){ h+='<div class="rec-step"><span class="step-num">'+(n+1)+'</span>'+s+'</div>'; });
+if(r.tip) h+='<div class="tip-box">'+r.tip+'</div>';
 document.getElementById('modalBody').innerHTML=h;
 document.getElementById('recipeModal').classList.add('open');
 document.body.style.overflow='hidden';
@@ -406,22 +473,22 @@ document.getElementById('recipeModal').classList.remove('open');
 document.body.style.overflow='';
 }
 function closeModal(e){ if(e.target===document.getElementById('recipeModal')) closeRecipe(); }
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeRecipe(); });
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeRecipe(); });
 
 function showSection(id,btn){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active');});
+document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
 document.getElementById('section-'+id).classList.add('active');
 if(btn) btn.classList.add('active');
 }
 function toggleDay(h){
-const b=h.nextElementSibling,c=h.querySelector('.chevron');
+var b=h.nextElementSibling,c=h.querySelector('.chevron');
 b.classList.toggle('open'); c.classList.toggle('open');
 }
 
 // ════ GOOGLE SHEETS SYNC ════════════════════════════
 var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDAfxRjperXg4F1NReKezxZa3NqKqx0bpb36-DZPd4j_h-vo0PJ9E8s4KHrY9QVy8/exec";
-var WEEK_ID = "week_11may_17may";
+var WEEK_ID = "week_19may_24may";
 
 function setStatus(msg, state) {
 var dot = document.getElementById('syncDot');
@@ -494,7 +561,7 @@ if (key) { setStatus("Збереження...", "loading"); saveItem(key, checke
 document.querySelector('.tab:nth-child(2)').addEventListener('click', function() {
 if (!this._loaded) { this._loaded = true; loadChecked(); }
 });
-function printView(){
+function printA5(){
 document.getElementById('print-view').style.display='block';
 window.print();
 setTimeout(function(){ document.getElementById('print-view').style.display='none'; },1200);
